@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="CapaAD/CapaAD.csproj" Id="8e0c01a7-8398-447f-8901-ee4e54036593" />
+  <Project Path="CapaRN/CapaRN.csproj" Id="37373dc4-d2d1-4dbe-911e-a39e1e53765f" />
   <Project Path="Sistema/Sistema.csproj" Id="a29e1e71-d817-4678-90e9-d9560a634f8d" />
 </Solution>
