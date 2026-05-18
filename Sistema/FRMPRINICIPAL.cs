@@ -11,7 +11,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Sistema
 {
-    public partial class FRMPRINICIPAL : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class FRMPRINICIPAL : DevComponents.DotNetBar.OfficeForm
     {
         public FRMPRINICIPAL()
         {
