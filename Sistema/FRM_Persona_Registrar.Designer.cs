@@ -1,6 +1,6 @@
 ﻿namespace Sistema
 {
-    partial class FRMPersona_Registrar
+    partial class FRM_Persona_Registrar
     {
         /// <summary>
         /// Required designer variable.
