@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class FRMPersona_Registrar : DevComponents.DotNetBar.OfficeForm
+    public partial class FRM_Persona_Registrar : DevComponents.DotNetBar.OfficeForm
     {
-        public FRMPersona_Registrar()
+        public FRM_Persona_Registrar()
         {
             InitializeComponent();
         }

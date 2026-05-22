@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class FRM_Persona_Listar : Form
+    public partial class FRM_Persona_Listar : DevComponents.DotNetBar.OfficeForm
     {
         public FRM_Persona_Listar()
         {
