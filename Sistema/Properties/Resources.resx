@@ -122,6 +122,9 @@
     <value>..\Resources\BANNER_ROPA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>BANNER</comment>
   </data>
+  <data name="ImgUsuarioAbrirFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cámara-compacta-48 (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ImgUsuarioAgregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-usuario-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Usuario_agregar</comment>
@@ -130,12 +133,27 @@
     <value>..\Resources\icons8-search-120.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>imgbuscar</comment>
   </data>
+  <data name="ImgUsuarioCapturar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cámara-compacta-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ImgUsuarioEditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-usuario-96 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>usuarioeditar</comment>
   </data>
+  <data name="ImgUsuarioGuardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-guardar-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImgUsuarioLimpiar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-escoba-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImgUsuarioLimpiarFoto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cámara-compacta-48 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ImgUsuarioReporte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-usuario-96 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>usuarioreporte</comment>
+  </data>
+  <data name="ImgUsuarioSalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-salida-48 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -73,6 +73,16 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImgUsuarioAbrirFoto {
+            get {
+                object obj = ResourceManager.GetObject("ImgUsuarioAbrirFoto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImgUsuarioAgregar {
             get {
                 object obj = ResourceManager.GetObject("ImgUsuarioAgregar", resourceCulture);
@@ -93,6 +103,16 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImgUsuarioCapturar {
+            get {
+                object obj = ResourceManager.GetObject("ImgUsuarioCapturar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImgUsuarioEditar {
             get {
                 object obj = ResourceManager.GetObject("ImgUsuarioEditar", resourceCulture);
@@ -103,9 +123,49 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImgUsuarioGuardar {
+            get {
+                object obj = ResourceManager.GetObject("ImgUsuarioGuardar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImgUsuarioLimpiar {
+            get {
+                object obj = ResourceManager.GetObject("ImgUsuarioLimpiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImgUsuarioLimpiarFoto {
+            get {
+                object obj = ResourceManager.GetObject("ImgUsuarioLimpiarFoto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImgUsuarioReporte {
             get {
                 object obj = ResourceManager.GetObject("ImgUsuarioReporte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImgUsuarioSalir {
+            get {
+                object obj = ResourceManager.GetObject("ImgUsuarioSalir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
