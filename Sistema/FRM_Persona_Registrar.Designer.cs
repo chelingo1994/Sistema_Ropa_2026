@@ -169,6 +169,7 @@
             this.TXTApMa.Size = new System.Drawing.Size(103, 20);
             this.TXTApMa.TabIndex = 8;
             this.TXTApMa.WatermarkText = "Apellido Materno";
+            this.TXTApMa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTApMa_KeyDown);
             // 
             // TXTNombre
             // 
@@ -184,6 +185,7 @@
             this.TXTNombre.Size = new System.Drawing.Size(252, 20);
             this.TXTNombre.TabIndex = 9;
             this.TXTNombre.WatermarkText = "Nombres";
+            this.TXTNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTNombre_KeyDown);
             // 
             // TXTCelular
             // 
@@ -199,6 +201,7 @@
             this.TXTCelular.Size = new System.Drawing.Size(103, 20);
             this.TXTCelular.TabIndex = 10;
             this.TXTCelular.WatermarkText = "Celular";
+            this.TXTCelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCelular_KeyDown);
             // 
             // TXTCorreo
             // 
@@ -214,6 +217,7 @@
             this.TXTCorreo.Size = new System.Drawing.Size(103, 20);
             this.TXTCorreo.TabIndex = 11;
             this.TXTCorreo.WatermarkText = "Correo";
+            this.TXTCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCorreo_KeyDown);
             // 
             // TXTDireccion
             // 
@@ -246,6 +250,8 @@
             this.TXTCi.Size = new System.Drawing.Size(103, 20);
             this.TXTCi.TabIndex = 13;
             this.TXTCi.WatermarkText = "CI";
+            this.TXTCi.Enter += new System.EventHandler(this.TXTCi_Enter);
+            this.TXTCi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCi_KeyDown);
             // 
             // TXTApPa
             // 
@@ -261,6 +267,7 @@
             this.TXTApPa.Size = new System.Drawing.Size(103, 20);
             this.TXTApPa.TabIndex = 14;
             this.TXTApPa.WatermarkText = "Apellido Paterno";
+            this.TXTApPa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTApPa_KeyDown);
             // 
             // BTNSalir
             // 
@@ -274,6 +281,7 @@
             this.BTNSalir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNSalir.TabIndex = 17;
             this.BTNSalir.Text = "Salir";
+            this.BTNSalir.Click += new System.EventHandler(this.BTNSalir_Click);
             // 
             // BTNLimpiar
             // 
@@ -300,6 +308,7 @@
             this.BTNGuardar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNGuardar.TabIndex = 15;
             this.BTNGuardar.Text = "&Guardar";
+            this.BTNGuardar.Click += new System.EventHandler(this.BTNGuardar_Click);
             // 
             // PBCaptura
             // 
@@ -363,10 +372,10 @@
             this.groupBox1.Controls.Add(this.buttonX1);
             this.groupBox1.Controls.Add(this.PBPrevi);
             this.groupBox1.Controls.Add(this.PBCaptura);
-            this.groupBox1.Location = new System.Drawing.Point(291, 77);
+            this.groupBox1.Location = new System.Drawing.Point(291, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(294, 248);
+            this.groupBox1.Size = new System.Drawing.Size(294, 257);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fotografia";
@@ -404,6 +413,8 @@
             this.DoubleBuffered = true;
             this.Name = "FRM_Persona_Registrar";
             this.Text = "FRMPersona_Registrar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Persona_Registrar_FormClosing);
+            this.Load += new System.EventHandler(this.FRM_Persona_Registrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTINacimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).EndInit();

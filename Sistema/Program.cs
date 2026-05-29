@@ -16,7 +16,7 @@ namespace Sistema
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRMPRINICIPAL());
+            Application.Run(new FRM_Persona_Registrar());
         }
     }
 }
