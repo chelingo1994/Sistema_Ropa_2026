@@ -296,24 +296,30 @@ namespace Sistema
         private void TXTCorreo_KeyDown(object sender, KeyEventArgs e)
         {
             bool teclaValida = false;
-            //Identificar si es una tecla válida            
-            if ((e.KeyCode >= Keys.A) && (e.KeyCode <= Keys.Z) && (!e.Alt))
-                teclaValida = true;
-            else if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+            if ((e.KeyCode >= Keys.A) && (e.KeyCode <= Keys.Z))
                 teclaValida = true;
             else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
                 teclaValida = true;
-            else if ((e.KeyCode == Keys.Subtract) ||
-                (e.KeyCode == Keys.Back) ||
-                (e.KeyCode == Keys.Delete) ||
-                (e.KeyCode == Keys.Left) ||
-                (e.KeyCode == Keys.Right) ||
-                ((e.KeyCode == Keys.OemMinus)))
+            else if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
                 teclaValida = true;
-            else if ((e.KeyCode==Keys.Shift && e.KeyCode==Keys.D2))
-            {
+            else if (e.KeyCode == Keys.Back ||
+                     e.KeyCode == Keys.Delete ||
+                     e.KeyCode == Keys.Left ||
+                     e.KeyCode == Keys.Right)
                 teclaValida = true;
-            }
+            else if (e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Decimal)
+                teclaValida = true;
+            else if (e.KeyCode == Keys.OemMinus || e.KeyCode == Keys.Subtract)
+                teclaValida = true;
+            else if (e.Shift && e.KeyCode == Keys.OemMinus)
+                teclaValida = true;
+            else if (e.Control && e.Alt && e.KeyCode == Keys.Q)
+                teclaValida = true;
+            else if (e.Shift && e.KeyCode == Keys.D2)
+                teclaValida = true;
+            else if ((e.Shift && e.KeyCode == Keys.Oemplus) ||
+                     e.KeyCode == Keys.Add)
+                teclaValida = true;
             if (!teclaValida)
             {
                 e.SuppressKeyPress = true;
