@@ -43,7 +43,57 @@ namespace Sistema
                 TXTCi.Focus();
                 respuesta = false;
             }
-            
+
+            else if (DTINacimiento.Value> DateTime.Now)
+            {
+                MessageBox.Show("Introduzca Fecha de Nacimiento valida de la Persona", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DTINacimiento.Focus();
+                respuesta = false;
+            }
+            else if (DTINacimiento.Value > DateTime.Now)
+            {
+                MessageBox.Show("Introduzca Fecha de Nacimiento valida de la Persona", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DTINacimiento.Focus();
+                respuesta = false;
+            }
+            else if (TXTApPa.Text.Replace(" ","")=="" && TXTApMa.Text.Replace(" ", "") == "") 
+            {
+                MessageBox.Show("Introduzca uno de los apellidos", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTApPa.Focus();
+                respuesta = false;
+            }
+            else if (TXTNombre.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca nombres", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNombre.Focus();
+                respuesta = false;
+            }
+            else if (TXTCorreo.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca un correo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTCi.Focus();
+                respuesta = false;
+            }
+
+            else if (!xgeneral.emailIsValid(TXTCorreo.Text))
+            {
+                MessageBox.Show("Introduzca un correo valido", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTCorreo.Focus();
+                respuesta = false;
+            }
+            else if (TXTDireccion.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca una direccion", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTCi.Focus();
+                respuesta = false;
+            }
+            else if (TXTCelular.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca un celular", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTCelular.Focus();
+                respuesta = false;
+            }
+
             return respuesta;
         }
 
@@ -140,7 +190,9 @@ namespace Sistema
                 persona.capsnumcel = TXTCelular.Text;
                 persona.capcorreo = TXTCorreo.Text;
                 persona.capsdirecc = TXTDireccion.Text;
+                persona.capsfecnac = DTINacimiento.Value;
                 persona.capsestper = SWBEstado.Value;
+                persona.capsexo = SWBSexo.Value;
 
                 if (!this.modificar)
                 {
@@ -185,6 +237,8 @@ namespace Sistema
                     }
                 }
             }
+
+           
         }
 
         private void TXTCi_KeyDown(object sender, KeyEventArgs e)
@@ -317,7 +371,7 @@ namespace Sistema
                 teclaValida = true;
             else if (e.Shift && e.KeyCode == Keys.D2)
                 teclaValida = true;
-            else if ((e.Shift && e.KeyCode == Keys.Oemplus) ||
+            else if ((!e.Shift && e.KeyCode == Keys.Oemplus) ||
                      e.KeyCode == Keys.Add)
                 teclaValida = true;
             if (!teclaValida)

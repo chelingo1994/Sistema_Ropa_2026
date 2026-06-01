@@ -49,6 +49,7 @@
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.GBDatos = new System.Windows.Forms.GroupBox();
+            this.BLTAyuda = new DevComponents.DotNetBar.BalloonTip();
             ((System.ComponentModel.ISupportInitialize)(this.DTINacimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).BeginInit();
@@ -62,6 +63,8 @@
             // 
             // 
             this.SWBEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.BLTAyuda.SetBalloonCaption(this.SWBEstado, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.SWBEstado, "Estado de la Persona");
             this.SWBEstado.Location = new System.Drawing.Point(6, 40);
             this.SWBEstado.Name = "SWBEstado";
             this.SWBEstado.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -95,6 +98,8 @@
             // 
             // 
             this.SWBSexo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.BLTAyuda.SetBalloonCaption(this.SWBSexo, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.SWBSexo, "Sexo de la Persona");
             this.SWBSexo.Location = new System.Drawing.Point(155, 40);
             this.SWBSexo.Name = "SWBSexo";
             this.SWBSexo.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -116,6 +121,8 @@
             // 
             this.DTINacimiento.BackgroundStyle.Class = "DateTimeInputBackground";
             this.DTINacimiento.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.BLTAyuda.SetBalloonCaption(this.DTINacimiento, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.DTINacimiento, "Fecha de Nacimiento de la persona");
             this.DTINacimiento.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.DTINacimiento.ButtonDropDown.Visible = true;
             this.DTINacimiento.IsPopupCalendarOpen = false;
@@ -157,6 +164,8 @@
             // 
             // TXTApMa
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTApMa, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTApMa, "Apellido Materno de la Persona");
             // 
             // 
             // 
@@ -173,6 +182,8 @@
             // 
             // TXTNombre
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTNombre, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTNombre, "Nombres de la Persona");
             // 
             // 
             // 
@@ -189,6 +200,8 @@
             // 
             // TXTCelular
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTCelular, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTCelular, "Celular de la Persona");
             // 
             // 
             // 
@@ -205,12 +218,13 @@
             // 
             // TXTCorreo
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTCorreo, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTCorreo, "Correo Electronico de la Persona");
             // 
             // 
             // 
             this.TXTCorreo.Border.Class = "TextBoxBorder";
             this.TXTCorreo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTCorreo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TXTCorreo.Location = new System.Drawing.Point(155, 183);
             this.TXTCorreo.Name = "TXTCorreo";
             this.TXTCorreo.PreventEnterBeep = true;
@@ -221,6 +235,8 @@
             // 
             // TXTDireccion
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTDireccion, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTDireccion, "Direccion de la Persona");
             // 
             // 
             // 
@@ -238,6 +254,8 @@
             // 
             // TXTCi
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTCi, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTCi, "Numero de Documento de Identidad de la Persona");
             // 
             // 
             // 
@@ -255,6 +273,8 @@
             // 
             // TXTApPa
             // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTApPa, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTApPa, "Apellido Paterno de la Persona");
             // 
             // 
             // 
@@ -273,6 +293,7 @@
             // 
             this.BTNSalir.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNSalir.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BTNSalir.Image = global::Sistema.Properties.Resources.ImgUsuarioSalir;
             this.BTNSalir.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.BTNSalir.Location = new System.Drawing.Point(373, 368);
@@ -401,8 +422,10 @@
             // 
             // FRM_Persona_Registrar
             // 
+            this.AcceptButton = this.BTNGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BTNSalir;
             this.ClientSize = new System.Drawing.Size(599, 426);
             this.Controls.Add(this.GBDatos);
             this.Controls.Add(this.groupBox1);
@@ -447,5 +470,6 @@
         private DevComponents.DotNetBar.ButtonX buttonX3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox GBDatos;
+        private DevComponents.DotNetBar.BalloonTip BLTAyuda;
     }
 }
