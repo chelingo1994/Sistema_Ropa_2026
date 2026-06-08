@@ -292,7 +292,6 @@ namespace CapaRN
                 this.Conexion.AsignarParametroCadena("@capsapemat", this._capsapemat);
                 this.Conexion.AsignarParametroCadena("@capcorreo", this._capcorreo);
                 this.Conexion.AsignarParametroCadena("@capsapepat", this._capsapepat);
-                this.Conexion.AsignarParametroCadena("@fapscodper", this._fapscodper);
 
                 this.Conexion.EjecutarTransaccion();
                 this.Conexion.Desconectar();
