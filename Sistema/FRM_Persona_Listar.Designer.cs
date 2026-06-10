@@ -28,28 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.EPNLOpciones = new DevComponents.DotNetBar.ExpandablePanel();
-            this.EPNLFiltrar = new DevComponents.DotNetBar.ExpandablePanel();
-            this.DTGLista = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.IINCantidadRegistro = new DevComponents.Editors.IntegerInput();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.TXTTextoABuscar = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.BTNReporte = new DevComponents.DotNetBar.ButtonX();
             this.BTNModificar = new DevComponents.DotNetBar.ButtonX();
             this.BTNNuevo = new DevComponents.DotNetBar.ButtonX();
+            this.EPNLFiltrar = new DevComponents.DotNetBar.ExpandablePanel();
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TXTFiltrar = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.IINFilas = new DevComponents.Editors.IntegerInput();
+            this.DTGLista = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
             this.EPNLOpciones.SuspendLayout();
             this.EPNLFiltrar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IINFilas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IINCantidadRegistro)).BeginInit();
             this.SuspendLayout();
             // 
             // EPNLOpciones
@@ -85,115 +88,6 @@
             this.EPNLOpciones.TitleStyle.GradientAngle = 90;
             this.EPNLOpciones.TitleText = "Opciones";
             // 
-            // EPNLFiltrar
-            // 
-            this.EPNLFiltrar.CanvasColor = System.Drawing.SystemColors.Control;
-            this.EPNLFiltrar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.EPNLFiltrar.Controls.Add(this.BTNBuscar);
-            this.EPNLFiltrar.Controls.Add(this.TXTTextoABuscar);
-            this.EPNLFiltrar.Controls.Add(this.labelX1);
-            this.EPNLFiltrar.Controls.Add(this.IINCantidadRegistro);
-            this.EPNLFiltrar.DisabledBackColor = System.Drawing.Color.Empty;
-            this.EPNLFiltrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.EPNLFiltrar.HideControlsWhenCollapsed = true;
-            this.EPNLFiltrar.Location = new System.Drawing.Point(145, 0);
-            this.EPNLFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.EPNLFiltrar.Name = "EPNLFiltrar";
-            this.EPNLFiltrar.Size = new System.Drawing.Size(795, 92);
-            this.EPNLFiltrar.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.EPNLFiltrar.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.EPNLFiltrar.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.EPNLFiltrar.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.EPNLFiltrar.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.EPNLFiltrar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.EPNLFiltrar.Style.GradientAngle = 90;
-            this.EPNLFiltrar.TabIndex = 4;
-            this.EPNLFiltrar.TitleHeight = 36;
-            this.EPNLFiltrar.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
-            this.EPNLFiltrar.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.EPNLFiltrar.TitleStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.EPNLFiltrar.TitleStyle.Border = DevComponents.DotNetBar.eBorderType.RaisedInner;
-            this.EPNLFiltrar.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.EPNLFiltrar.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.EPNLFiltrar.TitleStyle.GradientAngle = 90;
-            this.EPNLFiltrar.TitleText = "Filtrar";
-            // 
-            // DTGLista
-            // 
-            this.DTGLista.AllowUserToAddRows = false;
-            this.DTGLista.AllowUserToDeleteRows = false;
-            this.DTGLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column7,
-            this.Column5,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column6,
-            this.Column1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DTGLista.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DTGLista.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DTGLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.DTGLista.Location = new System.Drawing.Point(145, 92);
-            this.DTGLista.Margin = new System.Windows.Forms.Padding(4);
-            this.DTGLista.Name = "DTGLista";
-            this.DTGLista.ReadOnly = true;
-            this.DTGLista.Size = new System.Drawing.Size(795, 435);
-            this.DTGLista.TabIndex = 8;
-            // 
-            // IINCantidadRegistro
-            // 
-            // 
-            // 
-            // 
-            this.IINCantidadRegistro.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.IINCantidadRegistro.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IINCantidadRegistro.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IINCantidadRegistro.Increment = 10;
-            this.IINCantidadRegistro.Location = new System.Drawing.Point(73, 56);
-            this.IINCantidadRegistro.MinValue = 0;
-            this.IINCantidadRegistro.Name = "IINCantidadRegistro";
-            this.IINCantidadRegistro.ShowUpDown = true;
-            this.IINCantidadRegistro.Size = new System.Drawing.Size(80, 24);
-            this.IINCantidadRegistro.TabIndex = 4;
-            this.IINCantidadRegistro.Value = 20;
-            // 
-            // labelX1
-            // 
-            this.labelX1.AutoSize = true;
-            this.labelX1.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(33, 56);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(34, 19);
-            this.labelX1.TabIndex = 5;
-            this.labelX1.Text = "Filas";
-            // 
-            // TXTTextoABuscar
-            // 
-            // 
-            // 
-            // 
-            this.TXTTextoABuscar.Border.Class = "TextBoxBorder";
-            this.TXTTextoABuscar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTTextoABuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTTextoABuscar.Location = new System.Drawing.Point(159, 57);
-            this.TXTTextoABuscar.Name = "TXTTextoABuscar";
-            this.TXTTextoABuscar.PreventEnterBeep = true;
-            this.TXTTextoABuscar.Size = new System.Drawing.Size(255, 24);
-            this.TXTTextoABuscar.TabIndex = 6;
-            this.TXTTextoABuscar.WatermarkText = "TEXTO A BUSCAR..";
-            // 
             // BTNReporte
             // 
             this.BTNReporte.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -225,6 +119,7 @@
             this.BTNModificar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNModificar.TabIndex = 5;
             this.BTNModificar.Text = "Modificar Persona";
+            this.BTNModificar.Click += new System.EventHandler(this.BTNModificar_Click);
             // 
             // BTNNuevo
             // 
@@ -241,6 +136,40 @@
             this.BTNNuevo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNNuevo.TabIndex = 4;
             this.BTNNuevo.Text = "Nuevo Persona";
+            this.BTNNuevo.Click += new System.EventHandler(this.BTNNuevo_Click);
+            // 
+            // EPNLFiltrar
+            // 
+            this.EPNLFiltrar.CanvasColor = System.Drawing.SystemColors.Control;
+            this.EPNLFiltrar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.EPNLFiltrar.Controls.Add(this.BTNBuscar);
+            this.EPNLFiltrar.Controls.Add(this.TXTFiltrar);
+            this.EPNLFiltrar.Controls.Add(this.labelX1);
+            this.EPNLFiltrar.Controls.Add(this.IINFilas);
+            this.EPNLFiltrar.DisabledBackColor = System.Drawing.Color.Empty;
+            this.EPNLFiltrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.EPNLFiltrar.HideControlsWhenCollapsed = true;
+            this.EPNLFiltrar.Location = new System.Drawing.Point(145, 0);
+            this.EPNLFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.EPNLFiltrar.Name = "EPNLFiltrar";
+            this.EPNLFiltrar.Size = new System.Drawing.Size(795, 92);
+            this.EPNLFiltrar.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.EPNLFiltrar.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.EPNLFiltrar.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.EPNLFiltrar.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.EPNLFiltrar.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.EPNLFiltrar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.EPNLFiltrar.Style.GradientAngle = 90;
+            this.EPNLFiltrar.TabIndex = 4;
+            this.EPNLFiltrar.TitleHeight = 36;
+            this.EPNLFiltrar.TitleStyle.Alignment = System.Drawing.StringAlignment.Center;
+            this.EPNLFiltrar.TitleStyle.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.EPNLFiltrar.TitleStyle.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.EPNLFiltrar.TitleStyle.Border = DevComponents.DotNetBar.eBorderType.RaisedInner;
+            this.EPNLFiltrar.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.EPNLFiltrar.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.EPNLFiltrar.TitleStyle.GradientAngle = 90;
+            this.EPNLFiltrar.TitleText = "Filtrar";
             // 
             // BTNBuscar
             // 
@@ -254,11 +183,84 @@
             this.BTNBuscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNBuscar.TabIndex = 7;
             // 
-            // Column7
+            // TXTFiltrar
             // 
-            this.Column7.HeaderText = "Codigo Persona";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            // 
+            // 
+            // 
+            this.TXTFiltrar.Border.Class = "TextBoxBorder";
+            this.TXTFiltrar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTFiltrar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TXTFiltrar.Location = new System.Drawing.Point(159, 57);
+            this.TXTFiltrar.Name = "TXTFiltrar";
+            this.TXTFiltrar.PreventEnterBeep = true;
+            this.TXTFiltrar.Size = new System.Drawing.Size(255, 24);
+            this.TXTFiltrar.TabIndex = 6;
+            this.TXTFiltrar.WatermarkText = "TEXTO A BUSCAR..";
+            // 
+            // labelX1
+            // 
+            this.labelX1.AutoSize = true;
+            this.labelX1.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(33, 56);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(34, 19);
+            this.labelX1.TabIndex = 5;
+            this.labelX1.Text = "Filas";
+            // 
+            // IINFilas
+            // 
+            // 
+            // 
+            // 
+            this.IINFilas.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.IINFilas.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.IINFilas.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IINFilas.Increment = 10;
+            this.IINFilas.Location = new System.Drawing.Point(73, 56);
+            this.IINFilas.MinValue = 0;
+            this.IINFilas.Name = "IINFilas";
+            this.IINFilas.ShowUpDown = true;
+            this.IINFilas.Size = new System.Drawing.Size(80, 24);
+            this.IINFilas.TabIndex = 4;
+            this.IINFilas.Value = 20;
+            // 
+            // DTGLista
+            // 
+            this.DTGLista.AllowUserToAddRows = false;
+            this.DTGLista.AllowUserToDeleteRows = false;
+            this.DTGLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DTGLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column6,
+            this.Column9,
+            this.Column8,
+            this.Column1});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DTGLista.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DTGLista.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DTGLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DTGLista.Location = new System.Drawing.Point(145, 92);
+            this.DTGLista.Margin = new System.Windows.Forms.Padding(4);
+            this.DTGLista.MultiSelect = false;
+            this.DTGLista.Name = "DTGLista";
+            this.DTGLista.ReadOnly = true;
+            this.DTGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DTGLista.Size = new System.Drawing.Size(795, 435);
+            this.DTGLista.TabIndex = 8;
             // 
             // Column5
             // 
@@ -286,9 +288,26 @@
             // 
             // Column6
             // 
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column6.HeaderText = "Fecha De Nacimiento";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Celular";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column8.HeaderText = "Sexo";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column1
             // 
@@ -312,11 +331,12 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRM_Persona_Listar";
             this.Text = "FRM_Persona_Listar";
+            this.Load += new System.EventHandler(this.FRM_Persona_Listar_Load);
             this.EPNLOpciones.ResumeLayout(false);
             this.EPNLFiltrar.ResumeLayout(false);
             this.EPNLFiltrar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IINFilas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IINCantidadRegistro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,15 +350,16 @@
         private DevComponents.DotNetBar.ButtonX BTNReporte;
         private DevComponents.DotNetBar.ButtonX BTNModificar;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.Editors.IntegerInput IINCantidadRegistro;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTTextoABuscar;
+        private DevComponents.Editors.IntegerInput IINFilas;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTFiltrar;
         private DevComponents.DotNetBar.ButtonX BTNBuscar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn Column1;
     }
 }

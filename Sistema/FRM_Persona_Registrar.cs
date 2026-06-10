@@ -110,7 +110,17 @@ namespace Sistema
             persona.ObtenerDatos();
             SWBEstado.Value = persona.capsestper;
             TXTCi.Text = persona.capsnumcid;
-           
+
+            TXTCi.Text=persona.capsnumcid ;
+            TXTApPa.Text=persona.capsapepat;
+            TXTApMa.Text= persona.capsapemat;
+            TXTNombre.Text= persona.capsnomper;
+            TXTCelular.Text= persona.capsnumcel ;
+             TXTCorreo.Text= persona.capscorele ;
+             TXTDireccion.Text= persona.capsdirper ;
+             DTINacimiento.Value= persona.capsfecnac ;
+             SWBEstado.Value=persona.capsestper ;
+             SWBSexo.Value= persona.capssexper ;
         }
 
 

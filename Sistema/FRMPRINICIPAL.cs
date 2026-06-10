@@ -24,5 +24,16 @@ namespace Sistema
             banner.ShowDialog();
             this.Opacity = 1;
         }
+
+        private void BTNPersonas_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRM_Persona_Listar a=new FRM_Persona_Listar();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
 }

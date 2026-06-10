@@ -435,6 +435,7 @@
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
             this.Name = "FRM_Persona_Registrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Persona_Registrar_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Persona_Registrar_Load);
