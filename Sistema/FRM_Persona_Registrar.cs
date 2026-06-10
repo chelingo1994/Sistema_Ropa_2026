@@ -35,7 +35,7 @@ namespace Sistema
         {
             bool respuesta = true;
 
-            persona.capsdni = TXTCi.Text;
+            persona.capsnumcid = TXTCi.Text;
 
             if (TXTCi.Text.Replace(" ", "") == "")
             {
@@ -106,10 +106,10 @@ namespace Sistema
 
         private void JalarDatos()
         {
-            persona.fapscodper = this.codPerMod;
+            persona.papscodper = this.codPerMod;
             persona.ObtenerDatos();
             SWBEstado.Value = persona.capsestper;
-            TXTCi.Text = persona.capsdni;
+            TXTCi.Text = persona.capsnumcid;
            
         }
 
@@ -176,23 +176,24 @@ namespace Sistema
                     correlativo.pxnctipcor = "aperson";
                     if (correlativo.ObtenerSiguiente())
                     {
-                        persona.fapscodper = correlativo.cxncnumcor.ToString();
+                        persona.papscodper = correlativo.pxnctipcor + "-" +
+                                             correlativo.cxncnumcor.ToString("D12");
                     }
                 }
                 else
                 {
-                    persona.fapscodper = this.codPerMod;
+                    persona.papscodper = this.codPerMod;
                 }
-                persona.capsdni = TXTCi.Text;
+                persona.capsnumcid = TXTCi.Text;
                 persona.capsapepat = TXTApPa.Text;
                 persona.capsapemat = TXTApMa.Text;
-                persona.capsnombre = TXTNombre.Text;
+                persona.capsnomper = TXTNombre.Text;
                 persona.capsnumcel = TXTCelular.Text;
-                persona.capcorreo = TXTCorreo.Text;
-                persona.capsdirecc = TXTDireccion.Text;
+                persona.capscorele = TXTCorreo.Text;
+                persona.capsdirper = TXTDireccion.Text;
                 persona.capsfecnac = DTINacimiento.Value;
                 persona.capsestper = SWBEstado.Value;
-                persona.capsexo = SWBSexo.Value;
+                persona.capssexper = SWBSexo.Value;
 
                 if (!this.modificar)
                 {
@@ -291,6 +292,8 @@ namespace Sistema
         {
             bool teclaValida = false;
             if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+                teclaValida = true;
+            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
                 teclaValida = true;
             else if (
                 (e.KeyCode == Keys.Back) ||

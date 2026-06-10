@@ -75,7 +75,7 @@
             this.SWBEstado.OnTextColor = System.Drawing.Color.White;
             this.SWBEstado.Size = new System.Drawing.Size(103, 22);
             this.SWBEstado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.SWBEstado.TabIndex = 4;
+            this.SWBEstado.TabIndex = 0;
             this.SWBEstado.TabStop = false;
             this.SWBEstado.Value = true;
             this.SWBEstado.ValueObject = "Y";
@@ -110,7 +110,7 @@
             this.SWBSexo.OnTextColor = System.Drawing.Color.White;
             this.SWBSexo.Size = new System.Drawing.Size(103, 22);
             this.SWBSexo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.SWBSexo.TabIndex = 6;
+            this.SWBSexo.TabIndex = 1;
             this.SWBSexo.Value = true;
             this.SWBSexo.ValueObject = "Y";
             // 
@@ -159,7 +159,7 @@
             this.DTINacimiento.Name = "DTINacimiento";
             this.DTINacimiento.Size = new System.Drawing.Size(103, 20);
             this.DTINacimiento.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.DTINacimiento.TabIndex = 7;
+            this.DTINacimiento.TabIndex = 3;
             this.DTINacimiento.WatermarkText = "Nacimiento";
             // 
             // TXTApMa
@@ -176,7 +176,7 @@
             this.TXTApMa.Name = "TXTApMa";
             this.TXTApMa.PreventEnterBeep = true;
             this.TXTApMa.Size = new System.Drawing.Size(103, 20);
-            this.TXTApMa.TabIndex = 8;
+            this.TXTApMa.TabIndex = 5;
             this.TXTApMa.WatermarkText = "Apellido Materno";
             this.TXTApMa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTApMa_KeyDown);
             // 
@@ -194,7 +194,7 @@
             this.TXTNombre.Name = "TXTNombre";
             this.TXTNombre.PreventEnterBeep = true;
             this.TXTNombre.Size = new System.Drawing.Size(252, 20);
-            this.TXTNombre.TabIndex = 9;
+            this.TXTNombre.TabIndex = 6;
             this.TXTNombre.WatermarkText = "Nombres";
             this.TXTNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTNombre_KeyDown);
             // 
@@ -212,7 +212,7 @@
             this.TXTCelular.Name = "TXTCelular";
             this.TXTCelular.PreventEnterBeep = true;
             this.TXTCelular.Size = new System.Drawing.Size(103, 20);
-            this.TXTCelular.TabIndex = 10;
+            this.TXTCelular.TabIndex = 7;
             this.TXTCelular.WatermarkText = "Celular";
             this.TXTCelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCelular_KeyDown);
             // 
@@ -229,7 +229,7 @@
             this.TXTCorreo.Name = "TXTCorreo";
             this.TXTCorreo.PreventEnterBeep = true;
             this.TXTCorreo.Size = new System.Drawing.Size(103, 20);
-            this.TXTCorreo.TabIndex = 11;
+            this.TXTCorreo.TabIndex = 8;
             this.TXTCorreo.WatermarkText = "Correo";
             this.TXTCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCorreo_KeyDown);
             // 
@@ -248,7 +248,7 @@
             this.TXTDireccion.Name = "TXTDireccion";
             this.TXTDireccion.PreventEnterBeep = true;
             this.TXTDireccion.Size = new System.Drawing.Size(252, 86);
-            this.TXTDireccion.TabIndex = 12;
+            this.TXTDireccion.TabIndex = 9;
             this.TXTDireccion.TabStop = false;
             this.TXTDireccion.WatermarkText = "Direccion";
             // 
@@ -266,7 +266,7 @@
             this.TXTCi.Name = "TXTCi";
             this.TXTCi.PreventEnterBeep = true;
             this.TXTCi.Size = new System.Drawing.Size(103, 20);
-            this.TXTCi.TabIndex = 13;
+            this.TXTCi.TabIndex = 2;
             this.TXTCi.WatermarkText = "CI";
             this.TXTCi.Enter += new System.EventHandler(this.TXTCi_Enter);
             this.TXTCi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCi_KeyDown);
@@ -285,7 +285,7 @@
             this.TXTApPa.Name = "TXTApPa";
             this.TXTApPa.PreventEnterBeep = true;
             this.TXTApPa.Size = new System.Drawing.Size(103, 20);
-            this.TXTApPa.TabIndex = 14;
+            this.TXTApPa.TabIndex = 4;
             this.TXTApPa.WatermarkText = "Apellido Paterno";
             this.TXTApPa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTApPa_KeyDown);
             // 
@@ -435,7 +435,7 @@
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
             this.Name = "FRM_Persona_Registrar";
-            this.Text = "FRMPersona_Registrar";
+            this.Text = "0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRM_Persona_Registrar_FormClosing);
             this.Load += new System.EventHandler(this.FRM_Persona_Registrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTINacimiento)).EndInit();
