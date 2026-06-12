@@ -111,7 +111,7 @@ namespace Sistema
             SWBEstado.Value = persona.capsestper;
             TXTCi.Text = persona.capsnumcid;
 
-            TXTCi.Text=persona.capsnumcid ;
+            
             TXTApPa.Text=persona.capsapepat;
             TXTApMa.Text= persona.capsapemat;
             TXTNombre.Text= persona.capsnomper;
@@ -119,7 +119,7 @@ namespace Sistema
              TXTCorreo.Text= persona.capscorele ;
              TXTDireccion.Text= persona.capsdirper ;
              DTINacimiento.Value= persona.capsfecnac ;
-             SWBEstado.Value=persona.capsestper ;
+             
              SWBSexo.Value= persona.capssexper ;
         }
 

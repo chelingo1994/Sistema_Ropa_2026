@@ -56,22 +56,22 @@ namespace Sistema
             foreach (aperson a in lista_personas)
             {
                 DTGLista.Rows.Add();
-                
-                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
-                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capsnomper;
-                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsapepat;
-                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapemat;
-                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.capsfecnac;
-                DTGLista[5, DTGLista.Rows.Count - 1].Value = a.capsnumcel;
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.papscodper;
+                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
+                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsnomper;
+                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapepat;
+                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.capsapemat;
+                DTGLista[5, DTGLista.Rows.Count - 1].Value = a.capsfecnac;
+                DTGLista[6, DTGLista.Rows.Count - 1].Value = a.capsnumcel;
                 if (a.capssexper)
                 {
-                    DTGLista[6, DTGLista.Rows.Count - 1].Value = "M";
+                    DTGLista[7, DTGLista.Rows.Count - 1].Value = "M";
                 }
                 else {
-                    DTGLista[6, DTGLista.Rows.Count - 1].Value = "F";
+                    DTGLista[7, DTGLista.Rows.Count - 1].Value = "F";
                 }
                 
-                DTGLista[7, DTGLista.Rows.Count - 1].Value = a.capsestper;
+                DTGLista[8, DTGLista.Rows.Count - 1].Value = a.capsestper;
                 
             }
 
@@ -85,8 +85,6 @@ namespace Sistema
         {
             ActualizarGrid();
         }
-
-       
 
         private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -105,6 +103,7 @@ namespace Sistema
                 }
             }
         }
+
 
         private void BTNFiltrar_Click(object sender, EventArgs e)
         {
@@ -127,5 +126,7 @@ namespace Sistema
                 }
             }
         }
+
+        
     }
 }
