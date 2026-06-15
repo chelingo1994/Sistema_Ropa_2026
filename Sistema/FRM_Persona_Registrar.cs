@@ -1,17 +1,25 @@
-﻿using CapaRN;
+﻿
+using CapaRN;
 using DevComponents.DotNetBar.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Accord.Video;
+using Accord.Video.DirectShow;
+
 
 namespace Sistema
 {
+    
+
     public partial class FRM_Persona_Registrar : DevComponents.DotNetBar.OfficeForm
     {
         #region Variables
@@ -20,6 +28,13 @@ namespace Sistema
         public bool modificar = false;
         public String codPerMod = "";
         public bool actualizar = false;
+
+
+        private FilterInfoCollection dispositivos;
+        private VideoCaptureDevice camara;
+
+        private Bitmap ultimoFrame;
+        private Bitmap fotoCapturada;
         #endregion
 
         #region constructor
@@ -30,7 +45,25 @@ namespace Sistema
         #endregion
 
         #region Métodos
+        private void IniciarCamaraOBS()
+        {
+            dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
+            foreach (FilterInfo dispositivo in dispositivos)
+            {
+                if (dispositivo.Name.Contains("OBS"))
+                {
+                    camara = new VideoCaptureDevice(dispositivo.MonikerString);
+
+                    camara.NewFrame += Camara_NewFrame;
+                    camara.Start();
+
+                    return;
+                }
+            }
+
+            MessageBox.Show("No se encontró OBS Virtual Camera");
+        }
         private bool VerificarIntegridad()
         {
             bool respuesta = true;
@@ -132,6 +165,20 @@ namespace Sistema
 
         #endregion
 
+        private void Camara_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
+
+            ultimoFrame?.Dispose();
+            ultimoFrame = (Bitmap)frame.Clone();
+
+            PBPrevi.Invoke(new Action(() =>
+            {
+                PBPrevi.Image?.Dispose();
+                PBPrevi.Image = frame;
+            }));
+        }
+
         private void BTNSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -156,6 +203,11 @@ namespace Sistema
 
         private void FRM_Persona_Registrar_Load(object sender, EventArgs e)
         {
+
+            IniciarCamaraOBS();
+
+
+
             if (this.modificar)
             {
                 JalarDatos();
@@ -172,6 +224,7 @@ namespace Sistema
                 GBDatos.Text = "Registrar Persona";
                 TXTCi.Focus();
             }
+
         }
 
         private void BTNGuardar_Click(object sender, EventArgs e)
@@ -391,6 +444,15 @@ namespace Sistema
             {
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void BTNAbrirFoto_Click(object sender, EventArgs e)
+        {
+            if (OFDElegirImagen.ShowDialog()==DialogResult.OK)
+            {
+                PBPrevi.ImageLocation = OFDElegirImagen.FileName;
+            }
+            
         }
     }
 }
