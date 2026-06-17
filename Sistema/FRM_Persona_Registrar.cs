@@ -1,6 +1,9 @@
 ﻿
+using Accord.Video;
+using Accord.Video.DirectShow;
 using CapaRN;
 using DevComponents.DotNetBar.Controls;
+using Sistema.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +15,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Accord.Video;
-using Accord.Video.DirectShow;
 
 
 namespace Sistema
@@ -35,6 +36,7 @@ namespace Sistema
 
         private Bitmap ultimoFrame;
         private Bitmap fotoCapturada;
+        private bool TieneFoto = false;
         #endregion
 
         #region constructor
@@ -154,6 +156,16 @@ namespace Sistema
              DTINacimiento.Value= persona.capsfecnac ;
              
              SWBSexo.Value= persona.capssexper ;
+            if (persona.capsfotper == "")
+            {
+                TieneFoto = false;
+                PBPrevi.Image = Resources.NoImage;
+            }
+            else
+            {
+                TieneFoto = true;
+                PBPrevi.Image = MetodosGenerales.ConvertBase64StringToImage(persona.capsfotper);
+            }
         }
 
 
@@ -167,16 +179,23 @@ namespace Sistema
 
         private void Camara_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
+            PBCaptura.Image = (Bitmap)eventArgs.Frame.Clone();
+
+            /*Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
 
             ultimoFrame?.Dispose();
             ultimoFrame = (Bitmap)frame.Clone();
 
-            PBPrevi.Invoke(new Action(() =>
+            PBCaptura.Invoke(new Action(() =>
             {
-                PBPrevi.Image?.Dispose();
-                PBPrevi.Image = frame;
-            }));
+                PBCaptura.Image?.Dispose();
+                PBCaptura.Image = frame;
+            }));*/
+        }
+
+        private void ApagarCamara()
+        {
+            if (camara.IsRunning == true) camara.Stop();
         }
 
         private void BTNSalir_Click(object sender, EventArgs e)
@@ -193,6 +212,10 @@ namespace Sistema
             {
                 e.Cancel = true;
             }
+            else {
+                ApagarCamara();
+            }
+            
         }
 
         private void TXTCi_Enter(object sender, EventArgs e)
@@ -258,6 +281,16 @@ namespace Sistema
                 persona.capsestper = SWBEstado.Value;
                 persona.capssexper = SWBSexo.Value;
 
+                //Fotografia del producto
+                if (TieneFoto)
+                {
+                    persona.capsfotper = MetodosGenerales.ConvertImageToBase64String(PBPrevi.Image);
+                }
+                else
+                {
+                    persona.capsfotper = "";
+                }
+
                 if (!this.modificar)
                 {
                     if (persona.Grabar())
@@ -269,6 +302,7 @@ namespace Sistema
                         LimpiarCasillas();
                         this.actualizar = true;
                         this.FormClosing -= FRM_Persona_Registrar_FormClosing;
+                        ApagarCamara();
                         this.Close();
                     }
                     else
@@ -290,6 +324,7 @@ namespace Sistema
                         LimpiarCasillas();
                         this.actualizar = true;
                         this.FormClosing -= FRM_Persona_Registrar_FormClosing;
+                        ApagarCamara();
                         this.Close();
                     }
                     else
@@ -453,6 +488,12 @@ namespace Sistema
                 PBPrevi.ImageLocation = OFDElegirImagen.FileName;
             }
             
+        }
+
+        private void BTNCapturarFoto_Click(object sender, EventArgs e)
+        {
+            PBPrevi.Image = PBCaptura.Image;
+            TieneFoto = true;
         }
     }
 }

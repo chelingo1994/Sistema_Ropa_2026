@@ -32,7 +32,7 @@ namespace Sistema
         private void BTNNuevo_Click(object sender, EventArgs e)
         {
             FRM_Persona_Registrar a= new FRM_Persona_Registrar();
-            a.ShowDialog();
+            
        
             a.modificar = false;
             a.ShowDialog();
