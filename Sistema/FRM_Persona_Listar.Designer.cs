@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.EPNLOpciones = new DevComponents.DotNetBar.ExpandablePanel();
             this.BTNReporte = new DevComponents.DotNetBar.ButtonX();
             this.BTNModificar = new DevComponents.DotNetBar.ButtonX();
@@ -50,10 +51,15 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.CMSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inhabilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EPNLOpciones.SuspendLayout();
             this.EPNLFiltrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IINFilas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
+            this.CMSMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // EPNLOpciones
@@ -183,6 +189,7 @@
             this.BTNBuscar.Size = new System.Drawing.Size(32, 23);
             this.BTNBuscar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNBuscar.TabIndex = 7;
+            this.BTNBuscar.Click += new System.EventHandler(this.BTNBuscar_Click);
             // 
             // TXTFiltrar
             // 
@@ -245,16 +252,17 @@
             this.Column9,
             this.Column8,
             this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DTGLista.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DTGLista.ContextMenuStrip = this.CMSMenu;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DTGLista.DefaultCellStyle = dataGridViewCellStyle6;
             this.DTGLista.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DTGLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.DTGLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.DTGLista.Location = new System.Drawing.Point(145, 92);
             this.DTGLista.Margin = new System.Windows.Forms.Padding(4);
             this.DTGLista.MultiSelect = false;
@@ -298,9 +306,9 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column6.HeaderText = "Fecha De Nacimiento";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -313,8 +321,8 @@
             // 
             // Column8
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column8.HeaderText = "Sexo";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -327,6 +335,37 @@
             this.Column1.HeaderText = "Estado";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            // 
+            // CMSMenu
+            // 
+            this.CMSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarToolStripMenuItem,
+            this.inhabilitarToolStripMenuItem,
+            this.habilitarToolStripMenuItem});
+            this.CMSMenu.Name = "CMSMenu";
+            this.CMSMenu.Size = new System.Drawing.Size(128, 70);
+            this.CMSMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CMSMenu_Opening);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Text = "&Modificar";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
+            // 
+            // inhabilitarToolStripMenuItem
+            // 
+            this.inhabilitarToolStripMenuItem.Name = "inhabilitarToolStripMenuItem";
+            this.inhabilitarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inhabilitarToolStripMenuItem.Text = "&Inhabilitar";
+            this.inhabilitarToolStripMenuItem.Click += new System.EventHandler(this.inhabilitarToolStripMenuItem_Click);
+            // 
+            // habilitarToolStripMenuItem
+            // 
+            this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
+            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.habilitarToolStripMenuItem.Text = "&Habilitar";
+            this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
             // 
             // FRM_Persona_Listar
             // 
@@ -347,6 +386,7 @@
             this.EPNLFiltrar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IINFilas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).EndInit();
+            this.CMSMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -372,5 +412,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn Column1;
+        private System.Windows.Forms.ContextMenuStrip CMSMenu;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inhabilitarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem habilitarToolStripMenuItem;
     }
 }

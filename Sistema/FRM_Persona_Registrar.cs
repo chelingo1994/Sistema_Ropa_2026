@@ -171,11 +171,7 @@ namespace Sistema
 
         #endregion
 
-        #region Eventos
-
-
-
-        #endregion
+        #region EventosCamara
 
         private void Camara_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -197,6 +193,10 @@ namespace Sistema
         {
             if (camara.IsRunning == true) camara.Stop();
         }
+
+        #endregion
+
+        
 
         private void BTNSalir_Click(object sender, EventArgs e)
         {
