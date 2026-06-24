@@ -48,33 +48,54 @@ namespace Sistema
 
         #region Métodos
         private void IniciarCamaraOBS()
+
+
         {
-            dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
-            foreach (FilterInfo dispositivo in dispositivos)
+            try
             {
-                if (dispositivo.Name.Contains("OBS"))
+                dispositivos = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+                foreach (FilterInfo dispositivo in dispositivos)
                 {
-                    camara = new VideoCaptureDevice(dispositivo.MonikerString);
+                    if (dispositivo.Name.Contains("OBS"))
+                    {
+                        camara = new VideoCaptureDevice(dispositivo.MonikerString);
 
-                    camara.NewFrame += Camara_NewFrame;
-                    camara.Start();
+                        camara.NewFrame += Camara_NewFrame;
+                        camara.Start();
 
-                    return;
+                        
+                    }
                 }
             }
+            catch
+            {
+                MessageBox.Show("No se tiene una cámara conectada al equipo",
+                    "Error de cámara",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            
 
-            MessageBox.Show("No se encontró OBS Virtual Camera");
+            
         }
         private bool VerificarIntegridad()
         {
             bool respuesta = true;
-
+            
             persona.capsnumcid = TXTCi.Text;
 
             if (TXTCi.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el CI de la persona", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTCi.Focus();
+                respuesta = false;
+            }
+
+            else if(persona.ObtenerDatosCi() && !modificar)
+            {
+                MessageBox.Show("Ya existe esa personas con el Ci", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXTCi.Focus();
                 respuesta = false;
             }
@@ -494,6 +515,19 @@ namespace Sistema
         {
             PBPrevi.Image = PBCaptura.Image;
             TieneFoto = true;
+        }
+
+        private void BTNLimpiarFoto_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea borrar la imagen?",
+                           "Pregunta",
+                           MessageBoxButtons.YesNo,
+                           MessageBoxIcon.Question,
+                           MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                TieneFoto = false;
+                PBPrevi.Image = Resources.NoImage;
+            }
         }
     }
 }

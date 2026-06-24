@@ -161,6 +161,57 @@ namespace CapaRN
                 return false;
             }
         }
+
+        public bool ObtenerDatosCi()
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "capssexper," +
+                                 "capsestper," +
+                                 "capsfecnac," +
+                                 "capsdirper," +
+                                 "capsnumcid," +
+                                 "capscorele," +
+                                 "papscodper," +
+                                 "capsfotper," +
+                                 "capsnomper," +
+                                 "capsnumcel," +
+                                 "capsapemat," +
+                                 "capsapepat " +
+                         "from aperson " +
+                         "where " +
+                                "capsnumcid = @capsnumcid";
+
+            this.Conexion.PrepararComando(sql);
+
+            this.Conexion.AsignarParametroCadena("@capsnumcid", this._capsnumcid);
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._capssexper = ResultadoConsulta.GetBoolean(0);
+                this._capsestper = ResultadoConsulta.GetBoolean(1);
+                this._capsfecnac = ResultadoConsulta.GetDateTime(2);
+                this._capsdirper = ResultadoConsulta.GetString(3);
+                this._capsnumcid = ResultadoConsulta.GetString(4);
+                this._capscorele = ResultadoConsulta.GetString(5);
+                this._papscodper = ResultadoConsulta.GetString(6);
+                this._capsfotper = ResultadoConsulta.GetString(7);
+                this._capsnomper = ResultadoConsulta.GetString(8);
+                this._capsnumcel = ResultadoConsulta.GetString(9);
+                this._capsapemat = ResultadoConsulta.GetString(10);
+                this._capsapepat = ResultadoConsulta.GetString(11);
+                this.Conexion.Desconectar();
+
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
         public bool VerificarExistencia()
         {
             this.Conexion.Conectar();

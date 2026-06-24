@@ -41,22 +41,22 @@
             this.TXTCi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTApPa = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.GBDatos = new System.Windows.Forms.GroupBox();
-            this.BLTAyuda = new DevComponents.DotNetBar.BalloonTip();
-            this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
-            this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
-            this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
             this.BTNAbrirFoto = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiarFoto = new DevComponents.DotNetBar.ButtonX();
             this.BTNCapturarFoto = new DevComponents.DotNetBar.ButtonX();
             this.PBPrevi = new System.Windows.Forms.PictureBox();
             this.PBCaptura = new System.Windows.Forms.PictureBox();
+            this.GBDatos = new System.Windows.Forms.GroupBox();
+            this.BLTAyuda = new DevComponents.DotNetBar.BalloonTip();
+            this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
+            this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
+            this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.DTINacimiento)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.GBDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
+            this.GBDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // SWBEstado
@@ -306,6 +306,68 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fotografia";
             // 
+            // BTNAbrirFoto
+            // 
+            this.BTNAbrirFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNAbrirFoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNAbrirFoto.Image = global::Sistema.Properties.Resources.ImgUsuarioAbrirFoto;
+            this.BTNAbrirFoto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNAbrirFoto.Location = new System.Drawing.Point(198, 207);
+            this.BTNAbrirFoto.Name = "BTNAbrirFoto";
+            this.BTNAbrirFoto.Size = new System.Drawing.Size(90, 41);
+            this.BTNAbrirFoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNAbrirFoto.TabIndex = 18;
+            this.BTNAbrirFoto.Text = "&Abrir";
+            this.BTNAbrirFoto.Click += new System.EventHandler(this.BTNAbrirFoto_Click);
+            // 
+            // BTNLimpiarFoto
+            // 
+            this.BTNLimpiarFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNLimpiarFoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNLimpiarFoto.Image = global::Sistema.Properties.Resources.ImgUsuarioLimpiarFoto;
+            this.BTNLimpiarFoto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNLimpiarFoto.Location = new System.Drawing.Point(102, 207);
+            this.BTNLimpiarFoto.Name = "BTNLimpiarFoto";
+            this.BTNLimpiarFoto.Size = new System.Drawing.Size(90, 41);
+            this.BTNLimpiarFoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNLimpiarFoto.TabIndex = 17;
+            this.BTNLimpiarFoto.Text = "&Limpiar";
+            this.BTNLimpiarFoto.Click += new System.EventHandler(this.BTNLimpiarFoto_Click);
+            // 
+            // BTNCapturarFoto
+            // 
+            this.BTNCapturarFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNCapturarFoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNCapturarFoto.Image = global::Sistema.Properties.Resources.ImgUsuarioCapturar;
+            this.BTNCapturarFoto.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNCapturarFoto.Location = new System.Drawing.Point(6, 207);
+            this.BTNCapturarFoto.Name = "BTNCapturarFoto";
+            this.BTNCapturarFoto.Size = new System.Drawing.Size(90, 41);
+            this.BTNCapturarFoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNCapturarFoto.TabIndex = 16;
+            this.BTNCapturarFoto.Text = "&Capturar";
+            this.BTNCapturarFoto.Click += new System.EventHandler(this.BTNCapturarFoto_Click);
+            // 
+            // PBPrevi
+            // 
+            this.PBPrevi.Image = ((System.Drawing.Image)(resources.GetObject("PBPrevi.Image")));
+            this.PBPrevi.Location = new System.Drawing.Point(147, 55);
+            this.PBPrevi.Name = "PBPrevi";
+            this.PBPrevi.Size = new System.Drawing.Size(141, 131);
+            this.PBPrevi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBPrevi.TabIndex = 1;
+            this.PBPrevi.TabStop = false;
+            // 
+            // PBCaptura
+            // 
+            this.PBCaptura.Image = ((System.Drawing.Image)(resources.GetObject("PBCaptura.Image")));
+            this.PBCaptura.Location = new System.Drawing.Point(6, 55);
+            this.PBCaptura.Name = "PBCaptura";
+            this.PBCaptura.Size = new System.Drawing.Size(135, 131);
+            this.PBCaptura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBCaptura.TabIndex = 0;
+            this.PBCaptura.TabStop = false;
+            // 
             // GBDatos
             // 
             this.GBDatos.Controls.Add(this.SWBEstado);
@@ -358,67 +420,6 @@
             this.BTNSalir.Text = "Salir";
             this.BTNSalir.Click += new System.EventHandler(this.BTNSalir_Click);
             // 
-            // BTNAbrirFoto
-            // 
-            this.BTNAbrirFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNAbrirFoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNAbrirFoto.Image = global::Sistema.Properties.Resources.ImgUsuarioAbrirFoto;
-            this.BTNAbrirFoto.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTNAbrirFoto.Location = new System.Drawing.Point(198, 207);
-            this.BTNAbrirFoto.Name = "BTNAbrirFoto";
-            this.BTNAbrirFoto.Size = new System.Drawing.Size(90, 41);
-            this.BTNAbrirFoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNAbrirFoto.TabIndex = 18;
-            this.BTNAbrirFoto.Text = "&Abrir";
-            this.BTNAbrirFoto.Click += new System.EventHandler(this.BTNAbrirFoto_Click);
-            // 
-            // BTNLimpiarFoto
-            // 
-            this.BTNLimpiarFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNLimpiarFoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNLimpiarFoto.Image = global::Sistema.Properties.Resources.ImgUsuarioLimpiarFoto;
-            this.BTNLimpiarFoto.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTNLimpiarFoto.Location = new System.Drawing.Point(102, 207);
-            this.BTNLimpiarFoto.Name = "BTNLimpiarFoto";
-            this.BTNLimpiarFoto.Size = new System.Drawing.Size(90, 41);
-            this.BTNLimpiarFoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNLimpiarFoto.TabIndex = 17;
-            this.BTNLimpiarFoto.Text = "&Limpiar";
-            // 
-            // BTNCapturarFoto
-            // 
-            this.BTNCapturarFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNCapturarFoto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNCapturarFoto.Image = global::Sistema.Properties.Resources.ImgUsuarioCapturar;
-            this.BTNCapturarFoto.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTNCapturarFoto.Location = new System.Drawing.Point(6, 207);
-            this.BTNCapturarFoto.Name = "BTNCapturarFoto";
-            this.BTNCapturarFoto.Size = new System.Drawing.Size(90, 41);
-            this.BTNCapturarFoto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNCapturarFoto.TabIndex = 16;
-            this.BTNCapturarFoto.Text = "&Capturar";
-            this.BTNCapturarFoto.Click += new System.EventHandler(this.BTNCapturarFoto_Click);
-            // 
-            // PBPrevi
-            // 
-            this.PBPrevi.Image = ((System.Drawing.Image)(resources.GetObject("PBPrevi.Image")));
-            this.PBPrevi.Location = new System.Drawing.Point(147, 55);
-            this.PBPrevi.Name = "PBPrevi";
-            this.PBPrevi.Size = new System.Drawing.Size(141, 131);
-            this.PBPrevi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBPrevi.TabIndex = 1;
-            this.PBPrevi.TabStop = false;
-            // 
-            // PBCaptura
-            // 
-            this.PBCaptura.Image = ((System.Drawing.Image)(resources.GetObject("PBCaptura.Image")));
-            this.PBCaptura.Location = new System.Drawing.Point(6, 55);
-            this.PBCaptura.Name = "PBCaptura";
-            this.PBCaptura.Size = new System.Drawing.Size(135, 131);
-            this.PBCaptura.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBCaptura.TabIndex = 0;
-            this.PBCaptura.TabStop = false;
-            // 
             // BTNLimpiar
             // 
             this.BTNLimpiar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -453,9 +454,9 @@
             this.Load += new System.EventHandler(this.FRM_Persona_Registrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTINacimiento)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.GBDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
+            this.GBDatos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
