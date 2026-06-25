@@ -48,9 +48,8 @@ namespace Sistema
 
         #region Métodos
         private void IniciarCamaraOBS()
-
-
         {
+            bool camaraEncontrada = false;
 
             try
             {
@@ -58,27 +57,42 @@ namespace Sistema
 
                 foreach (FilterInfo dispositivo in dispositivos)
                 {
-                    if (dispositivo.Name.Contains("OBS"))
+                    // Ampliamos un poco la búsqueda por si se llama "OBS Virtual Camera" u otro similar
+                    if (dispositivo.Name.Contains("OBS") || dispositivo.Name.Contains("Virtual"))
                     {
                         camara = new VideoCaptureDevice(dispositivo.MonikerString);
-
                         camara.NewFrame += Camara_NewFrame;
                         camara.Start();
-
-                        
+                        camaraEncontrada = true;
+                        return; // Sale del método porque ya encontró e inició la cámara
                     }
+                }
+
+                // Si el ciclo termina y no cambió la variable, significa que no encontró la cámara
+                if (!camaraEncontrada)
+                {
+                    MostrarSinCamara();
                 }
             }
             catch
             {
-                MessageBox.Show("No se tiene una cámara conectada al equipo",
-                    "Error de cámara",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MostrarSinCamara();
             }
-            
+        }
 
-            
+        // Método auxiliar para manejar visualmente la falta de cámara
+        private void MostrarSinCamara()
+        {
+            MessageBox.Show("No hay una cámara OBS o virtual activada/disponible.",
+                            "Advertencia de Cámara",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+            // Asignar la imagen por defecto al PictureBox donde se vería la cámara
+            if (PBCaptura != null)
+            {
+                PBCaptura.Image = Resources.NoImage;
+            }
         }
         private bool VerificarIntegridad()
         {
@@ -212,12 +226,16 @@ namespace Sistema
 
         private void ApagarCamara()
         {
-            if (camara.IsRunning == true) camara.Stop();
+            // Solo intenta detenerla si el objeto fue instanciado y está corriendo
+            if (camara != null && camara.IsRunning == true)
+            {
+                camara.Stop();
+            }
         }
 
         #endregion
 
-        
+
 
         private void BTNSalir_Click(object sender, EventArgs e)
         {
