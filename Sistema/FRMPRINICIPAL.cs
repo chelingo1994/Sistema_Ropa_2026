@@ -35,5 +35,17 @@ namespace Sistema
             a.MdiParent = this;
             a.Show();
         }
+
+        private void BTNUsuario_Click(object sender, EventArgs e)
+        {
+
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMUsuario_Lista a = new FRMUsuario_Lista();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
 }

@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DTGLista = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPNLFiltrar = new DevComponents.DotNetBar.ExpandablePanel();
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
             this.TXTFiltrar = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -40,12 +45,7 @@
             this.EPNLOpciones = new DevComponents.DotNetBar.ExpandablePanel();
             this.BTNReporte = new DevComponents.DotNetBar.ButtonX();
             this.BTNModificar = new DevComponents.DotNetBar.ButtonX();
-            this.BTNNuevo = new DevComponents.DotNetBar.ButtonX();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BTNNuevoUsuario = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
             this.EPNLFiltrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IINFilas)).BeginInit();
@@ -76,7 +76,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DTGLista.DefaultCellStyle = dataGridViewCellStyle2;
             this.DTGLista.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,6 +98,42 @@
             this.DTGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DTGLista.Size = new System.Drawing.Size(655, 358);
             this.DTGLista.TabIndex = 17;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "CodigoUsuario";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.Checked = true;
+            this.Column1.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+            this.Column1.CheckValue = "N";
+            this.Column1.HeaderText = "Estado";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Documento";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nombre Completo";
+            this.Column2.MinimumWidth = 400;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 400;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Login";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // EPNLFiltrar
             // 
@@ -197,7 +233,7 @@
             this.EPNLOpciones.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.EPNLOpciones.Controls.Add(this.BTNReporte);
             this.EPNLOpciones.Controls.Add(this.BTNModificar);
-            this.EPNLOpciones.Controls.Add(this.BTNNuevo);
+            this.EPNLOpciones.Controls.Add(this.BTNNuevoUsuario);
             this.EPNLOpciones.DisabledBackColor = System.Drawing.Color.Empty;
             this.EPNLOpciones.Dock = System.Windows.Forms.DockStyle.Left;
             this.EPNLOpciones.HideControlsWhenCollapsed = true;
@@ -255,57 +291,22 @@
             this.BTNModificar.TabIndex = 5;
             this.BTNModificar.Text = "Modificar Usuario";
             // 
-            // BTNNuevo
+            // BTNNuevoUsuario
             // 
-            this.BTNNuevo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNNuevo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNNuevo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNNuevo.Image = global::Sistema.Properties.Resources.UsuarioAgregar;
-            this.BTNNuevo.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.BTNNuevo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTNNuevo.Location = new System.Drawing.Point(0, 36);
-            this.BTNNuevo.Margin = new System.Windows.Forms.Padding(4);
-            this.BTNNuevo.Name = "BTNNuevo";
-            this.BTNNuevo.Size = new System.Drawing.Size(145, 93);
-            this.BTNNuevo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNNuevo.TabIndex = 4;
-            this.BTNNuevo.Text = "Nuevo Usuario";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "CodigoUsuario";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.Checked = true;
-            this.Column1.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-            this.Column1.CheckValue = "N";
-            this.Column1.HeaderText = "Estado";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Documento";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nombre Completo";
-            this.Column2.MinimumWidth = 400;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 400;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Login";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.BTNNuevoUsuario.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNNuevoUsuario.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNNuevoUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTNNuevoUsuario.Image = global::Sistema.Properties.Resources.UsuarioAgregar;
+            this.BTNNuevoUsuario.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.BTNNuevoUsuario.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTNNuevoUsuario.Location = new System.Drawing.Point(0, 36);
+            this.BTNNuevoUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.BTNNuevoUsuario.Name = "BTNNuevoUsuario";
+            this.BTNNuevoUsuario.Size = new System.Drawing.Size(145, 93);
+            this.BTNNuevoUsuario.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNNuevoUsuario.TabIndex = 4;
+            this.BTNNuevoUsuario.Text = "Nuevo Usuario";
+            this.BTNNuevoUsuario.Click += new System.EventHandler(this.BTNNuevoUsuario_Click);
             // 
             // FRMUsuario_Lista
             // 
@@ -339,7 +340,7 @@
         private DevComponents.DotNetBar.ExpandablePanel EPNLOpciones;
         private DevComponents.DotNetBar.ButtonX BTNReporte;
         private DevComponents.DotNetBar.ButtonX BTNModificar;
-        private DevComponents.DotNetBar.ButtonX BTNNuevo;
+        private DevComponents.DotNetBar.ButtonX BTNNuevoUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

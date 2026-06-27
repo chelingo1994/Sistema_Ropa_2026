@@ -21,5 +21,11 @@ namespace Sistema
         {
 
         }
+
+        private void BTNNuevoUsuario_Click(object sender, EventArgs e)
+        {
+            FRMUsuario_Registrar a = new FRMUsuario_Registrar();
+            a.Show();
+        }
     }
 }
