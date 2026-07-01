@@ -81,10 +81,7 @@ namespace Sistema
         #region Eventos
         
 
-        private void FRMPersona_Lista_Load(object sender, EventArgs e)
-        {
-            ActualizarGrid();
-        }
+       
 
         private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -204,6 +201,11 @@ namespace Sistema
         private void BTNBuscar_Click(object sender, EventArgs e)
         {
             ActualizarGrid();
+        }
+
+        private void TXTFiltrar_Enter(object sender, EventArgs e)
+        {
+            TXTFiltrar.SelectAll();
         }
     }
 }

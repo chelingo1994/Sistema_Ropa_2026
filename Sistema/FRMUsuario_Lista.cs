@@ -84,7 +84,17 @@ namespace Sistema
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (DTGLista.SelectedRows.Count > 0)
+            {
+                FRMUsuario_Registrar F1 = new FRMUsuario_Registrar();
+                //F1.modificar = true;
+                //F1.codPerMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                F1.ShowDialog();
+                /*if (F1.actualizar)
+                {
+                    ActualizarGrid();
+                }*/
+            }
         }
 
         private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,6 +156,30 @@ namespace Sistema
             {
                 e.Cancel = true;
             }
+        }
+
+        private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex>=0)
+            {
+                if (DTGLista.SelectedRows.Count > 0)
+                {
+                    FRMUsuario_Registrar F1 = new FRMUsuario_Registrar();
+                    //F1.modificar = true;
+                    //F1.codPerMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                    F1.ShowDialog();
+                    /*if (F1.actualizar)
+                    {
+                        ActualizarGrid();
+                    }*/
+                }
+            }
+            
+        }
+
+        private void TXTFiltrar_Enter(object sender, EventArgs e)
+        {
+            TXTFiltrar.SelectAll();
         }
     }
 }
