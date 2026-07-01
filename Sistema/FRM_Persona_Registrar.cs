@@ -236,7 +236,7 @@ namespace Sistema
         #endregion
 
 
-
+        #region Eventos
         private void BTNSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -547,5 +547,7 @@ namespace Sistema
                 PBPrevi.Image = Resources.NoImage;
             }
         }
+        #endregion
     }
+
 }

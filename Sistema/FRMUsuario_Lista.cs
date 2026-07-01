@@ -75,7 +75,7 @@ namespace Sistema
             }
 
         }
-        #endregion
+        
 
         private void BTNBuscar_Click(object sender, EventArgs e)
         {
@@ -181,5 +181,6 @@ namespace Sistema
         {
             TXTFiltrar.SelectAll();
         }
+        #endregion
     }
 }

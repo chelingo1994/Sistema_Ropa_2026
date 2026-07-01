@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMUsuario_Registrar));
             this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
             this.BLTAyuda = new DevComponents.DotNetBar.BalloonTip();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.TXTCi = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.TXTNombre = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.TXTNombres = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.SWBEstado = new DevComponents.DotNetBar.Controls.SwitchButton();
+            this.TXTNombreLogin = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.axDPFPEnrollmentControl1 = new AxDPFPCtlXLib.AxDPFPEnrollmentControl();
             ((System.ComponentModel.ISupportInitialize)(this.axDPFPEnrollmentControl1)).BeginInit();
             this.SuspendLayout();
@@ -48,18 +48,6 @@
             // OFDElegirImagen
             // 
             this.OFDElegirImagen.Filter = "Elegir Imagen|*.jpeg;*.jpg;*.png";
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(150, 22);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
-            this.labelX1.TabIndex = 20;
-            this.labelX1.Text = "Usuario";
             // 
             // TXTCi
             // 
@@ -77,23 +65,26 @@
             this.TXTCi.Size = new System.Drawing.Size(103, 22);
             this.TXTCi.TabIndex = 2;
             this.TXTCi.WatermarkText = "CI";
+            this.TXTCi.Enter += new System.EventHandler(this.TXTCi_Enter);
+            this.TXTCi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCi_KeyDown);
             // 
-            // TXTNombre
+            // TXTNombres
             // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTNombre, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTNombre, "Nombres de la Persona");
+            this.BLTAyuda.SetBalloonCaption(this.TXTNombres, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTNombres, "Nombres de la Persona");
             // 
             // 
             // 
-            this.TXTNombre.Border.Class = "TextBoxBorder";
-            this.TXTNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTNombre.Location = new System.Drawing.Point(346, 47);
-            this.TXTNombre.Name = "TXTNombre";
-            this.TXTNombre.PreventEnterBeep = true;
-            this.TXTNombre.Size = new System.Drawing.Size(294, 22);
-            this.TXTNombre.TabIndex = 6;
-            this.TXTNombre.WatermarkText = "Nombre Completo del Usuario";
+            this.TXTNombres.Border.Class = "TextBoxBorder";
+            this.TXTNombres.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TXTNombres.Location = new System.Drawing.Point(346, 47);
+            this.TXTNombres.Name = "TXTNombres";
+            this.TXTNombres.PreventEnterBeep = true;
+            this.TXTNombres.Size = new System.Drawing.Size(294, 22);
+            this.TXTNombres.TabIndex = 6;
+            this.TXTNombres.WatermarkText = "Nombre Completo del Usuario";
+            this.TXTNombres.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTNombres_KeyDown);
             // 
             // SWBEstado
             // 
@@ -117,6 +108,37 @@
             this.SWBEstado.TabStop = false;
             this.SWBEstado.Value = true;
             this.SWBEstado.ValueObject = "Y";
+            // 
+            // TXTNombreLogin
+            // 
+            this.BLTAyuda.SetBalloonCaption(this.TXTNombreLogin, "Ayuda");
+            this.BLTAyuda.SetBalloonText(this.TXTNombreLogin, "Nombres de la Persona");
+            // 
+            // 
+            // 
+            this.TXTNombreLogin.Border.Class = "TextBoxBorder";
+            this.TXTNombreLogin.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTNombreLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TXTNombreLogin.Location = new System.Drawing.Point(646, 47);
+            this.TXTNombreLogin.Name = "TXTNombreLogin";
+            this.TXTNombreLogin.PreventEnterBeep = true;
+            this.TXTNombreLogin.Size = new System.Drawing.Size(162, 22);
+            this.TXTNombreLogin.TabIndex = 24;
+            this.TXTNombreLogin.WatermarkText = "Login del Usuario";
+            this.TXTNombreLogin.Enter += new System.EventHandler(this.TXTCi_Enter);
+            this.TXTNombreLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTNombreLogin_KeyDown);
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(150, 22);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.TabIndex = 20;
+            this.labelX1.Text = "Usuario";
             // 
             // BTNGuardar
             // 
@@ -181,23 +203,7 @@
             this.BTNSalir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNSalir.TabIndex = 23;
             this.BTNSalir.Text = "Salir";
-            // 
-            // textBoxX1
-            // 
-            this.BLTAyuda.SetBalloonCaption(this.textBoxX1, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.textBoxX1, "Nombres de la Persona");
-            // 
-            // 
-            // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxX1.Location = new System.Drawing.Point(646, 47);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.PreventEnterBeep = true;
-            this.textBoxX1.Size = new System.Drawing.Size(162, 22);
-            this.textBoxX1.TabIndex = 24;
-            this.textBoxX1.WatermarkText = "Login del Usuario";
+            this.BTNSalir.Click += new System.EventHandler(this.BTNSalir_Click);
             // 
             // axDPFPEnrollmentControl1
             // 
@@ -214,20 +220,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 488);
             this.Controls.Add(this.axDPFPEnrollmentControl1);
-            this.Controls.Add(this.textBoxX1);
+            this.Controls.Add(this.TXTNombreLogin);
             this.Controls.Add(this.BTNSalir);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.BTNLimpiar);
             this.Controls.Add(this.TXTCi);
             this.Controls.Add(this.buttonX1);
-            this.Controls.Add(this.TXTNombre);
+            this.Controls.Add(this.TXTNombres);
             this.Controls.Add(this.BTNGuardar);
             this.Controls.Add(this.SWBEstado);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FRMUsuario_Registrar";
             this.Text = "FRMUsuario_Registrar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRMUsuario_Registrar_FormClosing);
+            this.Load += new System.EventHandler(this.FRMUsuario_Registrar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axDPFPEnrollmentControl1)).EndInit();
             this.ResumeLayout(false);
 
@@ -239,14 +247,14 @@
         private DevComponents.DotNetBar.BalloonTip BLTAyuda;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTCi;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTNombre;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTNombres;
         private DevComponents.DotNetBar.Controls.SwitchButton SWBEstado;
         private DevComponents.DotNetBar.ButtonX BTNGuardar;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX BTNLimpiar;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX BTNSalir;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTNombreLogin;
         private AxDPFPCtlXLib.AxDPFPEnrollmentControl axDPFPEnrollmentControl1;
     }
 }
