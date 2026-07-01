@@ -213,6 +213,16 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap UsuarioCambiarClave {
+            get {
+                object obj = ResourceManager.GetObject("UsuarioCambiarClave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Usuarioicono {
             get {
                 object obj = ResourceManager.GetObject("Usuarioicono", resourceCulture);

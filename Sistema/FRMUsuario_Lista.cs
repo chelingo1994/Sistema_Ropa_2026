@@ -14,7 +14,8 @@ namespace Sistema
     public partial class FRMUsuario_Lista : DevComponents.DotNetBar.OfficeForm
     {
         #region variables
-        private lusuari usuario = new lusuari();
+        private lusuari listausuario = new lusuari();
+        private ausuari usuario=new ausuari();
         private List<lusuari> lista_usuarios = new List<lusuari>();
         #endregion
 
@@ -27,12 +28,25 @@ namespace Sistema
         private void FRMUsuario_Lista_Load(object sender, EventArgs e)
         {
 
+            this.WindowState = FormWindowState.Maximized;
+            ActualizarGrid();
         }
 
         private void BTNNuevoUsuario_Click(object sender, EventArgs e)
         {
             FRMUsuario_Registrar a = new FRMUsuario_Registrar();
-            a.Show();
+            //a.Show();
+
+
+            
+
+
+            //a.modificar = false;
+            a.ShowDialog();
+            /*if (a.actualizar)
+            {
+                ActualizarGrid();
+            }*/
         }
 
         #region Metodos
@@ -40,7 +54,7 @@ namespace Sistema
         {
             DTGLista.Rows.Clear();
             lista_usuarios.Clear();
-            lista_usuarios = usuario.Lista("capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
+            lista_usuarios = listausuario.Lista("capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsapepat like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsapemat like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsnomper like '%" + TXTFiltrar.Text + "%' limit " +
@@ -50,27 +64,88 @@ namespace Sistema
             {
                 //modificar a la tabla datagrid de listar usuarios
                 DTGLista.Rows.Add();
-                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.papscodper;
-                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
-                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsnomper;
-                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapepat;
-                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.capsapemat;
-                DTGLista[5, DTGLista.Rows.Count - 1].Value = a.capsfecnac;
-                DTGLista[6, DTGLista.Rows.Count - 1].Value = a.capsnumcel;
-                if (a.capssexper)
-                {
-                    DTGLista[7, DTGLista.Rows.Count - 1].Value = "M";
-                }
-                else
-                {
-                    DTGLista[7, DTGLista.Rows.Count - 1].Value = "F";
-                }
-
-                DTGLista[8, DTGLista.Rows.Count - 1].Value = a.capsestper;
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.pauacodusu;
+                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.cauaestusu;
+                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
+                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapepat+" "+a.capsapemat+" "+a.capsnomper;
+                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.cauanomlog;
+               
+              
 
             }
 
         }
         #endregion
+
+        private void BTNBuscar_Click(object sender, EventArgs e)
+        {
+            ActualizarGrid();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void habilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (DTGLista.SelectedRows.Count > 0)
+            {
+
+                usuario.pauacodusu = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                if (usuario.ObtenerDatos())
+                {
+                    usuario.cauaestusu = true;
+                    if (usuario.Modificar())
+                    {
+                        MessageBox.Show("Usuario habilitado correctamente");
+                        ActualizarGrid();
+                    }
+                }
+            }
+        }
+
+        private void inhabilitarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (DTGLista.SelectedRows.Count > 0)
+            {
+
+                usuario.pauacodusu = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                if (usuario.ObtenerDatos())
+                {
+                    usuario.cauaestusu = false;
+                    if (usuario.Modificar())
+                    {
+                        MessageBox.Show("Usuario Inhabilitada correctamente");
+                        ActualizarGrid();
+                    }
+                }
+            }
+        }
+
+        private void CMSMenu_Opening(object sender, CancelEventArgs e)
+        {
+            usuario.pauacodusu = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+            if (usuario.ObtenerDatos())
+            {
+
+                if (usuario.cauaestusu)
+                {
+                    CMSMenu.Items[2].Visible = false;
+                    CMSMenu.Items[1].Visible = true;
+                }
+                else
+                {
+                    CMSMenu.Items[2].Visible = true;
+                    CMSMenu.Items[1].Visible = false;
+                }
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
