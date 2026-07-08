@@ -35,18 +35,12 @@ namespace Sistema
         private void BTNNuevoUsuario_Click(object sender, EventArgs e)
         {
             FRMUsuario_Registrar a = new FRMUsuario_Registrar();
-            //a.Show();
-
-
             
-
-
-            //a.modificar = false;
             a.ShowDialog();
-            /*if (a.actualizar)
+            if (a.actualizar)
             {
                 ActualizarGrid();
-            }*/
+            }
         }
 
         #region Metodos
@@ -54,10 +48,11 @@ namespace Sistema
         {
             DTGLista.Rows.Clear();
             lista_usuarios.Clear();
-            lista_usuarios = listausuario.Lista("capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
+            lista_usuarios = listausuario.Lista("(capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsapepat like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsapemat like '%" + TXTFiltrar.Text + "%' or " +
-                                           "capsnomper like '%" + TXTFiltrar.Text + "%' limit " +
+                                           "capsnomper like '%" + TXTFiltrar.Text + "%')  and cauaestusu=true " +
+                                           "limit " +
                                            IINFilas.Value.ToString()
                                            );
             foreach (lusuari a in lista_usuarios)

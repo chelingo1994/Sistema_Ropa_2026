@@ -254,7 +254,7 @@ namespace CapaRN
                                  "capsapemat," +
                                  "capsapepat " +
                          "from ausuari,aperson "+
-                         "where papscodper=fauacodper";
+                         "where papscodper=fauacodper ";
 
             if (where.Replace(" ", "") != "")
             {
