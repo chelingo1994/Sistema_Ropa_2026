@@ -224,7 +224,8 @@ namespace Sistema
             {
                 this.persona = a.persona;
                 this.personaok = true;
-                TXTCi.Text = persona.capsapepat + " " +
+                TXTCi.Text = persona.capsnumcid;
+                TXTNombres.Text= persona.capsapepat + " " +
                            persona.capsapemat + " " +
                            persona.capsnomper;
             }
@@ -354,17 +355,17 @@ namespace Sistema
                 usuario.cauanumhu1 = FingerMask;
                 usuario.cauacodhu1 = cadena;
             }
-            else if (usuario.cauanumhu1 == 0)
+            else if (usuario.cauanumhu2 == 0)
             {
                 usuario.cauanumhu2 = FingerMask;
                 usuario.cauacodhu2 = cadena;
             }
-            else if (usuario.cauanumhu1 == 0)
+            else if (usuario.cauanumhu3 == 0)
             {
                 usuario.cauanumhu3 = FingerMask;
                 usuario.cauacodhu3 = cadena;
             }
-            else if (usuario.cauanumhu1 == 0)
+            else if (usuario.cauanumhu4 == 0)
             {
                 usuario.cauanumhu4 = FingerMask;
                 usuario.cauacodhu4 = cadena;

@@ -25,7 +25,7 @@ namespace CapaRN
         private string _pauacodusu;
         private string _cauanomlog;
         private string _cauaclausu;
-        private string _cauaactcla;
+        private bool _cauaactcla;
         private string _cauacodhu1;
 
         //datos persona
@@ -112,7 +112,7 @@ namespace CapaRN
             get { return this._cauaclausu; }
             set { this._cauaclausu = value; }
         }
-        public string cauaactcla
+        public bool cauaactcla
         {
             get { return this._cauaactcla; }
             set { this._cauaactcla = value; }
@@ -202,7 +202,7 @@ namespace CapaRN
             this._pauacodusu = "";
             this._cauanomlog = "";
             this._cauaclausu = "";
-            this._cauaactcla = "";
+            this._cauaactcla = true;
             this._cauacodhu1 = "";
 
             this._capssexper = true;
@@ -283,7 +283,7 @@ namespace CapaRN
                     Auxiliar.pauacodusu = ResultadoConsulta.GetString(10);
                     Auxiliar.cauanomlog = ResultadoConsulta.GetString(11);
                     Auxiliar.cauaclausu = ResultadoConsulta.GetString(12);
-                    Auxiliar.cauaactcla = ResultadoConsulta.GetString(13);
+                    Auxiliar.cauaactcla = ResultadoConsulta.GetBoolean(13);
                     Auxiliar.cauacodhu1 = ResultadoConsulta.GetString(14);
                     Auxiliar.capssexper = ResultadoConsulta.GetBoolean(15);
                     Auxiliar.capsestper = ResultadoConsulta.GetBoolean(16);

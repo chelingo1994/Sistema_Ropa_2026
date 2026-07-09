@@ -51,8 +51,7 @@ namespace Sistema
             lista_usuarios = listausuario.Lista("(capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsapepat like '%" + TXTFiltrar.Text + "%' or " +
                                            "capsapemat like '%" + TXTFiltrar.Text + "%' or " +
-                                           "capsnomper like '%" + TXTFiltrar.Text + "%')  and cauaestusu=true " +
-                                           "limit " +
+                                           "capsnomper like '%" + TXTFiltrar.Text + "%') limit " +
                                            IINFilas.Value.ToString()
                                            );
             foreach (lusuari a in lista_usuarios)
@@ -160,13 +159,13 @@ namespace Sistema
                 if (DTGLista.SelectedRows.Count > 0)
                 {
                     FRMUsuario_Registrar F1 = new FRMUsuario_Registrar();
-                    //F1.modificar = true;
-                    //F1.codPerMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                    F1.modificar = true;
+                    F1.codUsuMod = DTGLista[0,e.RowIndex].Value.ToString();
                     F1.ShowDialog();
-                    /*if (F1.actualizar)
+                    if (F1.actualizar)
                     {
                         ActualizarGrid();
-                    }*/
+                    }
                 }
             }
             
