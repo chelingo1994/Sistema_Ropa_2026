@@ -97,8 +97,10 @@ namespace Sistema
         private bool VerificarIntegridad()
         {
             bool respuesta = true;
+            aperson persona2=new aperson();
+            persona2.capsnumcid = TXTCi.Text;
             
-            persona.capsnumcid = TXTCi.Text;
+            
 
             if (TXTCi.Text.Replace(" ", "") == "")
             {
@@ -107,7 +109,7 @@ namespace Sistema
                 respuesta = false;
             }
 
-            else if(persona.ObtenerDatosCi() && !modificar)
+            else if(persona2.ObtenerDatosCi(modificar,persona.capsnumcid))
             {
                 MessageBox.Show("Ya existe esa personas con el Ci", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXTCi.Focus();
