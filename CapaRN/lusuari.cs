@@ -221,7 +221,7 @@ namespace CapaRN
         }
         #endregion
 
-        public List<lusuari> Lista(string where, bool modificar, String login)
+        public List<lusuari> Lista(string where)
         {
             List<lusuari> ListaResultado = new List<lusuari>();
             this.Conexion.Conectar();
@@ -261,10 +261,7 @@ namespace CapaRN
                 sql += "and " + where;
             }
 
-            if (modificar)
-            {
-                sql += " and cauanomlog!='" + login + "'";
-            }
+          
 
 
             this.Conexion.PrepararComando(sql);

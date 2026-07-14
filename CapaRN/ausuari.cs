@@ -188,6 +188,66 @@ namespace CapaRN
                 return false;
             }
         }
+        public bool ObtenerDatosLogin(bool modificar,String login)
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "cauaactcla," +
+                                 "cauamashue," +
+                                 "cauanumhu1," +
+                                 "cauanumhu2," +
+                                 "cauanumhu3," +
+                                 "cauanumhu4," +
+                                 "cauaestusu," +
+                                 "cauacodhu4," +
+                                 "fauacodper," +
+                                 "pauacodusu," +
+                                 "cauanomlog," +
+                                 "cauaclausu," +
+                                 "cauacodhu1," +
+                                 "cauacodhu2," +
+                                 "cauacodhu3 " +
+                         "from ausuari " +
+                         "where " +
+                                "cauanomlog = @cauanomlog";
+            if (modificar)
+            {
+                sql += " and cauanomlog!='" + login + "'";
+            }
+
+            this.Conexion.PrepararComando(sql);
+
+            this.Conexion.AsignarParametroCadena("@cauanomlog", this._cauanomlog);
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._cauaactcla = ResultadoConsulta.GetBoolean(0);
+                this._cauamashue = ResultadoConsulta.GetInt32(1);
+                this._cauanumhu1 = ResultadoConsulta.GetInt32(2);
+                this._cauanumhu2 = ResultadoConsulta.GetInt32(3);
+                this._cauanumhu3 = ResultadoConsulta.GetInt32(4);
+                this._cauanumhu4 = ResultadoConsulta.GetInt32(5);
+                this._cauaestusu = ResultadoConsulta.GetBoolean(6);
+                this._cauacodhu4 = ResultadoConsulta.GetString(7);
+                this._fauacodper = ResultadoConsulta.GetString(8);
+                this._pauacodusu = ResultadoConsulta.GetString(9);
+                this._cauanomlog = ResultadoConsulta.GetString(10);
+                this._cauaclausu = ResultadoConsulta.GetString(11);
+                this._cauacodhu1 = ResultadoConsulta.GetString(12);
+                this._cauacodhu2 = ResultadoConsulta.GetString(13);
+                this._cauacodhu3 = ResultadoConsulta.GetString(14);
+                this.Conexion.Desconectar();
+
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
         public bool VerificarExistencia()
         {
             this.Conexion.Conectar();

@@ -40,8 +40,9 @@ namespace Sistema
         private bool VerificarIntegridad()
         {
             bool respuesta = true;
+            ausuari usuario2 = new ausuari();
+            usuario2.cauanomlog = TXTNombreLogin.Text;
 
-            
 
             if (TXTNombreLogin.Text.Replace(" ", "") == "")
             {
@@ -50,7 +51,13 @@ namespace Sistema
                 respuesta = false;
             }
 
-           
+            else if (usuario2.ObtenerDatosLogin(modificar, usuario.cauanomlog))
+            {
+                MessageBox.Show("Ya existe ese Login Registrado", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNombreLogin.Focus();
+                respuesta = false;
+            }
+
 
             return respuesta;
         }
