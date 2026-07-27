@@ -47,5 +47,11 @@ namespace Sistema
             a.MdiParent = this;
             a.Show();
         }
+
+        private void BTNIniciarSesion_Click(object sender, EventArgs e)
+        {
+            FRMIniciar_Sesion a=new FRMIniciar_Sesion();
+            a.ShowDialog();
+        }
     }
 }
