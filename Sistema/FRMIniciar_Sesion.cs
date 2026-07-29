@@ -14,7 +14,9 @@ namespace Sistema
     public partial class FRMIniciar_Sesion : DevComponents.DotNetBar.OfficeForm
     {
         #region varialbes
-        ausuari usuario =new ausuari();
+        public ausuari usuario =new ausuari();
+        public aperson persona=new aperson();
+        public bool loginExitoso=false;
         #endregion
 
         
@@ -48,6 +50,63 @@ namespace Sistema
         #endregion
 
         #region Metodos
+        private bool VerificarIntegridad()
+        {
+            bool respuesta = true;
+            
+
+
+            if (TXTNombreUsuario.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca el Login del Usuario", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNombreUsuario.Focus();
+                respuesta = false;
+            }
+
+            else if (TXTPassword.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca el Password del usuario", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTPassword.Focus();
+                respuesta = false;
+            }
+
+
+            return respuesta;
+        }
         #endregion
+
+        private void BTNGuardar_Click(object sender, EventArgs e)
+        {
+            if (VerificarIntegridad())
+            {
+                usuario.cauanomlog = TXTNombreUsuario.Text;
+                usuario.ObtenerDatosLogin(false,usuario.cauanomlog);
+                persona.papscodper = usuario.fauacodper;
+                persona.ObtenerDatos();
+                if (usuario.cauaactcla)
+                {
+                    
+                    if (TXTPassword.Text==persona.capsnumcid)
+                    {
+
+                        MessageBox.Show("Bienvenido "+persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loginExitoso= true;
+                        this.Close();
+                        FRMModificar_Password a=new FRMModificar_Password();
+                        a.ShowDialog();
+                    }
+                }
+                else
+                {
+                    if (TXTPassword.Text == usuario.cauaclausu)
+                    {
+
+                        MessageBox.Show("Bienvenido " + persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loginExitoso = true;
+                        this.Close();
+                    }
+                }
+            }
+        }
     }
 }

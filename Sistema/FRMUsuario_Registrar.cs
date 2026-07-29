@@ -267,7 +267,7 @@ namespace Sistema
                 usuario.cauanomlog = TXTNombreLogin.Text;
                 if (!modificar)
                 {
-                    usuario.cauaactcla = false;
+                    usuario.cauaactcla = true;
 
                     usuario.cauamashue = DPEHuellas.EnrolledFingerMask;
                     
