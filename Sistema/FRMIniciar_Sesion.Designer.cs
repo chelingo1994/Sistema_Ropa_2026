@@ -48,7 +48,7 @@
             this.TXTNombreUsuario.Name = "TXTNombreUsuario";
             this.TXTNombreUsuario.PreventEnterBeep = true;
             this.TXTNombreUsuario.Size = new System.Drawing.Size(236, 20);
-            this.TXTNombreUsuario.TabIndex = 31;
+            this.TXTNombreUsuario.TabIndex = 1;
             this.TXTNombreUsuario.WatermarkText = "Login";
             // 
             // labelX1
@@ -60,7 +60,7 @@
             this.labelX1.Location = new System.Drawing.Point(114, 32);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(96, 23);
-            this.labelX1.TabIndex = 29;
+            this.labelX1.TabIndex = 0;
             this.labelX1.Text = "Iniciar Sesion";
             // 
             // TXTPassword
@@ -74,7 +74,7 @@
             this.TXTPassword.Name = "TXTPassword";
             this.TXTPassword.PreventEnterBeep = true;
             this.TXTPassword.Size = new System.Drawing.Size(211, 20);
-            this.TXTPassword.TabIndex = 34;
+            this.TXTPassword.TabIndex = 2;
             this.TXTPassword.UseSystemPasswordChar = true;
             this.TXTPassword.WatermarkText = "Password";
             // 
@@ -88,7 +88,7 @@
             this.BTNVerPassword.Name = "BTNVerPassword";
             this.BTNVerPassword.Size = new System.Drawing.Size(19, 27);
             this.BTNVerPassword.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNVerPassword.TabIndex = 35;
+            this.BTNVerPassword.TabIndex = 3;
             this.BTNVerPassword.Click += new System.EventHandler(this.BTNVerPassword_Click);
             // 
             // BTNSalir
@@ -103,7 +103,7 @@
             this.BTNSalir.Name = "BTNSalir";
             this.BTNSalir.Size = new System.Drawing.Size(100, 33);
             this.BTNSalir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNSalir.TabIndex = 33;
+            this.BTNSalir.TabIndex = 5;
             this.BTNSalir.Text = "&Cancelar";
             this.BTNSalir.Click += new System.EventHandler(this.BTNSalir_Click);
             // 
@@ -118,7 +118,7 @@
             this.BTNGuardar.Name = "BTNGuardar";
             this.BTNGuardar.Size = new System.Drawing.Size(95, 35);
             this.BTNGuardar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNGuardar.TabIndex = 32;
+            this.BTNGuardar.TabIndex = 4;
             this.BTNGuardar.Text = "&Entrar";
             this.BTNGuardar.Click += new System.EventHandler(this.BTNGuardar_Click);
             // 
@@ -139,6 +139,7 @@
             this.Name = "FRMIniciar_Sesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRMIniciar_Sesion";
+            this.Load += new System.EventHandler(this.FRMIniciar_Sesion_Load);
             this.ResumeLayout(false);
 
         }

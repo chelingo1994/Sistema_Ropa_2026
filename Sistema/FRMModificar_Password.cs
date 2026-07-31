@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,72 +57,76 @@ namespace Sistema
         private void BTNVerPassword_Click(object sender, EventArgs e)
         {
 
-            if (TXTPassword.PasswordChar == '*')
-            {
-                TXTPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                TXTPassword.PasswordChar = '*';
-            }
+            TXTPassword.UseSystemPasswordChar=!TXTPassword.UseSystemPasswordChar;
         }
 
         private void BTNVerConfirmarPassword_Click(object sender, EventArgs e)
         {
-
-            if (TXTConfirmarPassword.PasswordChar == '*')
-            {
-                TXTConfirmarPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                TXTConfirmarPassword.PasswordChar = '*';
-            }
+            TXTConfirmarPassword.UseSystemPasswordChar = !TXTConfirmarPassword.UseSystemPasswordChar;
         }
         #endregion
 
         #region SeguridadContraseña
-        public int ObtenerNivelSeguridad(string password)
+        public enum NivelSeguridad
         {
+            Invalida = 0,
+            Baja,
+            Media,
+            Alta
+        }
+        public NivelSeguridad ObtenerNivelSeguridad(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
+                return NivelSeguridad.Invalida;
+
             int score = 0;
-            if (string.IsNullOrEmpty(password)) return 0;
-            if (password.Length >= 8) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[a-z]")) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[A-Z]")) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[0-9]")) score++;
-            if (System.Text.RegularExpressions.Regex.IsMatch(password, "[^a-zA-Z0-9]")) score++;
-            return score; 
+
+            if (Regex.IsMatch(password, "[a-z]")) score++;
+            if (Regex.IsMatch(password, "[A-Z]")) score++;
+            if (Regex.IsMatch(password, "[0-9]")) score++;
+            if (Regex.IsMatch(password, "[^a-zA-Z0-9]")) score++;
+
+            switch (score)
+            {
+                case 1:
+                case 2:
+                    return NivelSeguridad.Baja;
+                case 3:
+                    return NivelSeguridad.Media;
+                case 4:
+                    return NivelSeguridad.Alta;
+                default:
+                    return NivelSeguridad.Invalida;
+            }
         }
 
         #endregion
 
         private void BTNGuardarPassword_Click(object sender, EventArgs e)
         {
-            int numero = ObtenerNivelSeguridad(TXTPassword.Text);
-            if (numero==0)
-            {
-                MessageBox.Show("0", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            if (numero == 1)
-            {
-                MessageBox.Show("1", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            if (numero == 2)
-            {
-                MessageBox.Show("2", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            if (numero == 3)
-            {
-                MessageBox.Show("3", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            if (numero == 4)
-            {
-                MessageBox.Show("4", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            if (numero == 5)
-            {
-                MessageBox.Show("5", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        }
+
+        private void TXTPassword_TextChanged(object sender, EventArgs e)
+        {
+            string password = TXTPassword.Text;
+
+            string longitud = password.Length >= 8 ? "✔ Mínimo 8 caracteres" : "✖ Mínimo 8 caracteres";
+            string minusculas = Regex.IsMatch(password, "[a-z]") ? "✔ Contiene minúsculas" : "✖ Contiene minúsculas";
+            string mayusculas = Regex.IsMatch(password, "[A-Z]") ? "✔ Contiene mayúsculas" : "✖ Contiene mayúsculas";
+            string numeros = Regex.IsMatch(password, "[0-9]") ? "✔ Contiene números" : "✖ Contiene números";
+            string especiales = Regex.IsMatch(password, "[^a-zA-Z0-9]") ? "✔ Contiene caracteres especiales" : "✖ Contiene caracteres especiales";
+
+            LBPasswordCondicion.Text =
+                $"{longitud}\n" +
+                $"{minusculas}\n" +
+                $"{mayusculas}\n" +
+                $"{numeros}\n" +
+                $"{especiales}";
+        }
+
+        private void FRMModificar_Password_Load(object sender, EventArgs e)
+        {
+            TXTPassword.UseSystemPasswordChar=true;
         }
     }
 }

@@ -66,6 +66,7 @@
             this.TXTPassword.TabIndex = 40;
             this.TXTPassword.UseSystemPasswordChar = true;
             this.TXTPassword.WatermarkText = "Password";
+            this.TXTPassword.TextChanged += new System.EventHandler(this.TXTPassword_TextChanged);
             // 
             // BTNSalir
             // 
@@ -75,7 +76,7 @@
             this.BTNSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNSalir.Image = global::Sistema.Properties.Resources.salir_icono;
             this.BTNSalir.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTNSalir.Location = new System.Drawing.Point(195, 224);
+            this.BTNSalir.Location = new System.Drawing.Point(195, 257);
             this.BTNSalir.Name = "BTNSalir";
             this.BTNSalir.Size = new System.Drawing.Size(100, 33);
             this.BTNSalir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -89,7 +90,7 @@
             this.BTNGuardarPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTNGuardarPassword.Image = global::Sistema.Properties.Resources.login_icono;
             this.BTNGuardarPassword.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTNGuardarPassword.Location = new System.Drawing.Point(59, 224);
+            this.BTNGuardarPassword.Location = new System.Drawing.Point(59, 257);
             this.BTNGuardarPassword.Name = "BTNGuardarPassword";
             this.BTNGuardarPassword.Size = new System.Drawing.Size(95, 35);
             this.BTNGuardarPassword.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -161,14 +162,14 @@
             this.LBPasswordCondicion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.LBPasswordCondicion.Location = new System.Drawing.Point(59, 174);
             this.LBPasswordCondicion.Name = "LBPasswordCondicion";
-            this.LBPasswordCondicion.Size = new System.Drawing.Size(236, 44);
+            this.LBPasswordCondicion.Size = new System.Drawing.Size(236, 77);
             this.LBPasswordCondicion.TabIndex = 44;
             // 
             // FRMModificar_Password
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 271);
+            this.ClientSize = new System.Drawing.Size(364, 305);
             this.Controls.Add(this.LBPasswordCondicion);
             this.Controls.Add(this.BTNVerConfirmarPassword);
             this.Controls.Add(this.TXTConfirmarPassword);
@@ -187,6 +188,7 @@
             this.Name = "FRMModificar_Password";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRMModificarPassword";
+            this.Load += new System.EventHandler(this.FRMModificar_Password_Load);
             this.ResumeLayout(false);
 
         }

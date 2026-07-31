@@ -33,14 +33,7 @@ namespace Sistema
         
         private void BTNVerPassword_Click(object sender, EventArgs e)
         {
-            if (TXTPassword.PasswordChar=='*')
-            {
-                TXTPassword.PasswordChar = '\0';
-            }
-            else
-            {
-                TXTPassword.PasswordChar = '*';
-            }
+            TXTPassword.UseSystemPasswordChar = !TXTPassword.UseSystemPasswordChar;
         }
 
         private void BTNSalir_Click(object sender, EventArgs e)
@@ -107,6 +100,11 @@ namespace Sistema
                     }
                 }
             }
+        }
+
+        private void FRMIniciar_Sesion_Load(object sender, EventArgs e)
+        {
+            TXTPassword.UseSystemPasswordChar = true;
         }
     }
 }
