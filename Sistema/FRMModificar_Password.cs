@@ -66,41 +66,7 @@ namespace Sistema
         }
         #endregion
 
-        #region SeguridadContraseña
-        public enum NivelSeguridad
-        {
-            Invalida = 0,
-            Baja,
-            Media,
-            Alta
-        }
-        public NivelSeguridad ObtenerNivelSeguridad(string password)
-        {
-            if (string.IsNullOrWhiteSpace(password) || password.Length < 8)
-                return NivelSeguridad.Invalida;
-
-            int score = 0;
-
-            if (Regex.IsMatch(password, "[a-z]")) score++;
-            if (Regex.IsMatch(password, "[A-Z]")) score++;
-            if (Regex.IsMatch(password, "[0-9]")) score++;
-            if (Regex.IsMatch(password, "[^a-zA-Z0-9]")) score++;
-
-            switch (score)
-            {
-                case 1:
-                case 2:
-                    return NivelSeguridad.Baja;
-                case 3:
-                    return NivelSeguridad.Media;
-                case 4:
-                    return NivelSeguridad.Alta;
-                default:
-                    return NivelSeguridad.Invalida;
-            }
-        }
-
-        #endregion
+        
 
         private void BTNGuardarPassword_Click(object sender, EventArgs e)
         {
