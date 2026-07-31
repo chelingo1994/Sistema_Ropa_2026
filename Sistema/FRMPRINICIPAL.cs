@@ -52,6 +52,18 @@ namespace Sistema
         {
             FRMIniciar_Sesion a=new FRMIniciar_Sesion();
             a.ShowDialog();
+            if (a.actualizarPassword)
+            {
+                FRMModificar_Password b = new FRMModificar_Password();
+                b.usuario = a.usuario;
+                b.persona = a.persona;
+                b.ShowDialog();
+            }
+
+            if (a.loginExitoso)
+            {
+                MessageBox.Show("Bienvenido al sisteam "+a.persona.capsnomper);
+            }
         }
     }
 }

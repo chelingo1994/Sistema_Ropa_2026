@@ -17,12 +17,13 @@ namespace Sistema
         public ausuari usuario =new ausuari();
         public aperson persona=new aperson();
         public bool loginExitoso=false;
+        public bool actualizarPassword = false;
         #endregion
 
-        
+
 
         #region Constructor
-        
+
         public FRMIniciar_Sesion()
         {
             InitializeComponent();
@@ -84,9 +85,9 @@ namespace Sistema
 
                         MessageBox.Show("Bienvenido "+persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginExitoso= true;
+                        actualizarPassword=true;
                         this.Close();
-                        FRMModificar_Password a=new FRMModificar_Password();
-                        a.ShowDialog();
+                        
                     }
                 }
                 else
@@ -96,6 +97,7 @@ namespace Sistema
 
                         MessageBox.Show("Bienvenido " + persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginExitoso = true;
+                        actualizarPassword=false;
                         this.Close();
                     }
                 }
