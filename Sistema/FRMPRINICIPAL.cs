@@ -65,5 +65,11 @@ namespace Sistema
                 MessageBox.Show("Bienvenido al sisteam "+a.persona.capsnomper);
             }
         }
+
+        private void BTNIniciarSesionHuellas_Click(object sender, EventArgs e)
+        {
+            FRMIniciarSesionHuellas a = new FRMIniciarSesionHuellas();
+            a.ShowDialog();
+        }
     }
 }

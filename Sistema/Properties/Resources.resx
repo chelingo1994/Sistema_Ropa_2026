@@ -206,4 +206,13 @@
   <data name="mostrar_password_icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-mostrar-contraseña-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icono_login_finger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-natural-user-interface-94.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_huellas_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-huellas-dactilares-66.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_huellas_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-fingerprint-error-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

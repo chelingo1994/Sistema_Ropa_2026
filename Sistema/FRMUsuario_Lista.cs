@@ -175,6 +175,35 @@ namespace Sistema
         {
             TXTFiltrar.SelectAll();
         }
+
         #endregion
+
+        private void BTNActualizarPassword_Click(object sender, EventArgs e)
+        {
+            if (DTGLista.SelectedRows.Count>0)
+            {
+                if (MessageBox.Show("¿Estas Seguro que desea resetear el password del usuario?" +
+                    DTGLista[3, DTGLista.SelectedRows[0].Index].Value.ToString(), "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    usuario.pauacodusu = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                    usuario.ObtenerDatos();
+                    usuario.cauaactcla = true;
+                    if (usuario.Modificar())
+                    {
+                        MessageBox.Show("Password reseteado correctamente.El usuario debera logear la proxima vez con su numero de documento",
+                            "Mensaje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al resetear el password",
+                            "Mensaje",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
