@@ -268,11 +268,11 @@ namespace Sistema
                 if (!modificar)
                 {
                     usuario.cauaactcla = true;
-
-                    usuario.cauamashue = DPEHuellas.EnrolledFingerMask;
+                }
+                usuario.cauamashue = DPEHuellas.EnrolledFingerMask;
                     
                     usuario.fauacodper = persona.papscodper;
-                }
+               
                 
 
                 
