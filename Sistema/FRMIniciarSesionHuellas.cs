@@ -87,7 +87,8 @@ namespace Sistema
                         break;
                     }
                 }
-                if (ban)
+            }
+            if (ban)
                 {
                     MessageBox.Show("Bienvenido " + lusuario.capsnomper +
                                               " " + lusuario.capsapepat +
@@ -103,7 +104,7 @@ namespace Sistema
                 {
                     MessageBox.Show("Huella no identificada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+            
         }
     }
 }
