@@ -111,6 +111,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FRMFondo_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMFondo_1.Designer.cs">
+      <DependentUpon>FRMFondo_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMFondo_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMFondo_2.Designer.cs">
+      <DependentUpon>FRMFondo_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMIniciarSesionHuellas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +192,12 @@
     <Compile Include="prueba.Designer.cs">
       <DependentUpon>prueba.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FRMFondo_1.resx">
+      <DependentUpon>FRMFondo_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMFondo_2.resx">
+      <DependentUpon>FRMFondo_2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMIniciarSesionHuellas.resx">
       <DependentUpon>FRMIniciarSesionHuellas.cs</DependentUpon>
     </EmbeddedResource>
