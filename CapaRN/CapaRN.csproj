@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="aperson.cs" />
     <Compile Include="AppConfWriter.cs" />
+    <Compile Include="aproduc.cs" />
     <Compile Include="ausuari.cs" />
     <Compile Include="lusuari.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

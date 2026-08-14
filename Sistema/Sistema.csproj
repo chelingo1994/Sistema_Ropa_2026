@@ -147,6 +147,12 @@
     <Compile Include="FRMPersona_Buscar.Designer.cs">
       <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMProductoRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProductoRegistrar.Designer.cs">
+      <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMUsuario_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMPersona_Buscar.resx">
       <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProductoRegistrar.resx">
+      <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMUsuario_Lista.resx">
       <DependentUpon>FRMUsuario_Lista.cs</DependentUpon>
