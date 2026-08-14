@@ -102,9 +102,11 @@ namespace Sistema
             FRMFondo_1 a = new FRMFondo_1();
             a.MdiParent = this;
             a.Show();
-            BTNCambiarPassword.Enabled = false;
-            BTNCerrarSesion.Enabled = false;
+            BTNCambiarPassword.Visible = false;
+            BTNCerrarSesion.Visible = false;
             RTIAdministracion.Visible = false;
+            BTNIniciarSesion.Visible = true;
+            BTNIniciarSesionHuellas.Visible = true;
             PNLAdministracion.Hide();
         }
         private void Estado_2()
@@ -114,13 +116,14 @@ namespace Sistema
                 s.Close();
             }
             FRMFondo_2 a = new FRMFondo_2();
-            BTNIniciarSesion.Enabled = false;
+            BTNIniciarSesion.Visible = false;
+            BTNIniciarSesionHuellas.Visible = false;
             a.MdiParent = this;
             a.persona = this.persona;
             a.usuario = this.usuario;
             a.Show();
-            BTNCambiarPassword.Enabled = true;
-            BTNCerrarSesion.Enabled = true;
+            BTNCambiarPassword.Visible = true;
+            BTNCerrarSesion.Visible = true;
             //RTIAdministracion.Enabled = true;
             PNLAdministracion.Show();
             RTIAdministracion.Visible = true;
