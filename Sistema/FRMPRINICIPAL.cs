@@ -146,5 +146,27 @@ namespace Sistema
                 Application.Exit();
             }
         }
+
+        private void BTNCategoria_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMCategorisListar a = new FRMCategorisListar();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void BTNProducto_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMProductoListar a = new FRMProductoListar();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
 }

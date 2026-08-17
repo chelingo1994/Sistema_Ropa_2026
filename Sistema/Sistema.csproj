@@ -111,6 +111,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FRMCategoriaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCategoriaRegistrar.Designer.cs">
+      <DependentUpon>FRMCategoriaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCategorisListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCategorisListar.Designer.cs">
+      <DependentUpon>FRMCategorisListar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMFondo_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +158,12 @@
     </Compile>
     <Compile Include="FRMPersona_Buscar.Designer.cs">
       <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMProductoListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProductoListar.Designer.cs">
+      <DependentUpon>FRMProductoListar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMProductoRegistrar.cs">
       <SubType>Form</SubType>
@@ -198,6 +216,12 @@
     <Compile Include="prueba.Designer.cs">
       <DependentUpon>prueba.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FRMCategoriaRegistrar.resx">
+      <DependentUpon>FRMCategoriaRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCategorisListar.resx">
+      <DependentUpon>FRMCategorisListar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMFondo_1.resx">
       <DependentUpon>FRMFondo_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMPersona_Buscar.resx">
       <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProductoListar.resx">
+      <DependentUpon>FRMProductoListar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMProductoRegistrar.resx">
       <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>

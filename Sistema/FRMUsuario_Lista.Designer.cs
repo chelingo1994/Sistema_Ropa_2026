@@ -89,7 +89,7 @@
             this.DTGLista.DefaultCellStyle = dataGridViewCellStyle2;
             this.DTGLista.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DTGLista.EnableHeadersVisualStyles = false;
-            this.DTGLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.DTGLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.DTGLista.Location = new System.Drawing.Point(145, 92);
             this.DTGLista.Margin = new System.Windows.Forms.Padding(4);
             this.DTGLista.MultiSelect = false;

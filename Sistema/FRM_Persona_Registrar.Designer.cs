@@ -35,8 +35,6 @@
             this.DTINacimiento = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.TXTApMa = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTNombre = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.TXTCelular = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.TXTCorreo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTDireccion = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTCi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTApPa = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -52,6 +50,8 @@
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
             this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
+            this.TXTCelular = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.TXTCorreo = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.DTINacimiento)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).BeginInit();
@@ -65,8 +65,6 @@
             // 
             // 
             this.SWBEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.BLTAyuda.SetBalloonCaption(this.SWBEstado, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.SWBEstado, "Estado de la Persona");
             this.SWBEstado.Location = new System.Drawing.Point(6, 40);
             this.SWBEstado.Name = "SWBEstado";
             this.SWBEstado.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -100,8 +98,6 @@
             // 
             // 
             this.SWBSexo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.BLTAyuda.SetBalloonCaption(this.SWBSexo, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.SWBSexo, "Sexo de la Persona");
             this.SWBSexo.Location = new System.Drawing.Point(155, 40);
             this.SWBSexo.Name = "SWBSexo";
             this.SWBSexo.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -123,8 +119,6 @@
             // 
             this.DTINacimiento.BackgroundStyle.Class = "DateTimeInputBackground";
             this.DTINacimiento.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.BLTAyuda.SetBalloonCaption(this.DTINacimiento, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.DTINacimiento, "Fecha de Nacimiento de la persona");
             this.DTINacimiento.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.DTINacimiento.ButtonDropDown.Visible = true;
             this.DTINacimiento.IsPopupCalendarOpen = false;
@@ -166,8 +160,6 @@
             // 
             // TXTApMa
             // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTApMa, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTApMa, "Apellido Materno de la Persona");
             // 
             // 
             // 
@@ -184,15 +176,13 @@
             // 
             // TXTNombre
             // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTNombre, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTNombre, "Nombres de la Persona");
             // 
             // 
             // 
             this.TXTNombre.Border.Class = "TextBoxBorder";
             this.TXTNombre.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.TXTNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTNombre.Location = new System.Drawing.Point(6, 153);
+            this.TXTNombre.Location = new System.Drawing.Point(6, 143);
             this.TXTNombre.Name = "TXTNombre";
             this.TXTNombre.PreventEnterBeep = true;
             this.TXTNombre.Size = new System.Drawing.Size(252, 20);
@@ -200,64 +190,25 @@
             this.TXTNombre.WatermarkText = "Nombres";
             this.TXTNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTNombre_KeyDown);
             // 
-            // TXTCelular
-            // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTCelular, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTCelular, "Celular de la Persona");
-            // 
-            // 
-            // 
-            this.TXTCelular.Border.Class = "TextBoxBorder";
-            this.TXTCelular.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTCelular.Location = new System.Drawing.Point(6, 183);
-            this.TXTCelular.Name = "TXTCelular";
-            this.TXTCelular.PreventEnterBeep = true;
-            this.TXTCelular.Size = new System.Drawing.Size(103, 20);
-            this.TXTCelular.TabIndex = 7;
-            this.TXTCelular.WatermarkText = "Celular";
-            this.TXTCelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCelular_KeyDown);
-            // 
-            // TXTCorreo
-            // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTCorreo, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTCorreo, "Correo Electronico de la Persona");
-            // 
-            // 
-            // 
-            this.TXTCorreo.Border.Class = "TextBoxBorder";
-            this.TXTCorreo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTCorreo.Location = new System.Drawing.Point(155, 183);
-            this.TXTCorreo.Name = "TXTCorreo";
-            this.TXTCorreo.PreventEnterBeep = true;
-            this.TXTCorreo.Size = new System.Drawing.Size(103, 20);
-            this.TXTCorreo.TabIndex = 8;
-            this.TXTCorreo.WatermarkText = "Correo";
-            this.TXTCorreo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCorreo_KeyDown);
-            // 
             // TXTDireccion
             // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTDireccion, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTDireccion, "Direccion de la Persona");
             // 
             // 
             // 
             this.TXTDireccion.Border.Class = "TextBoxBorder";
             this.TXTDireccion.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.TXTDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTDireccion.Location = new System.Drawing.Point(6, 223);
+            this.TXTDireccion.Location = new System.Drawing.Point(6, 207);
             this.TXTDireccion.Multiline = true;
             this.TXTDireccion.Name = "TXTDireccion";
             this.TXTDireccion.PreventEnterBeep = true;
-            this.TXTDireccion.Size = new System.Drawing.Size(252, 86);
+            this.TXTDireccion.Size = new System.Drawing.Size(252, 96);
             this.TXTDireccion.TabIndex = 9;
             this.TXTDireccion.TabStop = false;
             this.TXTDireccion.WatermarkText = "Direccion";
             // 
             // TXTCi
             // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTCi, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTCi, "Numero de Documento de Identidad de la Persona");
             // 
             // 
             // 
@@ -275,8 +226,6 @@
             // 
             // TXTApPa
             // 
-            this.BLTAyuda.SetBalloonCaption(this.TXTApPa, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTApPa, "Apellido Paterno de la Persona");
             // 
             // 
             // 
@@ -370,15 +319,15 @@
             // 
             // GBDatos
             // 
+            this.GBDatos.Controls.Add(this.TXTCelular);
+            this.GBDatos.Controls.Add(this.TXTCorreo);
             this.GBDatos.Controls.Add(this.SWBEstado);
             this.GBDatos.Controls.Add(this.SWBSexo);
             this.GBDatos.Controls.Add(this.DTINacimiento);
             this.GBDatos.Controls.Add(this.TXTApMa);
             this.GBDatos.Controls.Add(this.TXTNombre);
             this.GBDatos.Controls.Add(this.TXTApPa);
-            this.GBDatos.Controls.Add(this.TXTCelular);
             this.GBDatos.Controls.Add(this.TXTCi);
-            this.GBDatos.Controls.Add(this.TXTCorreo);
             this.GBDatos.Controls.Add(this.TXTDireccion);
             this.GBDatos.Location = new System.Drawing.Point(18, 32);
             this.GBDatos.Name = "GBDatos";
@@ -433,6 +382,35 @@
             this.BTNLimpiar.TabIndex = 16;
             this.BTNLimpiar.Text = "Limpiar";
             // 
+            // TXTCelular
+            // 
+            // 
+            // 
+            // 
+            this.TXTCelular.Border.Class = "TextBoxBorder";
+            this.TXTCelular.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTCelular.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TXTCelular.Location = new System.Drawing.Point(6, 169);
+            this.TXTCelular.Name = "TXTCelular";
+            this.TXTCelular.PreventEnterBeep = true;
+            this.TXTCelular.Size = new System.Drawing.Size(103, 23);
+            this.TXTCelular.TabIndex = 10;
+            this.TXTCelular.WatermarkText = "Celular";
+            // 
+            // TXTCorreo
+            // 
+            // 
+            // 
+            // 
+            this.TXTCorreo.Border.Class = "TextBoxBorder";
+            this.TXTCorreo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.TXTCorreo.Location = new System.Drawing.Point(155, 169);
+            this.TXTCorreo.Name = "TXTCorreo";
+            this.TXTCorreo.PreventEnterBeep = true;
+            this.TXTCorreo.Size = new System.Drawing.Size(103, 23);
+            this.TXTCorreo.TabIndex = 11;
+            this.TXTCorreo.WatermarkText = "Correo";
+            // 
             // FRM_Persona_Registrar
             // 
             this.AcceptButton = this.BTNGuardar;
@@ -469,8 +447,6 @@
         private DevComponents.Editors.DateTimeAdv.DateTimeInput DTINacimiento;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTApMa;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTNombre;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTCelular;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTCorreo;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTDireccion;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTCi;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTApPa;
@@ -486,5 +462,7 @@
         private System.Windows.Forms.GroupBox GBDatos;
         private DevComponents.DotNetBar.BalloonTip BLTAyuda;
         private System.Windows.Forms.OpenFileDialog OFDElegirImagen;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTCelular;
+        private DevComponents.DotNetBar.Controls.TextBoxX TXTCorreo;
     }
 }

@@ -143,7 +143,7 @@ namespace Sistema
             else if (TXTCorreo.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca un correo", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTCi.Focus();
+                TXTCorreo.Focus();
                 respuesta = false;
             }
 
@@ -156,7 +156,7 @@ namespace Sistema
             else if (TXTDireccion.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca una direccion", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTCi.Focus();
+                TXTDireccion.Focus();
                 respuesta = false;
             }
             else if (TXTCelular.Text.Replace(" ", "") == "")
@@ -550,6 +550,8 @@ namespace Sistema
             }
         }
         #endregion
+
+        
     }
 
 }

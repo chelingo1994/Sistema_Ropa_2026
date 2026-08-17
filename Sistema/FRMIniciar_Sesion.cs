@@ -14,9 +14,9 @@ namespace Sistema
     public partial class FRMIniciar_Sesion : DevComponents.DotNetBar.OfficeForm
     {
         #region varialbes
-        public ausuari usuario =new ausuari();
-        public aperson persona=new aperson();
-        public bool loginExitoso=false;
+        public ausuari usuario = new ausuari();
+        public aperson persona = new aperson();
+        public bool loginExitoso = false;
         public bool actualizarPassword = false;
         #endregion
 
@@ -31,7 +31,7 @@ namespace Sistema
         #endregion
 
         #region Eventos
-        
+
         private void BTNVerPassword_Click(object sender, EventArgs e)
         {
             TXTPassword.UseSystemPasswordChar = !TXTPassword.UseSystemPasswordChar;
@@ -47,7 +47,7 @@ namespace Sistema
         private bool VerificarIntegridad()
         {
             bool respuesta = true;
-            
+
 
 
             if (TXTNombreUsuario.Text.Replace(" ", "") == "")
@@ -74,21 +74,31 @@ namespace Sistema
             if (VerificarIntegridad())
             {
                 usuario.cauanomlog = TXTNombreUsuario.Text;
-                usuario.ObtenerDatosLogin(false,usuario.cauanomlog);
+                usuario.ObtenerDatosLogin(false, usuario.cauanomlog);
                 persona.papscodper = usuario.fauacodper;
                 persona.ObtenerDatos();
                 if (usuario.cauaactcla)
                 {
-                    
-                    if (TXTPassword.Text==persona.capsnumcid)
+
+                    if (TXTPassword.Text == persona.capsnumcid)
                     {
 
-                        MessageBox.Show("Bienvenido "+persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loginExitoso= true;
-                        actualizarPassword=true;
+                        MessageBox.Show("Bienvenido " + persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loginExitoso = true;
+                        actualizarPassword = true;
                         this.Close();
-                        
+
                     }
+                    else
+                    {
+                        MessageBox.Show(
+               "El usuario o la contraseña son incorrectos.",
+               "Error de inicio de sesión",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Error
+                       );
+                    }
+
                 }
                 else
                 {
@@ -97,8 +107,17 @@ namespace Sistema
 
                         MessageBox.Show("Bienvenido " + persona.capsnomper, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginExitoso = true;
-                        actualizarPassword=false;
+                        actualizarPassword = false;
                         this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+               "El usuario o la contraseña son incorrectos.",
+               "Error de inicio de sesión",
+               MessageBoxButtons.OK,
+               MessageBoxIcon.Error
+               );
                     }
                 }
             }

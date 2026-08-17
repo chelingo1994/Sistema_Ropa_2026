@@ -215,4 +215,29 @@
   <data name="icono_huellas_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-fingerprint-error-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imgcategoria" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-prueba-y-compra-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>logo de categoria</comment>
+  </data>
+  <data name="imgcategoriaagregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-prueba-y-compra-48 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgcategoriaeditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-prueba-y-compra-48 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgcategoriareporte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-prueba-y-compra-48 (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgproducto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-price-tag-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgproductoagregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-price-tag-48 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgproductoeditar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-price-tag-48 (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgproductoreporte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-price-tag-48 (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

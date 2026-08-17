@@ -25,6 +25,8 @@ namespace Sistema
             InitializeComponent();
         }
         #endregion
+
+        #region Eventos
         private void FRMUsuario_Lista_Load(object sender, EventArgs e)
         {
 
@@ -35,41 +37,13 @@ namespace Sistema
         private void BTNNuevoUsuario_Click(object sender, EventArgs e)
         {
             FRMUsuario_Registrar a = new FRMUsuario_Registrar();
-            
+
             a.ShowDialog();
             if (a.actualizar)
             {
                 ActualizarGrid();
             }
         }
-
-        #region Metodos
-        private void ActualizarGrid()
-        {
-            DTGLista.Rows.Clear();
-            lista_usuarios.Clear();
-            lista_usuarios = listausuario.Lista("(capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
-                                           "capsapepat like '%" + TXTFiltrar.Text + "%' or " +
-                                           "capsapemat like '%" + TXTFiltrar.Text + "%' or " +
-                                           "capsnomper like '%" + TXTFiltrar.Text + "%') limit " +
-                                           IINFilas.Value.ToString()
-                                           );
-            foreach (lusuari a in lista_usuarios)
-            {
-                //modificar a la tabla datagrid de listar usuarios
-                DTGLista.Rows.Add();
-                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.pauacodusu;
-                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.cauaestusu;
-                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
-                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapepat+" "+a.capsapemat+" "+a.capsnomper;
-                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.cauanomlog;
-               
-              
-
-            }
-
-        }
-        
 
         private void BTNBuscar_Click(object sender, EventArgs e)
         {
@@ -154,13 +128,13 @@ namespace Sistema
 
         private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex>=0)
+            if (e.RowIndex >= 0)
             {
                 if (DTGLista.SelectedRows.Count > 0)
                 {
                     FRMUsuario_Registrar F1 = new FRMUsuario_Registrar();
                     F1.modificar = true;
-                    F1.codUsuMod = DTGLista[0,e.RowIndex].Value.ToString();
+                    F1.codUsuMod = DTGLista[0, e.RowIndex].Value.ToString();
                     F1.ShowDialog();
                     if (F1.actualizar)
                     {
@@ -168,7 +142,7 @@ namespace Sistema
                     }
                 }
             }
-            
+
         }
 
         private void TXTFiltrar_Enter(object sender, EventArgs e)
@@ -176,11 +150,11 @@ namespace Sistema
             TXTFiltrar.SelectAll();
         }
 
-        #endregion
+        
 
         private void BTNActualizarPassword_Click(object sender, EventArgs e)
         {
-            if (DTGLista.SelectedRows.Count>0)
+            if (DTGLista.SelectedRows.Count > 0)
             {
                 if (MessageBox.Show("¿Estas Seguro que desea resetear el password del usuario?" +
                     DTGLista[3, DTGLista.SelectedRows[0].Index].Value.ToString(), "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -205,5 +179,37 @@ namespace Sistema
                 }
             }
         }
+
+        #endregion
+
+        #region Metodos
+        private void ActualizarGrid()
+        {
+            DTGLista.Rows.Clear();
+            lista_usuarios.Clear();
+            lista_usuarios = listausuario.Lista("(capsnumcid like '%" + TXTFiltrar.Text + "%' or " +
+                                           "capsapepat like '%" + TXTFiltrar.Text + "%' or " +
+                                           "capsapemat like '%" + TXTFiltrar.Text + "%' or " +
+                                           "capsnomper like '%" + TXTFiltrar.Text + "%') limit " +
+                                           IINFilas.Value.ToString()
+                                           );
+            foreach (lusuari a in lista_usuarios)
+            {
+                //modificar a la tabla datagrid de listar usuarios
+                DTGLista.Rows.Add();
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.pauacodusu;
+                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.cauaestusu;
+                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
+                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapepat+" "+a.capsapemat+" "+a.capsnomper;
+                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.cauanomlog;
+               
+              
+
+            }
+
+        }
+        #endregion
+
+
     }
 }

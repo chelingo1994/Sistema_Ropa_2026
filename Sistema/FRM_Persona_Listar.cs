@@ -22,25 +22,7 @@ namespace Sistema
             InitializeComponent();
         }
 
-        private void FRM_Persona_Listar_Load(object sender, EventArgs e)
-        {
-
-            this.WindowState = FormWindowState.Maximized;
-            ActualizarGrid();
-        }
-
-        private void BTNNuevo_Click(object sender, EventArgs e)
-        {
-            FRM_Persona_Registrar a= new FRM_Persona_Registrar();
-            
-       
-            a.modificar = false;
-            a.ShowDialog();
-            if (a.actualizar)
-            {
-                ActualizarGrid();
-            }
-        }
+        
 
         #region Métodos
         private void ActualizarGrid()
@@ -79,9 +61,27 @@ namespace Sistema
         #endregion
 
         #region Eventos
-        
 
-       
+        private void FRM_Persona_Listar_Load(object sender, EventArgs e)
+        {
+
+            this.WindowState = FormWindowState.Maximized;
+            ActualizarGrid();
+        }
+
+        private void BTNNuevo_Click(object sender, EventArgs e)
+        {
+            FRM_Persona_Registrar a = new FRM_Persona_Registrar();
+
+
+            a.modificar = false;
+            a.ShowDialog();
+            if (a.actualizar)
+            {
+                ActualizarGrid();
+            }
+        }
+
 
         private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -106,8 +106,6 @@ namespace Sistema
         {
             ActualizarGrid();
         }
-
-        #endregion
 
         private void BTNModificar_Click(object sender, EventArgs e)
         {
@@ -144,7 +142,7 @@ namespace Sistema
 
             if (DTGLista.SelectedRows.Count > 0)
             {
-                
+
                 persona.papscodper = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                 if (persona.ObtenerDatos())
                 {
@@ -193,8 +191,9 @@ namespace Sistema
                     CMSMenu.Items[1].Visible = false;
                 }
             }
-            else { 
-                e.Cancel=true;
+            else
+            {
+                e.Cancel = true;
             }
         }
 
@@ -207,5 +206,9 @@ namespace Sistema
         {
             TXTFiltrar.SelectAll();
         }
+
+        #endregion
+
+
     }
 }
