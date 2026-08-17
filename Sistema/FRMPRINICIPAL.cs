@@ -108,6 +108,7 @@ namespace Sistema
             BTNIniciarSesion.Visible = true;
             BTNIniciarSesionHuellas.Visible = true;
             PNLAdministracion.Hide();
+            RTIItems.Visible = false;
         }
         private void Estado_2()
         {
@@ -126,7 +127,8 @@ namespace Sistema
             BTNCerrarSesion.Visible = true;
             //RTIAdministracion.Enabled = true;
             PNLAdministracion.Show();
-            RTIAdministracion.Visible = true;
+            RTIAdministracion.Visible = true; 
+            RTIItems.Visible = true;
         }
         #endregion
 
@@ -149,6 +151,15 @@ namespace Sistema
 
         private void BTNCategoria_Click(object sender, EventArgs e)
         {
+        }
+
+        private void BTNProducto_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BTNCategoria_Click_1(object sender, EventArgs e)
+        {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
@@ -158,7 +169,7 @@ namespace Sistema
             a.Show();
         }
 
-        private void BTNProducto_Click(object sender, EventArgs e)
+        private void BTNProducto_Click_1(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {

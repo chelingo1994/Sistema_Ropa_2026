@@ -28,7 +28,7 @@ namespace CapaRN
         private string _capdtalpro;
         private string _capddespro;
         private string _capdfotpro;
-        private bool _capdgenpro;
+        private string _capdgenpro;
         private string _fapdcodcat;
         private string _capdcodbar;
         private string _capdmodpro;
@@ -119,7 +119,7 @@ namespace CapaRN
             get { return this._capdfotpro; }
             set { this._capdfotpro = value; }
         }
-        public bool capdgenpro
+        public string capdgenpro
         {
             get { return this._capdgenpro; }
             set { this._capdgenpro = value; }
@@ -176,7 +176,7 @@ namespace CapaRN
             this._capdtalpro = "";
             this._capddespro = "";
             this._capdfotpro = "";
-            this._capdgenpro = true;
+            this._capdgenpro = "";
             this._fapdcodcat = "";
             this._capdcodbar = "";
             this._capdmodpro = "";
@@ -247,7 +247,7 @@ namespace CapaRN
                     Auxiliar.capdtalpro = ResultadoConsulta.GetString(13);
                     Auxiliar.capddespro = ResultadoConsulta.GetString(14);
                     Auxiliar.capdfotpro = ResultadoConsulta.GetString(15);
-                    Auxiliar.capdgenpro = ResultadoConsulta.GetBoolean(16);
+                    Auxiliar.capdgenpro = ResultadoConsulta.GetString(16);
                     Auxiliar.fapdcodcat = ResultadoConsulta.GetString(17);
                     Auxiliar.capdcodbar = ResultadoConsulta.GetString(18);
                     Auxiliar.capdmodpro = ResultadoConsulta.GetString(19);

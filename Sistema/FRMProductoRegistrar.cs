@@ -159,7 +159,7 @@ namespace Sistema
         private void LimpiarCasillas()
         {
             SWBEstado.Value = true;
-            SWBSexo.Value = true;
+            CBGenero.SelectedText = "";
             TXTNombre.Text = "";
             TXTMarca.Text = "";
             TXTalla.Text = "";
@@ -185,9 +185,8 @@ namespace Sistema
             TXTDescripcion.Text = producto.capdmatpro;
             TXTPrecio.Text = producto.capdprvepr.ToString();
             TXTPrecioMin.Text=producto.capdprmipr.ToString();
-            TXTStock.Text = producto.capdstopro.ToString();
             TXTDescripcion.Text=producto.capddespro.ToString();
-            SWBSexo.Value = producto.capdgenpro;
+            CBGenero.SelectedText = producto.capdgenpro;
             TXTModelo.Text = producto.capdmodpro;
             TXTMaterial.Text = producto.capdmatpro;
             if (producto.capdfotpro == "")
@@ -310,7 +309,7 @@ namespace Sistema
                     producto.papdcodpro = this.codProMod;
                 }
                 producto.capdestpro = SWBEstado.Value;
-                producto.capdgenpro = SWBSexo.Value;
+                producto.capdgenpro = CBGenero.SelectedItem.ToString();
                 producto.fapdcodcat = CBCategoria.SelectedValue.ToString();
                 producto.capdtalpro = TXTalla.Text;
                 producto.capdmarpro = TXTMarca.Text;
@@ -322,7 +321,7 @@ namespace Sistema
                 producto.capdprmipr = Decimal.Parse(TXTPrecioMin.Text);
                 producto.capddespro = TXTDescripcion.Text;
                 producto.capdcodbar = "";
-                producto.capdstopro = int.Parse(TXTStock.Text);
+                producto.capdstopro = 0;
 
                 //Fotografia del producto
                 if (TieneFoto)
@@ -530,15 +529,25 @@ namespace Sistema
         private void TXTPrecio_KeyDown(object sender, KeyEventArgs e)
         {
             bool teclaValida = false;
-            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+
+            // Números del teclado numérico
+            if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
                 teclaValida = true;
-            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+
+            // Números de la fila superior
+            else if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 && !e.Shift)
                 teclaValida = true;
+
+            // Teclas de edición
             else if (
-                (e.KeyCode == Keys.Back) ||
-                (e.KeyCode == Keys.Delete) ||
-                (e.KeyCode == Keys.Left) ||
-                (e.KeyCode == Keys.Right))
+                e.KeyCode == Keys.Back ||
+                e.KeyCode == Keys.Delete ||
+                e.KeyCode == Keys.Left ||
+                e.KeyCode == Keys.Right)
+                teclaValida = true;
+
+            // Coma
+            else if (e.KeyCode == Keys.Oemcomma)
                 teclaValida = true;
 
             if (!teclaValida)
@@ -550,15 +559,25 @@ namespace Sistema
         private void TXTPrecioMin_KeyDown(object sender, KeyEventArgs e)
         {
             bool teclaValida = false;
-            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+
+            // Números del teclado numérico
+            if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
                 teclaValida = true;
-            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+
+            // Números de la fila superior
+            else if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9 && !e.Shift)
                 teclaValida = true;
+
+            // Teclas de edición
             else if (
-                (e.KeyCode == Keys.Back) ||
-                (e.KeyCode == Keys.Delete) ||
-                (e.KeyCode == Keys.Left) ||
-                (e.KeyCode == Keys.Right))
+                e.KeyCode == Keys.Back ||
+                e.KeyCode == Keys.Delete ||
+                e.KeyCode == Keys.Left ||
+                e.KeyCode == Keys.Right)
+                teclaValida = true;
+
+            // Coma
+            else if (e.KeyCode == Keys.Oemcomma)
                 teclaValida = true;
 
             if (!teclaValida)

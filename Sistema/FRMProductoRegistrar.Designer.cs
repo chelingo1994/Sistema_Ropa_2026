@@ -31,11 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMProductoRegistrar));
             this.GBDatos = new System.Windows.Forms.GroupBox();
             this.TXTModelo = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.TXTStock = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTPrecioMin = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTPrecio = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTalla = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.SWBSexo = new DevComponents.DotNetBar.Controls.SwitchButton();
             this.TXTMarca = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.CBCategoria = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.SWBEstado = new DevComponents.DotNetBar.Controls.SwitchButton();
@@ -54,6 +52,7 @@
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
+            this.CBGenero = new System.Windows.Forms.ComboBox();
             this.GBDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).BeginInit();
@@ -62,12 +61,11 @@
             // 
             // GBDatos
             // 
+            this.GBDatos.Controls.Add(this.CBGenero);
             this.GBDatos.Controls.Add(this.TXTModelo);
-            this.GBDatos.Controls.Add(this.TXTStock);
             this.GBDatos.Controls.Add(this.TXTPrecioMin);
             this.GBDatos.Controls.Add(this.TXTPrecio);
             this.GBDatos.Controls.Add(this.TXTalla);
-            this.GBDatos.Controls.Add(this.SWBSexo);
             this.GBDatos.Controls.Add(this.TXTMarca);
             this.GBDatos.Controls.Add(this.CBCategoria);
             this.GBDatos.Controls.Add(this.SWBEstado);
@@ -97,22 +95,6 @@
             this.TXTModelo.TabIndex = 17;
             this.TXTModelo.WatermarkText = "Modelo";
             this.TXTModelo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTModelo_KeyDown);
-            // 
-            // TXTStock
-            // 
-            // 
-            // 
-            // 
-            this.TXTStock.Border.Class = "TextBoxBorder";
-            this.TXTStock.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTStock.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTStock.Location = new System.Drawing.Point(80, 210);
-            this.TXTStock.Name = "TXTStock";
-            this.TXTStock.PreventEnterBeep = true;
-            this.TXTStock.Size = new System.Drawing.Size(103, 23);
-            this.TXTStock.TabIndex = 16;
-            this.TXTStock.WatermarkText = "Stock";
-            this.TXTStock.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTStock_KeyDown);
             // 
             // TXTPrecioMin
             // 
@@ -161,26 +143,6 @@
             this.TXTalla.TabIndex = 13;
             this.TXTalla.WatermarkText = "Talla";
             this.TXTalla.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTalla_KeyDown);
-            // 
-            // SWBSexo
-            // 
-            // 
-            // 
-            // 
-            this.SWBSexo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.SWBSexo.Location = new System.Drawing.Point(155, 40);
-            this.SWBSexo.Name = "SWBSexo";
-            this.SWBSexo.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.SWBSexo.OffText = "Femenino";
-            this.SWBSexo.OffTextColor = System.Drawing.Color.White;
-            this.SWBSexo.OnBackColor = System.Drawing.Color.RoyalBlue;
-            this.SWBSexo.OnText = "Masculino";
-            this.SWBSexo.OnTextColor = System.Drawing.Color.White;
-            this.SWBSexo.Size = new System.Drawing.Size(103, 22);
-            this.SWBSexo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.SWBSexo.TabIndex = 12;
-            this.SWBSexo.Value = true;
-            this.SWBSexo.ValueObject = "Y";
             // 
             // TXTMarca
             // 
@@ -432,6 +394,18 @@
             // 
             this.OFDElegirImagen.Filter = "Elegir Imagen|*.jpeg;*.jpg;*.png";
             // 
+            // CBGenero
+            // 
+            this.CBGenero.FormattingEnabled = true;
+            this.CBGenero.Items.AddRange(new object[] {
+            "Hombre",
+            "Mujer",
+            "Unisex"});
+            this.CBGenero.Location = new System.Drawing.Point(155, 40);
+            this.CBGenero.Name = "CBGenero";
+            this.CBGenero.Size = new System.Drawing.Size(103, 24);
+            this.CBGenero.TabIndex = 18;
+            // 
             // FRMProductoRegistrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -479,12 +453,11 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBCategoria;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTMarca;
-        private DevComponents.DotNetBar.Controls.SwitchButton SWBSexo;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTalla;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTStock;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTPrecioMin;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTPrecio;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTModelo;
         private System.Windows.Forms.OpenFileDialog OFDElegirImagen;
+        private System.Windows.Forms.ComboBox CBGenero;
     }
 }

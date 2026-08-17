@@ -12,19 +12,19 @@ namespace CapaRN
     {
 
         #region Campos
-        private DateTime _capdfemopr;
-        private bool _capdestpro;
-        private bool _capdgenpro;
         private int _capdstopro;
         private decimal _capdprvepr;
         private decimal _capdprmipr;
+        private bool _capdestpro;
         private DateTime _capdfecrpr;
+        private DateTime _capdfemopr;
         private string _capdmatpro;
         private string _capdcolpro;
-        private string _capdfotpro;
+        private string _papdcodpro;
         private string _capdtalpro;
         private string _capddespro;
-        private string _papdcodpro;
+        private string _capdfotpro;
+        private string _capdgenpro;
         private string _fapdcodcat;
         private string _capdcodbar;
         private string _capdmodpro;
@@ -35,21 +35,6 @@ namespace CapaRN
         #endregion
 
         #region Propiedades
-        public DateTime capdfemopr
-        {
-            get { return this._capdfemopr; }
-            set { this._capdfemopr = value; }
-        }
-        public bool capdestpro
-        {
-            get { return this._capdestpro; }
-            set { this._capdestpro = value; }
-        }
-        public bool capdgenpro
-        {
-            get { return this._capdgenpro; }
-            set { this._capdgenpro = value; }
-        }
         public int capdstopro
         {
             get { return this._capdstopro; }
@@ -65,10 +50,20 @@ namespace CapaRN
             get { return this._capdprmipr; }
             set { this._capdprmipr = value; }
         }
+        public bool capdestpro
+        {
+            get { return this._capdestpro; }
+            set { this._capdestpro = value; }
+        }
         public DateTime capdfecrpr
         {
             get { return this._capdfecrpr; }
             set { this._capdfecrpr = value; }
+        }
+        public DateTime capdfemopr
+        {
+            get { return this._capdfemopr; }
+            set { this._capdfemopr = value; }
         }
         public string capdmatpro
         {
@@ -80,10 +75,10 @@ namespace CapaRN
             get { return this._capdcolpro; }
             set { this._capdcolpro = value; }
         }
-        public string capdfotpro
+        public string papdcodpro
         {
-            get { return this._capdfotpro; }
-            set { this._capdfotpro = value; }
+            get { return this._papdcodpro; }
+            set { this._papdcodpro = value; }
         }
         public string capdtalpro
         {
@@ -95,10 +90,15 @@ namespace CapaRN
             get { return this._capddespro; }
             set { this._capddespro = value; }
         }
-        public string papdcodpro
+        public string capdfotpro
         {
-            get { return this._papdcodpro; }
-            set { this._papdcodpro = value; }
+            get { return this._capdfotpro; }
+            set { this._capdfotpro = value; }
+        }
+        public string capdgenpro
+        {
+            get { return this._capdgenpro; }
+            set { this._capdgenpro = value; }
         }
         public string fapdcodcat
         {
@@ -130,19 +130,19 @@ namespace CapaRN
         #region Constructor
         public aproduc()
         {
-            this._capdfemopr = DateTime.Now;
-            this._capdestpro = true;
-            this._capdgenpro = true;
             this._capdstopro = 0;
             this._capdprvepr = 0;
             this._capdprmipr = 0;
+            this._capdestpro = true;
             this._capdfecrpr = DateTime.Now;
+            this._capdfemopr = DateTime.Now;
             this._capdmatpro = "";
             this._capdcolpro = "";
-            this._capdfotpro = "";
+            this._papdcodpro = "";
             this._capdtalpro = "";
             this._capddespro = "";
-            this._papdcodpro = "";
+            this._capdfotpro = "";
+            this._capdgenpro = "";
             this._fapdcodcat = "";
             this._capdcodbar = "";
             this._capdmodpro = "";
@@ -157,19 +157,19 @@ namespace CapaRN
         {
             this.Conexion.Conectar();
             string sql = "select " +
-                                 "capdfemopr," +
-                                 "capdestpro," +
-                                 "capdgenpro," +
                                  "capdstopro," +
                                  "capdprvepr," +
                                  "capdprmipr," +
+                                 "capdestpro," +
                                  "capdfecrpr," +
+                                 "capdfemopr," +
                                  "capdmatpro," +
                                  "capdcolpro," +
-                                 "capdfotpro," +
+                                 "papdcodpro," +
                                  "capdtalpro," +
                                  "capddespro," +
-                                 "papdcodpro," +
+                                 "capdfotpro," +
+                                 "capdgenpro," +
                                  "fapdcodcat," +
                                  "capdcodbar," +
                                  "capdmodpro," +
@@ -187,19 +187,19 @@ namespace CapaRN
 
             if (ResultadoConsulta.Read())
             {
-                this._capdfemopr = ResultadoConsulta.GetDateTime(0);
-                this._capdestpro = ResultadoConsulta.GetBoolean(1);
-                this._capdgenpro = ResultadoConsulta.GetBoolean(2);
-                this._capdstopro = ResultadoConsulta.GetInt32(3);
-                this._capdprvepr = ResultadoConsulta.GetDecimal(4);
-                this._capdprmipr = ResultadoConsulta.GetDecimal(5);
-                this._capdfecrpr = ResultadoConsulta.GetDateTime(6);
-                this._capdmatpro = ResultadoConsulta.GetString(7);
-                this._capdcolpro = ResultadoConsulta.GetString(8);
-                this._capdfotpro = ResultadoConsulta.GetString(9);
-                this._capdtalpro = ResultadoConsulta.GetString(10);
-                this._capddespro = ResultadoConsulta.GetString(11);
-                this._papdcodpro = ResultadoConsulta.GetString(12);
+                this._capdstopro = ResultadoConsulta.GetInt32(0);
+                this._capdprvepr = ResultadoConsulta.GetDecimal(1);
+                this._capdprmipr = ResultadoConsulta.GetDecimal(2);
+                this._capdestpro = ResultadoConsulta.GetBoolean(3);
+                this._capdfecrpr = ResultadoConsulta.GetDateTime(4);
+                this._capdfemopr = ResultadoConsulta.GetDateTime(5);
+                this._capdmatpro = ResultadoConsulta.GetString(6);
+                this._capdcolpro = ResultadoConsulta.GetString(7);
+                this._papdcodpro = ResultadoConsulta.GetString(8);
+                this._capdtalpro = ResultadoConsulta.GetString(9);
+                this._capddespro = ResultadoConsulta.GetString(10);
+                this._capdfotpro = ResultadoConsulta.GetString(11);
+                this._capdgenpro = ResultadoConsulta.GetString(12);
                 this._fapdcodcat = ResultadoConsulta.GetString(13);
                 this._capdcodbar = ResultadoConsulta.GetString(14);
                 this._capdmodpro = ResultadoConsulta.GetString(15);
@@ -219,19 +219,19 @@ namespace CapaRN
         {
             this.Conexion.Conectar();
             string sql = "select " +
-                                 "capdfemopr," +
-                                 "capdestpro," +
-                                 "capdgenpro," +
                                  "capdstopro," +
                                  "capdprvepr," +
                                  "capdprmipr," +
+                                 "capdestpro," +
                                  "capdfecrpr," +
+                                 "capdfemopr," +
                                  "capdmatpro," +
                                  "capdcolpro," +
-                                 "capdfotpro," +
+                                 "papdcodpro," +
                                  "capdtalpro," +
                                  "capddespro," +
-                                 "papdcodpro," +
+                                 "capdfotpro," +
+                                 "capdgenpro," +
                                  "fapdcodcat," +
                                  "capdcodbar," +
                                  "capdmodpro," +
@@ -270,19 +270,19 @@ namespace CapaRN
             {
                 this.Conexion.Conectar();
                 string sql = "insert into aproduc (" +
-                                                   "capdfemopr," +
-                                                   "capdestpro," +
-                                                   "capdgenpro," +
                                                    "capdstopro," +
                                                    "capdprvepr," +
                                                    "capdprmipr," +
+                                                   "capdestpro," +
                                                    "capdfecrpr," +
+                                                   "capdfemopr," +
                                                    "capdmatpro," +
                                                    "capdcolpro," +
-                                                   "capdfotpro," +
+                                                   "papdcodpro," +
                                                    "capdtalpro," +
                                                    "capddespro," +
-                                                   "papdcodpro," +
+                                                   "capdfotpro," +
+                                                   "capdgenpro," +
                                                    "fapdcodcat," +
                                                    "capdcodbar," +
                                                    "capdmodpro," +
@@ -290,19 +290,19 @@ namespace CapaRN
                                                    "capdmarpro" +
                                                    ") " +
                              "values (" +
-                                      "@capdfemopr," +
-                                      "@capdestpro," +
-                                      "@capdgenpro," +
                                       "@capdstopro," +
                                       "@capdprvepr," +
                                       "@capdprmipr," +
+                                      "@capdestpro," +
                                       "@capdfecrpr," +
+                                      "@capdfemopr," +
                                       "@capdmatpro," +
                                       "@capdcolpro," +
-                                      "@capdfotpro," +
+                                      "@papdcodpro," +
                                       "@capdtalpro," +
                                       "@capddespro," +
-                                      "@papdcodpro," +
+                                      "@capdfotpro," +
+                                      "@capdgenpro," +
                                       "@fapdcodcat," +
                                       "@capdcodbar," +
                                       "@capdmodpro," +
@@ -312,19 +312,19 @@ namespace CapaRN
 
                 this.Conexion.PrepararComando(sql);
 
-                this.Conexion.AsignarParametroFechaHora("@capdfemopr", this._capdfemopr);
-                this.Conexion.AsignarParametroLogico("@capdestpro", this._capdestpro);
-                this.Conexion.AsignarParametroLogico("@capdgenpro", this._capdgenpro);
                 this.Conexion.AsignarParametroEntero("@capdstopro", this._capdstopro);
                 this.Conexion.AsignarParametroDecimal("@capdprvepr", this._capdprvepr);
                 this.Conexion.AsignarParametroDecimal("@capdprmipr", this._capdprmipr);
+                this.Conexion.AsignarParametroLogico("@capdestpro", this._capdestpro);
                 this.Conexion.AsignarParametroFechaHora("@capdfecrpr", this._capdfecrpr);
+                this.Conexion.AsignarParametroFechaHora("@capdfemopr", this._capdfemopr);
                 this.Conexion.AsignarParametroCadena("@capdmatpro", this._capdmatpro);
                 this.Conexion.AsignarParametroCadena("@capdcolpro", this._capdcolpro);
-                this.Conexion.AsignarParametroCadena("@capdfotpro", this._capdfotpro);
+                this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
                 this.Conexion.AsignarParametroCadena("@capdtalpro", this._capdtalpro);
                 this.Conexion.AsignarParametroCadena("@capddespro", this._capddespro);
-                this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
+                this.Conexion.AsignarParametroCadena("@capdfotpro", this._capdfotpro);
+                this.Conexion.AsignarParametroCadena("@capdgenpro", this._capdgenpro);
                 this.Conexion.AsignarParametroCadena("@fapdcodcat", this._fapdcodcat);
                 this.Conexion.AsignarParametroCadena("@capdcodbar", this._capdcodbar);
                 this.Conexion.AsignarParametroCadena("@capdmodpro", this._capdmodpro);
@@ -347,18 +347,18 @@ namespace CapaRN
             {
                 this.Conexion.Conectar();
                 string sql = "update aproduc set " +
-                                                 "capdfemopr = @capdfemopr, " +
-                                                 "capdestpro = @capdestpro, " +
-                                                 "capdgenpro = @capdgenpro, " +
                                                  "capdstopro = @capdstopro, " +
                                                  "capdprvepr = @capdprvepr, " +
                                                  "capdprmipr = @capdprmipr, " +
+                                                 "capdestpro = @capdestpro, " +
                                                  "capdfecrpr = @capdfecrpr, " +
+                                                 "capdfemopr = @capdfemopr, " +
                                                  "capdmatpro = @capdmatpro, " +
                                                  "capdcolpro = @capdcolpro, " +
-                                                 "capdfotpro = @capdfotpro, " +
                                                  "capdtalpro = @capdtalpro, " +
                                                  "capddespro = @capddespro, " +
+                                                 "capdfotpro = @capdfotpro, " +
+                                                 "capdgenpro = @capdgenpro, " +
                                                  "fapdcodcat = @fapdcodcat, " +
                                                  "capdcodbar = @capdcodbar, " +
                                                  "capdmodpro = @capdmodpro, " +
@@ -369,19 +369,19 @@ namespace CapaRN
 
                 this.Conexion.PrepararComando(sql);
 
-                this.Conexion.AsignarParametroFechaHora("@capdfemopr", this._capdfemopr);
-                this.Conexion.AsignarParametroLogico("@capdestpro", this._capdestpro);
-                this.Conexion.AsignarParametroLogico("@capdgenpro", this._capdgenpro);
                 this.Conexion.AsignarParametroEntero("@capdstopro", this._capdstopro);
                 this.Conexion.AsignarParametroDecimal("@capdprvepr", this._capdprvepr);
                 this.Conexion.AsignarParametroDecimal("@capdprmipr", this._capdprmipr);
+                this.Conexion.AsignarParametroLogico("@capdestpro", this._capdestpro);
                 this.Conexion.AsignarParametroFechaHora("@capdfecrpr", this._capdfecrpr);
+                this.Conexion.AsignarParametroFechaHora("@capdfemopr", this._capdfemopr);
                 this.Conexion.AsignarParametroCadena("@capdmatpro", this._capdmatpro);
                 this.Conexion.AsignarParametroCadena("@capdcolpro", this._capdcolpro);
-                this.Conexion.AsignarParametroCadena("@capdfotpro", this._capdfotpro);
+                this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
                 this.Conexion.AsignarParametroCadena("@capdtalpro", this._capdtalpro);
                 this.Conexion.AsignarParametroCadena("@capddespro", this._capddespro);
-                this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
+                this.Conexion.AsignarParametroCadena("@capdfotpro", this._capdfotpro);
+                this.Conexion.AsignarParametroCadena("@capdgenpro", this._capdgenpro);
                 this.Conexion.AsignarParametroCadena("@fapdcodcat", this._fapdcodcat);
                 this.Conexion.AsignarParametroCadena("@capdcodbar", this._capdcodbar);
                 this.Conexion.AsignarParametroCadena("@capdmodpro", this._capdmodpro);
@@ -399,19 +399,19 @@ namespace CapaRN
             List<aproduc> ListaResultado = new List<aproduc>();
             this.Conexion.Conectar();
             string sql = "select " +
-                                 "capdfemopr," +
-                                 "capdestpro," +
-                                 "capdgenpro," +
                                  "capdstopro," +
                                  "capdprvepr," +
                                  "capdprmipr," +
+                                 "capdestpro," +
                                  "capdfecrpr," +
+                                 "capdfemopr," +
                                  "capdmatpro," +
                                  "capdcolpro," +
-                                 "capdfotpro," +
+                                 "papdcodpro," +
                                  "capdtalpro," +
                                  "capddespro," +
-                                 "papdcodpro," +
+                                 "capdfotpro," +
+                                 "capdgenpro," +
                                  "fapdcodcat," +
                                  "capdcodbar," +
                                  "capdmodpro," +
@@ -433,19 +433,19 @@ namespace CapaRN
                 while (ResultadoConsulta.Read())
                 {
                     aproduc Auxiliar = new aproduc();
-                    Auxiliar.capdfemopr = ResultadoConsulta.GetDateTime(0);
-                    Auxiliar.capdestpro = ResultadoConsulta.GetBoolean(1);
-                    Auxiliar.capdgenpro = ResultadoConsulta.GetBoolean(2);
-                    Auxiliar.capdstopro = ResultadoConsulta.GetInt32(3);
-                    Auxiliar.capdprvepr = ResultadoConsulta.GetDecimal(4);
-                    Auxiliar.capdprmipr = ResultadoConsulta.GetDecimal(5);
-                    Auxiliar.capdfecrpr = ResultadoConsulta.GetDateTime(6);
-                    Auxiliar.capdmatpro = ResultadoConsulta.GetString(7);
-                    Auxiliar.capdcolpro = ResultadoConsulta.GetString(8);
-                    Auxiliar.capdfotpro = ResultadoConsulta.GetString(9);
-                    Auxiliar.capdtalpro = ResultadoConsulta.GetString(10);
-                    Auxiliar.capddespro = ResultadoConsulta.GetString(11);
-                    Auxiliar.papdcodpro = ResultadoConsulta.GetString(12);
+                    Auxiliar.capdstopro = ResultadoConsulta.GetInt32(0);
+                    Auxiliar.capdprvepr = ResultadoConsulta.GetDecimal(1);
+                    Auxiliar.capdprmipr = ResultadoConsulta.GetDecimal(2);
+                    Auxiliar.capdestpro = ResultadoConsulta.GetBoolean(3);
+                    Auxiliar.capdfecrpr = ResultadoConsulta.GetDateTime(4);
+                    Auxiliar.capdfemopr = ResultadoConsulta.GetDateTime(5);
+                    Auxiliar.capdmatpro = ResultadoConsulta.GetString(6);
+                    Auxiliar.capdcolpro = ResultadoConsulta.GetString(7);
+                    Auxiliar.papdcodpro = ResultadoConsulta.GetString(8);
+                    Auxiliar.capdtalpro = ResultadoConsulta.GetString(9);
+                    Auxiliar.capddespro = ResultadoConsulta.GetString(10);
+                    Auxiliar.capdfotpro = ResultadoConsulta.GetString(11);
+                    Auxiliar.capdgenpro = ResultadoConsulta.GetString(12);
                     Auxiliar.fapdcodcat = ResultadoConsulta.GetString(13);
                     Auxiliar.capdcodbar = ResultadoConsulta.GetString(14);
                     Auxiliar.capdmodpro = ResultadoConsulta.GetString(15);
