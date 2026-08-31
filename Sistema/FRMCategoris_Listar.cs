@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class FRMCategorisListar : DevComponents.DotNetBar.OfficeForm
+    public partial class FRMCategoris_Listar : DevComponents.DotNetBar.OfficeForm
     {
         #region Variables
         private acatego categoria = new acatego();
@@ -20,7 +20,7 @@ namespace Sistema
 
         #region Constructor
 
-        public FRMCategorisListar()
+        public FRMCategoris_Listar()
         {
             InitializeComponent();
         }

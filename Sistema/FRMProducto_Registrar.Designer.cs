@@ -1,6 +1,6 @@
 ﻿namespace Sistema
 {
-    partial class FRMProductoRegistrar
+    partial class FRMProducto_Registrar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMProductoRegistrar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMProducto_Registrar));
             this.GBDatos = new System.Windows.Forms.GroupBox();
             this.TXTModelo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTStock = new DevComponents.DotNetBar.Controls.TextBoxX();

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class FRMProductoListar : DevComponents.DotNetBar.OfficeForm
+    public partial class FRMProducto_Listar : DevComponents.DotNetBar.OfficeForm
     {
         #region Variables
         private lproduc lproductos = new lproduc();
@@ -20,7 +20,7 @@ namespace Sistema
         #endregion
 
         #region Constructor
-        public FRMProductoListar()
+        public FRMProducto_Listar()
         {
             InitializeComponent();
         }
@@ -68,7 +68,7 @@ namespace Sistema
 
         private void BTNNuevaCategoria_Click(object sender, EventArgs e)
         {
-            FRMProductoRegistrar a = new FRMProductoRegistrar();
+            FRMProducto_Registrar a = new FRMProducto_Registrar();
 
             a.ShowDialog();
             if (a.actualizar)
@@ -87,7 +87,7 @@ namespace Sistema
         {
             if (DTGLista.SelectedRows.Count > 0)
             {
-                FRMProductoRegistrar F1 = new FRMProductoRegistrar();
+                FRMProducto_Registrar F1 = new FRMProducto_Registrar();
                 F1.modificar = true;
                 F1.codProMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                 F1.ShowDialog();
@@ -165,7 +165,7 @@ namespace Sistema
             {
                 if (DTGLista.SelectedRows.Count > 0)
                 {
-                    FRMProductoRegistrar F1 = new FRMProductoRegistrar();
+                    FRMProducto_Registrar F1 = new FRMProducto_Registrar();
                     F1.modificar = true;
                     F1.codProMod = DTGLista[0, e.RowIndex].Value.ToString();
                     F1.ShowDialog();
@@ -181,7 +181,7 @@ namespace Sistema
         {
             if (DTGLista.SelectedRows.Count > 0)
             {
-                FRMProductoRegistrar F1 = new FRMProductoRegistrar();
+                FRMProducto_Registrar F1 = new FRMProducto_Registrar();
                 F1.modificar = true;
                 F1.codProMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                 F1.ShowDialog();

@@ -111,17 +111,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FRMCategoriaRegistrar.cs">
+    <Compile Include="FRMCategoria_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMCategoriaRegistrar.Designer.cs">
-      <DependentUpon>FRMCategoriaRegistrar.cs</DependentUpon>
+    <Compile Include="FRMCategoria_Registrar.Designer.cs">
+      <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRMCategorisListar.cs">
+    <Compile Include="FRMCategoris_Listar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMCategorisListar.Designer.cs">
-      <DependentUpon>FRMCategorisListar.cs</DependentUpon>
+    <Compile Include="FRMCategoris_Listar.Designer.cs">
+      <DependentUpon>FRMCategoris_Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCliente_Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Listar.Designer.cs">
+      <DependentUpon>FRMCliente_Listar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMFondo_1.cs">
       <SubType>Form</SubType>
@@ -159,17 +165,17 @@
     <Compile Include="FRMPersona_Buscar.Designer.cs">
       <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRMProductoListar.cs">
+    <Compile Include="FRMProducto_Listar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMProductoListar.Designer.cs">
-      <DependentUpon>FRMProductoListar.cs</DependentUpon>
+    <Compile Include="FRMProducto_Listar.Designer.cs">
+      <DependentUpon>FRMProducto_Listar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRMProductoRegistrar.cs">
+    <Compile Include="FRMProducto_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMProductoRegistrar.Designer.cs">
-      <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
+    <Compile Include="FRMProducto_Registrar.Designer.cs">
+      <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMUsuario_Lista.cs">
       <SubType>Form</SubType>
@@ -216,11 +222,14 @@
     <Compile Include="prueba.Designer.cs">
       <DependentUpon>prueba.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FRMCategoriaRegistrar.resx">
-      <DependentUpon>FRMCategoriaRegistrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMCategoria_Registrar.resx">
+      <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRMCategorisListar.resx">
-      <DependentUpon>FRMCategorisListar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMCategoris_Listar.resx">
+      <DependentUpon>FRMCategoris_Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Listar.resx">
+      <DependentUpon>FRMCliente_Listar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMFondo_1.resx">
       <DependentUpon>FRMFondo_1.cs</DependentUpon>
@@ -240,11 +249,11 @@
     <EmbeddedResource Include="FRMPersona_Buscar.resx">
       <DependentUpon>FRMPersona_Buscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRMProductoListar.resx">
-      <DependentUpon>FRMProductoListar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProducto_Listar.resx">
+      <DependentUpon>FRMProducto_Listar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRMProductoRegistrar.resx">
-      <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProducto_Registrar.resx">
+      <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMUsuario_Lista.resx">
       <DependentUpon>FRMUsuario_Lista.cs</DependentUpon>

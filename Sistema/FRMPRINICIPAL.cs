@@ -108,6 +108,8 @@ namespace Sistema
             BTNIniciarSesion.Visible = true;
             BTNIniciarSesionHuellas.Visible = true;
             PNLAdministracion.Hide();
+            PNLSistema.Hide();
+            RTISistema.Visible = false;
         }
         private void Estado_2()
         {
@@ -126,7 +128,9 @@ namespace Sistema
             BTNCerrarSesion.Visible = true;
             //RTIAdministracion.Enabled = true;
             PNLAdministracion.Show();
+            PNLSistema.Show();
             RTIAdministracion.Visible = true;
+            RTISistema.Visible = true;
         }
         #endregion
 
@@ -147,13 +151,17 @@ namespace Sistema
             }
         }
 
+       
+
+    
+
         private void BTNCategoria_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
                 s.Close();
             }
-            FRMCategorisListar a = new FRMCategorisListar();
+            FRMCategoris_Listar a = new FRMCategoris_Listar();
             a.MdiParent = this;
             a.Show();
         }
@@ -164,7 +172,7 @@ namespace Sistema
             {
                 s.Close();
             }
-            FRMProductoListar a = new FRMProductoListar();
+            FRMProducto_Listar a = new FRMProducto_Listar();
             a.MdiParent = this;
             a.Show();
         }

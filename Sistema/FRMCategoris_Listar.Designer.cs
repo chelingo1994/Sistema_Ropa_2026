@@ -1,6 +1,6 @@
 ﻿namespace Sistema
 {
-    partial class FRMCategorisListar
+    partial class FRMCategoris_Listar
     {
         /// <summary>
         /// Required designer variable.

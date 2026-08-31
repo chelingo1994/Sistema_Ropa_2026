@@ -113,6 +113,46 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icono_cliente {
+            get {
+                object obj = ResourceManager.GetObject("icono_cliente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_cliente_add {
+            get {
+                object obj = ResourceManager.GetObject("icono_cliente_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_cliente_mod {
+            get {
+                object obj = ResourceManager.GetObject("icono_cliente_mod", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_cliente_repo {
+            get {
+                object obj = ResourceManager.GetObject("icono_cliente_repo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icono_huellas_2 {
             get {
                 object obj = ResourceManager.GetObject("icono_huellas_2", resourceCulture);
@@ -136,6 +176,46 @@ namespace Sistema.Properties {
         internal static System.Drawing.Bitmap icono_login_finger {
             get {
                 object obj = ResourceManager.GetObject("icono_login_finger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_prove_mod {
+            get {
+                object obj = ResourceManager.GetObject("icono_prove_mod", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_prove_repor {
+            get {
+                object obj = ResourceManager.GetObject("icono_prove_repor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_proveedor {
+            get {
+                object obj = ResourceManager.GetObject("icono_proveedor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icono_proveedor_add {
+            get {
+                object obj = ResourceManager.GetObject("icono_proveedor_add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

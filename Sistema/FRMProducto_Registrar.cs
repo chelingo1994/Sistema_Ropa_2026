@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Sistema
 {
-    public partial class FRMProductoRegistrar : DevComponents.DotNetBar.OfficeForm
+    public partial class FRMProducto_Registrar : DevComponents.DotNetBar.OfficeForm
     {
         #region Variables
         private aproduc producto = new aproduc();
@@ -35,7 +35,7 @@ namespace Sistema
 
         #region Constructor
 
-        public FRMProductoRegistrar()
+        public FRMProducto_Registrar()
         {
             InitializeComponent();
         }
