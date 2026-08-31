@@ -546,7 +546,7 @@
             this.ribbonBar6.Size = new System.Drawing.Size(57, 95);
             this.ribbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar6.TabIndex = 7;
-            this.ribbonBar6.Text = "Proveedor";
+            this.ribbonBar6.Text = "Prove";
             // 
             // 
             // 
