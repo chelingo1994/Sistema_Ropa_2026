@@ -186,7 +186,7 @@ namespace Sistema
             TXTPrecio.Text = producto.capdprvepr.ToString();
             TXTPrecioMin.Text=producto.capdprmipr.ToString();
             TXTDescripcion.Text=producto.capddespro.ToString();
-            CBGenero.SelectedText = producto.capdgenpro;
+            CBGenero.SelectedText = producto.capdgenpro.ToString();
             TXTModelo.Text = producto.capdmodpro;
             TXTMaterial.Text = producto.capdmatpro;
             if (producto.capdfotpro == "")
