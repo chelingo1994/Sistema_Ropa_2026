@@ -123,6 +123,18 @@
     <Compile Include="FRMCategorisListar.Designer.cs">
       <DependentUpon>FRMCategorisListar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMCliente_Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Listar.Designer.cs">
+      <DependentUpon>FRMCliente_Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCliente_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Registrar.Designer.cs">
+      <DependentUpon>FRMCliente_Registrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMFondo_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +182,18 @@
     </Compile>
     <Compile Include="FRMProductoRegistrar.Designer.cs">
       <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMProveedor_Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProveedor_Listar.Designer.cs">
+      <DependentUpon>FRMProveedor_Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMProveedor_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProveedor_Registrar.Designer.cs">
+      <DependentUpon>FRMProveedor_Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMUsuario_Lista.cs">
       <SubType>Form</SubType>
@@ -222,6 +246,12 @@
     <EmbeddedResource Include="FRMCategorisListar.resx">
       <DependentUpon>FRMCategorisListar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Listar.resx">
+      <DependentUpon>FRMCliente_Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Registrar.resx">
+      <DependentUpon>FRMCliente_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMFondo_1.resx">
       <DependentUpon>FRMFondo_1.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,6 +275,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMProductoRegistrar.resx">
       <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProveedor_Listar.resx">
+      <DependentUpon>FRMProveedor_Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProveedor_Registrar.resx">
+      <DependentUpon>FRMProveedor_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMUsuario_Lista.resx">
       <DependentUpon>FRMUsuario_Lista.cs</DependentUpon>

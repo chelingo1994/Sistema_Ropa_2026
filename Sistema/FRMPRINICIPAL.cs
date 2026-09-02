@@ -179,5 +179,27 @@ namespace Sistema
             a.MdiParent = this;
             a.Show();
         }
+
+        private void BTNCliente_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMCliente_Listar a = new FRMCliente_Listar();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void BTNProveedor_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMProveedor_Listar a = new FRMProveedor_Listar();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
 }
