@@ -245,6 +245,8 @@ namespace Sistema
         #region Metodos
         private bool VerificarIntegridad()
         {
+            aprovee proveedor2 = new aprovee();
+            proveedor2.capvnuidtr = int.Parse(TXTNitCi.Text);
             bool respuesta = true;
 
             if (TXTRazon.Text.Replace(" ", "") == "")
@@ -268,6 +270,13 @@ namespace Sistema
             else if (!this.personaok)
             {
                 MessageBox.Show("Debe buscar y seleccionar una persona antes de guardar el proveedor", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                respuesta = false;
+            }
+
+            else if (proveedor2.ObtenerDatosProveedor(modificar, proveedor.capvnuidtr.ToString()))
+            {
+                MessageBox.Show("Ya existe ese NIT/Cédula Registrado", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNitCi.Focus();
                 respuesta = false;
             }
 

@@ -288,6 +288,55 @@ namespace CapaRN
             this.Conexion.Desconectar();
             return ListaResultado;
         }
+
+        public bool ObtenerDatosCliente(bool modificar, string pacecodcliExcluir)
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "caceestcli," +
+                                 "cacenuidtr," +
+                                 "cacetipcli," +
+                                 "pacecodcli," +
+                                 "facecodper," +
+                                 "cacedirecc," +
+                                 "cacerazsoc," +
+                                 "cacetelefo " +
+                          "from aclient " +
+                         "where " +
+                                "cacenuidtr = @cacenuidtr";
+            if (modificar)
+            {
+                sql += " and pacecodcli <> @pacecodcliExcluir";
+            }
+
+            this.Conexion.PrepararComando(sql);
+            this.Conexion.AsignarParametroEntero("@cacenuidtr", this._cacenuidtr);
+            if (modificar)
+            {
+                this.Conexion.AsignarParametroCadena("@pacecodcliExcluir", pacecodcliExcluir);
+            }
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._caceestcli = ResultadoConsulta.GetBoolean(0);
+                this._cacenuidtr = ResultadoConsulta.GetInt32(1);
+                this._cacetipcli = ResultadoConsulta.GetBoolean(2);
+                this._pacecodcli = ResultadoConsulta.GetString(3);
+                this._facecodper = ResultadoConsulta.GetString(4);
+                this._cacedirecc = ResultadoConsulta.GetString(5);
+                this._cacerazsoc = ResultadoConsulta.GetString(6);
+                this._cacetelefo = ResultadoConsulta.GetString(7);
+                this.Conexion.Desconectar();
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
         #endregion
 
     }

@@ -288,6 +288,54 @@ namespace CapaRN
             this.Conexion.Desconectar();
             return ListaResultado;
         }
+        public bool ObtenerDatosProveedor(bool modificar, string papvcodproExcluir)
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "capvestpro," +
+                                 "capvnuidtr," +
+                                 "capvtippro," +
+                                 "papvcodpro," +
+                                 "fapvcodper," +
+                                 "capvdirecc," +
+                                 "capvrazsoc," +
+                                 "capvtelefo " +
+                          "from aprovee " +
+                         "where " +
+                                "capvnuidtr = @capvnuidtr";
+            if (modificar)
+            {
+                sql += " and papvcodpro <> @papvcodproExcluir";
+            }
+
+            this.Conexion.PrepararComando(sql);
+            this.Conexion.AsignarParametroEntero("@capvnuidtr", this._capvnuidtr);
+            if (modificar)
+            {
+                this.Conexion.AsignarParametroCadena("@papvcodproExcluir", papvcodproExcluir);
+            }
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._capvestpro = ResultadoConsulta.GetBoolean(0);
+                this._capvnuidtr = ResultadoConsulta.GetInt32(1);
+                this._capvtippro = ResultadoConsulta.GetBoolean(2);
+                this._papvcodpro = ResultadoConsulta.GetString(3);
+                this._fapvcodper = ResultadoConsulta.GetString(4);
+                this._capvdirecc = ResultadoConsulta.GetString(5);
+                this._capvrazsoc = ResultadoConsulta.GetString(6);
+                this._capvtelefo = ResultadoConsulta.GetString(7);
+                this.Conexion.Desconectar();
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
         #endregion
 
     }

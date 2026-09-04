@@ -230,7 +230,10 @@ namespace Sistema
 
         #region Metodos
         private bool VerificarIntegridad()
+
         {
+            aclient cliente2 = new aclient();
+            cliente2.cacenuidtr = int.Parse(TXTNitCi.Text);
             bool respuesta = true;
 
             if (TXTRazon.Text.Replace(" ", "") == "")
@@ -254,6 +257,13 @@ namespace Sistema
             else if (!this.personaok)
             {
                 MessageBox.Show("Debe buscar y seleccionar una persona antes de guardar el cliente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                respuesta = false;
+            }
+
+            else if (cliente2.ObtenerDatosCliente(modificar, cliente.cacenuidtr.ToString()))
+            {
+                MessageBox.Show("Ya existe ese NIT/Cédula Registrado", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNitCi.Focus();
                 respuesta = false;
             }
 
