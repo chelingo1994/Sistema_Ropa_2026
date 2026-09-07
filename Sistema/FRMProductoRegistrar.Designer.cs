@@ -30,46 +30,47 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMProductoRegistrar));
             this.GBDatos = new System.Windows.Forms.GroupBox();
+            this.LBLCodigoDeBarras = new DevComponents.DotNetBar.LabelX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.IIPStock = new DevComponents.Editors.IntegerInput();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.IIPPrecioMin = new DevComponents.Editors.IntegerInput();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.IIPPrecio = new DevComponents.Editors.IntegerInput();
+            this.CBTalla = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.CBColor = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.CBMaterial = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.CBMarca = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.CBNombreProducto = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.CBGenero = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.CBModelo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.BTNCodigoDeBarras = new DevComponents.DotNetBar.ButtonX();
             this.CBCategoria = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.SWBEstado = new DevComponents.DotNetBar.Controls.SwitchButton();
             this.TXTDescripcion = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
             this.BTNAbrirFoto = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiarFoto = new DevComponents.DotNetBar.ButtonX();
             this.BTNCapturarFoto = new DevComponents.DotNetBar.ButtonX();
             this.PBPrevi = new System.Windows.Forms.PictureBox();
             this.PBCaptura = new System.Windows.Forms.PictureBox();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.OFDElegirImagen = new System.Windows.Forms.OpenFileDialog();
             this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
-            this.TXTBarcode = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.CBModelo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.CBGenero = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.CBNombreProducto = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.CBMarca = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.CBColor = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.CBTalla = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.IIPPrecio = new DevComponents.Editors.IntegerInput();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.IIPPrecioMin = new DevComponents.Editors.IntegerInput();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.IIPStock = new DevComponents.Editors.IntegerInput();
             this.GBDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecioMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecio)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecioMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).BeginInit();
             this.SuspendLayout();
             // 
             // GBDatos
             // 
+            this.GBDatos.Controls.Add(this.LBLCodigoDeBarras);
             this.GBDatos.Controls.Add(this.labelX4);
             this.GBDatos.Controls.Add(this.IIPStock);
             this.GBDatos.Controls.Add(this.labelX3);
@@ -78,13 +79,12 @@
             this.GBDatos.Controls.Add(this.IIPPrecio);
             this.GBDatos.Controls.Add(this.CBTalla);
             this.GBDatos.Controls.Add(this.CBColor);
-            this.GBDatos.Controls.Add(this.comboBoxEx1);
+            this.GBDatos.Controls.Add(this.CBMaterial);
             this.GBDatos.Controls.Add(this.CBMarca);
             this.GBDatos.Controls.Add(this.CBNombreProducto);
             this.GBDatos.Controls.Add(this.CBGenero);
             this.GBDatos.Controls.Add(this.CBModelo);
-            this.GBDatos.Controls.Add(this.buttonX1);
-            this.GBDatos.Controls.Add(this.TXTBarcode);
+            this.GBDatos.Controls.Add(this.BTNCodigoDeBarras);
             this.GBDatos.Controls.Add(this.CBCategoria);
             this.GBDatos.Controls.Add(this.SWBEstado);
             this.GBDatos.Controls.Add(this.TXTDescripcion);
@@ -94,6 +94,210 @@
             this.GBDatos.TabIndex = 25;
             this.GBDatos.TabStop = false;
             this.GBDatos.Text = "Datos del Producto";
+            // 
+            // LBLCodigoDeBarras
+            // 
+            this.LBLCodigoDeBarras.BackColor = System.Drawing.Color.Chartreuse;
+            // 
+            // 
+            // 
+            this.LBLCodigoDeBarras.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.LBLCodigoDeBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBLCodigoDeBarras.Location = new System.Drawing.Point(134, 37);
+            this.LBLCodigoDeBarras.Name = "LBLCodigoDeBarras";
+            this.LBLCodigoDeBarras.Size = new System.Drawing.Size(95, 23);
+            this.LBLCodigoDeBarras.TabIndex = 36;
+            this.LBLCodigoDeBarras.Text = "NO CODIGO ";
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(80, 251);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(42, 34);
+            this.labelX4.TabIndex = 35;
+            this.labelX4.Text = "Stock\r\nActual";
+            // 
+            // IIPStock
+            // 
+            // 
+            // 
+            // 
+            this.IIPStock.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.IIPStock.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IIPStock.Location = new System.Drawing.Point(120, 256);
+            this.IIPStock.Name = "IIPStock";
+            this.IIPStock.ShowUpDown = true;
+            this.IIPStock.Size = new System.Drawing.Size(80, 23);
+            this.IIPStock.TabIndex = 34;
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.Location = new System.Drawing.Point(134, 226);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(42, 23);
+            this.labelX3.TabIndex = 33;
+            this.labelX3.Text = "Precio \r\nMin";
+            // 
+            // IIPPrecioMin
+            // 
+            // 
+            // 
+            // 
+            this.IIPPrecioMin.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.IIPPrecioMin.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.IIPPrecioMin.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IIPPrecioMin.Location = new System.Drawing.Point(174, 226);
+            this.IIPPrecioMin.Name = "IIPPrecioMin";
+            this.IIPPrecioMin.ShowUpDown = true;
+            this.IIPPrecioMin.Size = new System.Drawing.Size(80, 23);
+            this.IIPPrecioMin.TabIndex = 32;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(7, 224);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(42, 23);
+            this.labelX2.TabIndex = 31;
+            this.labelX2.Text = "Precio";
+            // 
+            // IIPPrecio
+            // 
+            // 
+            // 
+            // 
+            this.IIPPrecio.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.IIPPrecio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.IIPPrecio.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IIPPrecio.Location = new System.Drawing.Point(47, 226);
+            this.IIPPrecio.Name = "IIPPrecio";
+            this.IIPPrecio.ShowUpDown = true;
+            this.IIPPrecio.Size = new System.Drawing.Size(80, 23);
+            this.IIPPrecio.TabIndex = 30;
+            // 
+            // CBTalla
+            // 
+            this.CBTalla.DisplayMember = "Text";
+            this.CBTalla.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBTalla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBTalla.FormattingEnabled = true;
+            this.CBTalla.ItemHeight = 14;
+            this.CBTalla.Location = new System.Drawing.Point(133, 200);
+            this.CBTalla.Name = "CBTalla";
+            this.CBTalla.Size = new System.Drawing.Size(121, 20);
+            this.CBTalla.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBTalla.TabIndex = 29;
+            this.CBTalla.WatermarkText = "Talla";
+            // 
+            // CBColor
+            // 
+            this.CBColor.DisplayMember = "Text";
+            this.CBColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBColor.FormattingEnabled = true;
+            this.CBColor.ItemHeight = 14;
+            this.CBColor.Location = new System.Drawing.Point(6, 200);
+            this.CBColor.Name = "CBColor";
+            this.CBColor.Size = new System.Drawing.Size(121, 20);
+            this.CBColor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBColor.TabIndex = 28;
+            this.CBColor.WatermarkText = "Color";
+            // 
+            // CBMaterial
+            // 
+            this.CBMaterial.DisplayMember = "Text";
+            this.CBMaterial.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBMaterial.FormattingEnabled = true;
+            this.CBMaterial.ItemHeight = 14;
+            this.CBMaterial.Location = new System.Drawing.Point(5, 174);
+            this.CBMaterial.Name = "CBMaterial";
+            this.CBMaterial.Size = new System.Drawing.Size(252, 20);
+            this.CBMaterial.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBMaterial.TabIndex = 27;
+            this.CBMaterial.WatermarkText = "Material";
+            // 
+            // CBMarca
+            // 
+            this.CBMarca.DisplayMember = "Text";
+            this.CBMarca.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBMarca.FormattingEnabled = true;
+            this.CBMarca.ItemHeight = 14;
+            this.CBMarca.Location = new System.Drawing.Point(6, 148);
+            this.CBMarca.Name = "CBMarca";
+            this.CBMarca.Size = new System.Drawing.Size(252, 20);
+            this.CBMarca.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBMarca.TabIndex = 26;
+            this.CBMarca.WatermarkText = "Marca";
+            // 
+            // CBNombreProducto
+            // 
+            this.CBNombreProducto.DisplayMember = "Text";
+            this.CBNombreProducto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBNombreProducto.FormattingEnabled = true;
+            this.CBNombreProducto.ItemHeight = 14;
+            this.CBNombreProducto.Location = new System.Drawing.Point(6, 121);
+            this.CBNombreProducto.Name = "CBNombreProducto";
+            this.CBNombreProducto.Size = new System.Drawing.Size(252, 20);
+            this.CBNombreProducto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBNombreProducto.TabIndex = 25;
+            this.CBNombreProducto.WatermarkText = "Nombre del Producto";
+            // 
+            // CBGenero
+            // 
+            this.CBGenero.DisplayMember = "Text";
+            this.CBGenero.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBGenero.FormattingEnabled = true;
+            this.CBGenero.ItemHeight = 14;
+            this.CBGenero.Location = new System.Drawing.Point(133, 68);
+            this.CBGenero.Name = "CBGenero";
+            this.CBGenero.Size = new System.Drawing.Size(125, 20);
+            this.CBGenero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBGenero.TabIndex = 24;
+            this.CBGenero.WatermarkText = "Genero";
+            // 
+            // CBModelo
+            // 
+            this.CBModelo.DisplayMember = "Text";
+            this.CBModelo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBModelo.FormattingEnabled = true;
+            this.CBModelo.ItemHeight = 17;
+            this.CBModelo.Location = new System.Drawing.Point(6, 66);
+            this.CBModelo.Name = "CBModelo";
+            this.CBModelo.Size = new System.Drawing.Size(121, 23);
+            this.CBModelo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.CBModelo.TabIndex = 23;
+            this.CBModelo.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CBModelo.WatermarkText = "Modelo";
+            // 
+            // BTNCodigoDeBarras
+            // 
+            this.BTNCodigoDeBarras.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNCodigoDeBarras.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNCodigoDeBarras.Image = global::Sistema.Properties.Resources.iconobarcode;
+            this.BTNCodigoDeBarras.ImageFixedSize = new System.Drawing.Size(25, 25);
+            this.BTNCodigoDeBarras.Location = new System.Drawing.Point(235, 37);
+            this.BTNCodigoDeBarras.Name = "BTNCodigoDeBarras";
+            this.BTNCodigoDeBarras.Size = new System.Drawing.Size(36, 23);
+            this.BTNCodigoDeBarras.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNCodigoDeBarras.TabIndex = 22;
+            this.BTNCodigoDeBarras.Click += new System.EventHandler(this.BTNCodigoDeBarras_Click);
+            this.BTNCodigoDeBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTNCodigoDeBarras_KeyPress);
             // 
             // CBCategoria
             // 
@@ -162,22 +366,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fotografia";
             // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(287, 12);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
-            this.labelX1.TabIndex = 20;
-            this.labelX1.Text = "Producto";
-            // 
-            // OFDElegirImagen
-            // 
-            this.OFDElegirImagen.Filter = "Elegir Imagen|*.jpeg;*.jpg;*.png";
-            // 
             // BTNAbrirFoto
             // 
             this.BTNAbrirFoto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -239,6 +427,22 @@
             this.PBCaptura.TabIndex = 0;
             this.PBCaptura.TabStop = false;
             // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(287, 12);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.TabIndex = 20;
+            this.labelX1.Text = "Producto";
+            // 
+            // OFDElegirImagen
+            // 
+            this.OFDElegirImagen.Filter = "Elegir Imagen|*.jpeg;*.jpg;*.png";
+            // 
             // BTNSalir
             // 
             this.BTNSalir.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -281,210 +485,6 @@
             this.BTNGuardar.Text = "&Guardar";
             this.BTNGuardar.Click += new System.EventHandler(this.BTNGuardar_Click);
             // 
-            // TXTBarcode
-            // 
-            // 
-            // 
-            // 
-            this.TXTBarcode.Border.Class = "TextBoxBorder";
-            this.TXTBarcode.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.TXTBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TXTBarcode.Location = new System.Drawing.Point(133, 37);
-            this.TXTBarcode.Name = "TXTBarcode";
-            this.TXTBarcode.PreventEnterBeep = true;
-            this.TXTBarcode.Size = new System.Drawing.Size(96, 23);
-            this.TXTBarcode.TabIndex = 19;
-            this.TXTBarcode.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TXTBarcode.WatermarkText = "Codigo de Barra";
-            // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Image = global::Sistema.Properties.Resources.iconobarcode;
-            this.buttonX1.ImageFixedSize = new System.Drawing.Size(25, 25);
-            this.buttonX1.Location = new System.Drawing.Point(222, 38);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(36, 23);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 22;
-            // 
-            // CBModelo
-            // 
-            this.CBModelo.DisplayMember = "Text";
-            this.CBModelo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CBModelo.FormattingEnabled = true;
-            this.CBModelo.ItemHeight = 17;
-            this.CBModelo.Location = new System.Drawing.Point(6, 66);
-            this.CBModelo.Name = "CBModelo";
-            this.CBModelo.Size = new System.Drawing.Size(121, 23);
-            this.CBModelo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.CBModelo.TabIndex = 23;
-            this.CBModelo.WatermarkFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBModelo.WatermarkText = "Modelo";
-            // 
-            // CBGenero
-            // 
-            this.CBGenero.DisplayMember = "Text";
-            this.CBGenero.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CBGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBGenero.FormattingEnabled = true;
-            this.CBGenero.ItemHeight = 14;
-            this.CBGenero.Location = new System.Drawing.Point(133, 68);
-            this.CBGenero.Name = "CBGenero";
-            this.CBGenero.Size = new System.Drawing.Size(125, 20);
-            this.CBGenero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.CBGenero.TabIndex = 24;
-            this.CBGenero.WatermarkText = "Genero";
-            // 
-            // CBNombreProducto
-            // 
-            this.CBNombreProducto.DisplayMember = "Text";
-            this.CBNombreProducto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CBNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBNombreProducto.FormattingEnabled = true;
-            this.CBNombreProducto.ItemHeight = 14;
-            this.CBNombreProducto.Location = new System.Drawing.Point(6, 121);
-            this.CBNombreProducto.Name = "CBNombreProducto";
-            this.CBNombreProducto.Size = new System.Drawing.Size(252, 20);
-            this.CBNombreProducto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.CBNombreProducto.TabIndex = 25;
-            this.CBNombreProducto.WatermarkText = "Nombre del Producto";
-            // 
-            // CBMarca
-            // 
-            this.CBMarca.DisplayMember = "Text";
-            this.CBMarca.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CBMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBMarca.FormattingEnabled = true;
-            this.CBMarca.ItemHeight = 14;
-            this.CBMarca.Location = new System.Drawing.Point(6, 148);
-            this.CBMarca.Name = "CBMarca";
-            this.CBMarca.Size = new System.Drawing.Size(252, 20);
-            this.CBMarca.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.CBMarca.TabIndex = 26;
-            this.CBMarca.WatermarkText = "Marca";
-            // 
-            // comboBoxEx1
-            // 
-            this.comboBoxEx1.DisplayMember = "Text";
-            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 14;
-            this.comboBoxEx1.Location = new System.Drawing.Point(5, 174);
-            this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(252, 20);
-            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.comboBoxEx1.TabIndex = 27;
-            this.comboBoxEx1.WatermarkText = "Material";
-            // 
-            // CBColor
-            // 
-            this.CBColor.DisplayMember = "Text";
-            this.CBColor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CBColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBColor.FormattingEnabled = true;
-            this.CBColor.ItemHeight = 14;
-            this.CBColor.Location = new System.Drawing.Point(6, 200);
-            this.CBColor.Name = "CBColor";
-            this.CBColor.Size = new System.Drawing.Size(121, 20);
-            this.CBColor.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.CBColor.TabIndex = 28;
-            this.CBColor.WatermarkText = "Color";
-            // 
-            // CBTalla
-            // 
-            this.CBTalla.DisplayMember = "Text";
-            this.CBTalla.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.CBTalla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CBTalla.FormattingEnabled = true;
-            this.CBTalla.ItemHeight = 14;
-            this.CBTalla.Location = new System.Drawing.Point(133, 200);
-            this.CBTalla.Name = "CBTalla";
-            this.CBTalla.Size = new System.Drawing.Size(121, 20);
-            this.CBTalla.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.CBTalla.TabIndex = 29;
-            this.CBTalla.WatermarkText = "Talla";
-            // 
-            // IIPPrecio
-            // 
-            // 
-            // 
-            // 
-            this.IIPPrecio.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.IIPPrecio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IIPPrecio.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IIPPrecio.Location = new System.Drawing.Point(47, 226);
-            this.IIPPrecio.Name = "IIPPrecio";
-            this.IIPPrecio.ShowUpDown = true;
-            this.IIPPrecio.Size = new System.Drawing.Size(80, 23);
-            this.IIPPrecio.TabIndex = 30;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(7, 224);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(42, 23);
-            this.labelX2.TabIndex = 31;
-            this.labelX2.Text = "Precio";
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.Location = new System.Drawing.Point(134, 226);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(42, 23);
-            this.labelX3.TabIndex = 33;
-            this.labelX3.Text = "Precio \r\nMin";
-            // 
-            // IIPPrecioMin
-            // 
-            // 
-            // 
-            // 
-            this.IIPPrecioMin.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.IIPPrecioMin.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IIPPrecioMin.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IIPPrecioMin.Location = new System.Drawing.Point(174, 226);
-            this.IIPPrecioMin.Name = "IIPPrecioMin";
-            this.IIPPrecioMin.ShowUpDown = true;
-            this.IIPPrecioMin.Size = new System.Drawing.Size(80, 23);
-            this.IIPPrecioMin.TabIndex = 32;
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(80, 251);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(42, 34);
-            this.labelX4.TabIndex = 35;
-            this.labelX4.Text = "Stock\r\nActual";
-            // 
-            // IIPStock
-            // 
-            // 
-            // 
-            // 
-            this.IIPStock.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IIPStock.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IIPStock.Location = new System.Drawing.Point(120, 256);
-            this.IIPStock.Name = "IIPStock";
-            this.IIPStock.ShowUpDown = true;
-            this.IIPStock.Size = new System.Drawing.Size(80, 23);
-            this.IIPStock.TabIndex = 34;
-            // 
             // FRMProductoRegistrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -505,12 +505,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FRMProductoRegistrar_FormClosing);
             this.Load += new System.EventHandler(this.FRMProductoRegistrar_Load);
             this.GBDatos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecioMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecio)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecioMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -532,13 +532,12 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBCategoria;
         private System.Windows.Forms.OpenFileDialog OFDElegirImagen;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
-        private DevComponents.DotNetBar.Controls.TextBoxX TXTBarcode;
+        private DevComponents.DotNetBar.ButtonX BTNCodigoDeBarras;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBGenero;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBModelo;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBTalla;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBColor;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx CBMaterial;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBMarca;
         private DevComponents.DotNetBar.Controls.ComboBoxEx CBNombreProducto;
         private DevComponents.DotNetBar.LabelX labelX4;
@@ -547,5 +546,6 @@
         private DevComponents.Editors.IntegerInput IIPPrecioMin;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.Editors.IntegerInput IIPPrecio;
+        private DevComponents.DotNetBar.LabelX LBLCodigoDeBarras;
     }
 }

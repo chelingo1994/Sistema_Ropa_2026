@@ -18,6 +18,7 @@ namespace Sistema
     public partial class FRMProductoRegistrar : DevComponents.DotNetBar.OfficeForm
     {
         #region Variables
+        private bool lectorCBHabilitado = false;
         private aproduc producto = new aproduc();
         private xnumcor correlativo = new xnumcor();
         public bool modificar = false;
@@ -97,10 +98,10 @@ namespace Sistema
 
 
 
-            if (TXTMarca.Text.Replace(" ", "") == "")
+            if (CBMarca.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca Marca del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTMarca.Focus();
+                CBMarca.Focus();
                 respuesta = false;
             }
 
@@ -108,50 +109,45 @@ namespace Sistema
 
             
             
-            else if (TXTalla.Text.Replace(" ", "") == "")
+            else if (CBTalla.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca la talla del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTalla.Focus();
+                CBTalla.Focus();
                 respuesta = false;
             }
-            else if (TXTNombre.Text.Replace(" ", "") == "")
+            else if (CBNombreProducto.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el nombre del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTNombre.Focus();
+                CBNombreProducto.Focus();
                 respuesta = false;
             }
 
             
-            else if (TXTColor.Text.Replace(" ", "") == "")
+            else if (CBColor.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el color del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTColor.Focus();
+                CBColor.Focus();
                 respuesta = false;
             }
-            else if (TXTMaterial.Text.Replace(" ", "") == "")
+            else if (CBMaterial.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el material del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTMaterial.Focus();
+                CBMaterial.Focus();
                 respuesta = false;
             }
-            else if (TXTPrecio.Text.Replace(" ", "") == "")
+            else if (IIPPrecio.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el precio del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTPrecio.Focus();
+                IIPPrecio.Focus();
                 respuesta = false;
             }
-            else if (TXTPrecioMin.Text.Replace(" ", "") == "")
+            else if (IIPPrecioMin.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el precio mínimo del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTPrecioMin.Focus();
+                IIPPrecioMin.Focus();
                 respuesta = false;
             }
-            else if (TXTPrecio.Text.Replace(" ", "") == "")
-            {
-                MessageBox.Show("Introduzca el precio del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTPrecio.Focus();
-                respuesta = false;
-            }
+            
 
             return respuesta;
         }
@@ -160,13 +156,13 @@ namespace Sistema
         {
             SWBEstado.Value = true;
             CBGenero.SelectedText = "";
-            TXTNombre.Text = "";
-            TXTMarca.Text = "";
-            TXTalla.Text = "";
-            TXTColor.Text = "";
-            TXTMaterial.Text = "";
-            TXTPrecio.Text = "";
-            TXTPrecioMin.Text = "";
+            CBNombreProducto.Text = "";
+            CBMarca.Text = "";
+            CBTalla.Text = "";
+            CBColor.Text = "";
+            CBMaterial.Text = "";
+            IIPPrecio.Text = "";
+            IIPPrecioMin.Text = "";
 
         }
 
@@ -178,17 +174,17 @@ namespace Sistema
             CBCategoria.SelectedValue = producto.fapdcodcat;
 
 
-            TXTMarca.Text = producto.capdmarpro;
-            TXTalla.Text = producto.capdtalpro;
-            TXTNombre.Text = producto.capdnompro;
-            TXTColor.Text = producto.capdcolpro;
-            TXTDescripcion.Text = producto.capdmatpro;
-            TXTPrecio.Text = producto.capdprvepr.ToString();
-            TXTPrecioMin.Text=producto.capdprmipr.ToString();
+            CBMarca.Text = producto.capdmarpro;
+            CBTalla.Text = producto.capdtalpro;
+            CBNombreProducto.Text = producto.capdnompro;
+            CBColor.Text = producto.capdcolpro;
+            CBMaterial.Text = producto.capdmatpro;
+            IIPPrecio.Text = producto.capdprvepr.ToString();
+            IIPPrecioMin.Text=producto.capdprmipr.ToString();
             TXTDescripcion.Text=producto.capddespro.ToString();
             CBGenero.SelectedText = producto.capdgenpro.ToString();
-            TXTModelo.Text = producto.capdmodpro;
-            TXTMaterial.Text = producto.capdmatpro;
+            CBModelo.Text = producto.capdmodpro;
+            CBMaterial.Text = producto.capdmatpro;
             if (producto.capdfotpro == "")
             {
                 TieneFoto = false;
@@ -276,7 +272,7 @@ namespace Sistema
                 BTNGuardar.Text = "&Modificar";
                 this.Text = "Modificar Producto";
                 GBDatos.Text = "Modificar Producto";
-                TXTNombre.Focus();
+                CBNombreProducto.Focus();
             }
             else
             {
@@ -284,7 +280,7 @@ namespace Sistema
                 BTNGuardar.Text = "&Guardar";
                 this.Text = "Registrar Producto";
                 GBDatos.Text = "Registrar Producto";
-                TXTNombre.Focus();
+                CBNombreProducto.Focus();
             }
         }
 
@@ -311,14 +307,14 @@ namespace Sistema
                 producto.capdestpro = SWBEstado.Value;
                 producto.capdgenpro = CBGenero.SelectedItem.ToString();
                 producto.fapdcodcat = CBCategoria.SelectedValue.ToString();
-                producto.capdtalpro = TXTalla.Text;
-                producto.capdmarpro = TXTMarca.Text;
-                producto.capdmodpro = TXTModelo.Text;
-                producto.capdnompro = TXTNombre.Text;
-                producto.capdcolpro = TXTColor.Text;
-                producto.capdmatpro = TXTMaterial.Text;
-                producto.capdprvepr = Decimal.Parse(TXTPrecio.Text);
-                producto.capdprmipr = Decimal.Parse(TXTPrecioMin.Text);
+                producto.capdtalpro = CBTalla.Text;
+                producto.capdmarpro = CBMarca.Text;
+                producto.capdmodpro = CBModelo.Text;
+                producto.capdnompro = CBNombreProducto.Text;
+                producto.capdcolpro = CBColor.Text;
+                producto.capdmatpro = CBMaterial.Text;
+                producto.capdprvepr = Decimal.Parse(IIPPrecio.Text);
+                producto.capdprmipr = Decimal.Parse(IIPPrecioMin.Text);
                 producto.capddespro = TXTDescripcion.Text;
                 producto.capdcodbar = "";
                 producto.capdstopro = 0;
@@ -599,6 +595,44 @@ namespace Sistema
             if (OFDElegirImagen.ShowDialog() == DialogResult.OK)
             {
                 PBPrevi.ImageLocation = OFDElegirImagen.FileName;
+            }
+        }
+
+       
+
+        private void BTNCodigoDeBarras_Click(object sender, EventArgs e)
+        {
+            if (!lectorCBHabilitado)
+            {
+                lectorCBHabilitado = true;
+                LBLCodigoDeBarras.Text = "LECTOR ACTIVO";
+                LBLCodigoDeBarras.BackColor = Color.PaleGreen;
+            }
+            else
+            {
+                if (LBLCodigoDeBarras.Text == "LECTOR ACTIVO")
+                {
+                    LBLCodigoDeBarras.Text = "SIN CÓDIGO";
+                    LBLCodigoDeBarras.BackColor = Color.Salmon;
+                }
+                else
+                {
+                    LBLCodigoDeBarras.BackColor = Color.LightBlue;
+                }
+                lectorCBHabilitado = false;
+                CBModelo.Focus();
+            }
+        }
+
+        private void BTNCodigoDeBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (LBLCodigoDeBarras.Text == "LECTOR ACTIVO")
+            {
+                LBLCodigoDeBarras.Text = "" + e.KeyChar;
+            }
+            else
+            {
+                LBLCodigoDeBarras.Text += e.KeyChar;
             }
         }
     }
