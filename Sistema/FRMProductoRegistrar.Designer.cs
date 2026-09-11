@@ -43,6 +43,9 @@
             this.CBMarca = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.CBNombreProducto = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.CBGenero = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.comboItem1 = new DevComponents.Editors.ComboItem();
+            this.comboItem2 = new DevComponents.Editors.ComboItem();
+            this.comboItem3 = new DevComponents.Editors.ComboItem();
             this.CBModelo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.BTNCodigoDeBarras = new DevComponents.DotNetBar.ButtonX();
             this.CBCategoria = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -261,15 +264,32 @@
             // 
             this.CBGenero.DisplayMember = "Text";
             this.CBGenero.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBGenero.FormattingEnabled = true;
             this.CBGenero.ItemHeight = 14;
+            this.CBGenero.Items.AddRange(new object[] {
+            this.comboItem1,
+            this.comboItem2,
+            this.comboItem3});
             this.CBGenero.Location = new System.Drawing.Point(133, 68);
             this.CBGenero.Name = "CBGenero";
             this.CBGenero.Size = new System.Drawing.Size(125, 20);
             this.CBGenero.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.CBGenero.TabIndex = 24;
             this.CBGenero.WatermarkText = "Genero";
+            // 
+            // comboItem1
+            // 
+            this.comboItem1.Text = "HOMBRE";
+            // 
+            // comboItem2
+            // 
+            this.comboItem2.Text = "MUJER";
+            // 
+            // comboItem3
+            // 
+            this.comboItem3.Text = "UNISEX";
             // 
             // CBModelo
             // 
@@ -303,6 +323,7 @@
             // 
             this.CBCategoria.DisplayMember = "Text";
             this.CBCategoria.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CBCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBCategoria.FormattingEnabled = true;
             this.CBCategoria.ItemHeight = 14;
@@ -547,5 +568,8 @@
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.Editors.IntegerInput IIPPrecio;
         private DevComponents.DotNetBar.LabelX LBLCodigoDeBarras;
+        private DevComponents.Editors.ComboItem comboItem1;
+        private DevComponents.Editors.ComboItem comboItem2;
+        private DevComponents.Editors.ComboItem comboItem3;
     }
 }

@@ -19,7 +19,7 @@ namespace Sistema
     {
         #region Variables
         private bool lectorCBHabilitado = false;
-        private aproduc producto = new aproduc();
+        public aproduc producto = new aproduc();
         private xnumcor correlativo = new xnumcor();
         public bool modificar = false;
         public String codProMod = "";
@@ -199,13 +199,25 @@ namespace Sistema
 
         private void CargarCategorias()
         {
-            lproduc categoria = new lproduc();
+            acatego categoria = new acatego();
 
-            List<lproduc> lista = categoria.ListaCategorias();
+            List<acatego> lista = categoria.Lista("caceestcat = true order by cacenomcat");
 
             CBCategoria.DataSource = lista;
             CBCategoria.DisplayMember = "cacenomcat";
             CBCategoria.ValueMember = "pacecodcat";
+            CBCategoria.SelectedIndex = -1;
+        }
+
+        private void CargarCombos(String campo,ComboBox combo)
+        {
+            
+            List<string> listacampo=new List<string>();
+            combo.Items.Clear();
+            listacampo =producto.ComboProducto(campo);
+            combo.DataSource = listacampo;
+            combo.SelectedIndex = -1;
+
         }
         #endregion
 
@@ -264,7 +276,7 @@ namespace Sistema
 
             IniciarCamaraOBS();
 
-
+            CargarCombos("capdgenpro", CBGenero);
             CargarCategorias();
             if (this.modificar)
             {
@@ -635,5 +647,7 @@ namespace Sistema
                 LBLCodigoDeBarras.Text += e.KeyChar;
             }
         }
+
+        
     }
 }
