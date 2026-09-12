@@ -34,9 +34,7 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.IIPStock = new DevComponents.Editors.IntegerInput();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.IIPPrecioMin = new DevComponents.Editors.IntegerInput();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.IIPPrecio = new DevComponents.Editors.IntegerInput();
             this.CBTalla = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.CBColor = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.CBMaterial = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -62,24 +60,26 @@
             this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
+            this.DIPPrecio = new DevComponents.Editors.DoubleInput();
+            this.DIPPrecioMin = new DevComponents.Editors.DoubleInput();
             this.GBDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecioMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecio)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIPPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIPPrecioMin)).BeginInit();
             this.SuspendLayout();
             // 
             // GBDatos
             // 
+            this.GBDatos.Controls.Add(this.DIPPrecioMin);
+            this.GBDatos.Controls.Add(this.DIPPrecio);
             this.GBDatos.Controls.Add(this.LBLCodigoDeBarras);
             this.GBDatos.Controls.Add(this.labelX4);
             this.GBDatos.Controls.Add(this.IIPStock);
             this.GBDatos.Controls.Add(this.labelX3);
-            this.GBDatos.Controls.Add(this.IIPPrecioMin);
             this.GBDatos.Controls.Add(this.labelX2);
-            this.GBDatos.Controls.Add(this.IIPPrecio);
             this.GBDatos.Controls.Add(this.CBTalla);
             this.GBDatos.Controls.Add(this.CBColor);
             this.GBDatos.Controls.Add(this.CBMaterial);
@@ -150,20 +150,6 @@
             this.labelX3.TabIndex = 33;
             this.labelX3.Text = "Precio \r\nMin";
             // 
-            // IIPPrecioMin
-            // 
-            // 
-            // 
-            // 
-            this.IIPPrecioMin.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.IIPPrecioMin.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IIPPrecioMin.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IIPPrecioMin.Location = new System.Drawing.Point(174, 226);
-            this.IIPPrecioMin.Name = "IIPPrecioMin";
-            this.IIPPrecioMin.ShowUpDown = true;
-            this.IIPPrecioMin.Size = new System.Drawing.Size(80, 23);
-            this.IIPPrecioMin.TabIndex = 32;
-            // 
             // labelX2
             // 
             // 
@@ -175,20 +161,6 @@
             this.labelX2.Size = new System.Drawing.Size(42, 23);
             this.labelX2.TabIndex = 31;
             this.labelX2.Text = "Precio";
-            // 
-            // IIPPrecio
-            // 
-            // 
-            // 
-            // 
-            this.IIPPrecio.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.IIPPrecio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.IIPPrecio.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.IIPPrecio.Location = new System.Drawing.Point(47, 226);
-            this.IIPPrecio.Name = "IIPPrecio";
-            this.IIPPrecio.ShowUpDown = true;
-            this.IIPPrecio.Size = new System.Drawing.Size(80, 23);
-            this.IIPPrecio.TabIndex = 30;
             // 
             // CBTalla
             // 
@@ -506,6 +478,36 @@
             this.BTNGuardar.Text = "&Guardar";
             this.BTNGuardar.Click += new System.EventHandler(this.BTNGuardar_Click);
             // 
+            // DIPPrecio
+            // 
+            // 
+            // 
+            // 
+            this.DIPPrecio.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.DIPPrecio.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.DIPPrecio.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.DIPPrecio.Increment = 1D;
+            this.DIPPrecio.Location = new System.Drawing.Point(48, 222);
+            this.DIPPrecio.Name = "DIPPrecio";
+            this.DIPPrecio.ShowUpDown = true;
+            this.DIPPrecio.Size = new System.Drawing.Size(80, 23);
+            this.DIPPrecio.TabIndex = 37;
+            // 
+            // DIPPrecioMin
+            // 
+            // 
+            // 
+            // 
+            this.DIPPrecioMin.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.DIPPrecioMin.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.DIPPrecioMin.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.DIPPrecioMin.Increment = 1D;
+            this.DIPPrecioMin.Location = new System.Drawing.Point(174, 224);
+            this.DIPPrecioMin.Name = "DIPPrecioMin";
+            this.DIPPrecioMin.ShowUpDown = true;
+            this.DIPPrecioMin.Size = new System.Drawing.Size(80, 23);
+            this.DIPPrecioMin.TabIndex = 38;
+            // 
             // FRMProductoRegistrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -527,11 +529,11 @@
             this.Load += new System.EventHandler(this.FRMProductoRegistrar_Load);
             this.GBDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecioMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IIPPrecio)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PBPrevi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIPPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIPPrecioMin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,12 +566,12 @@
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.Editors.IntegerInput IIPStock;
         private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.Editors.IntegerInput IIPPrecioMin;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.Editors.IntegerInput IIPPrecio;
         private DevComponents.DotNetBar.LabelX LBLCodigoDeBarras;
         private DevComponents.Editors.ComboItem comboItem1;
         private DevComponents.Editors.ComboItem comboItem2;
         private DevComponents.Editors.ComboItem comboItem3;
+        private DevComponents.Editors.DoubleInput DIPPrecioMin;
+        private DevComponents.Editors.DoubleInput DIPPrecio;
     }
 }

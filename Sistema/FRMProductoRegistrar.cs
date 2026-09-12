@@ -135,16 +135,16 @@ namespace Sistema
                 CBMaterial.Focus();
                 respuesta = false;
             }
-            else if (IIPPrecio.Text.Replace(" ", "") == "")
+            else if (DIPPrecio.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el precio del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                IIPPrecio.Focus();
+                DIPPrecio.Focus();
                 respuesta = false;
             }
-            else if (IIPPrecioMin.Text.Replace(" ", "") == "")
+            else if (DIPPrecioMin.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el precio mínimo del Producto", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                IIPPrecioMin.Focus();
+                DIPPrecioMin.Focus();
                 respuesta = false;
             }
             
@@ -161,8 +161,8 @@ namespace Sistema
             CBTalla.Text = "";
             CBColor.Text = "";
             CBMaterial.Text = "";
-            IIPPrecio.Text = "";
-            IIPPrecioMin.Text = "";
+            DIPPrecio.Text = "";
+            DIPPrecioMin.Text = "";
 
         }
 
@@ -179,12 +179,14 @@ namespace Sistema
             CBNombreProducto.Text = producto.capdnompro;
             CBColor.Text = producto.capdcolpro;
             CBMaterial.Text = producto.capdmatpro;
-            IIPPrecio.Text = producto.capdprvepr.ToString();
-            IIPPrecioMin.Text=producto.capdprmipr.ToString();
+            DIPPrecio.Text = producto.capdprvepr.ToString();
+            DIPPrecioMin.Text = producto.capdprmipr.ToString();
             TXTDescripcion.Text=producto.capddespro.ToString();
-            CBGenero.SelectedText = producto.capdgenpro.ToString();
+            CBGenero.Text = producto.capdgenpro;
             CBModelo.Text = producto.capdmodpro;
             CBMaterial.Text = producto.capdmatpro;
+            LBLCodigoDeBarras.Text = producto.capdcodbar;
+            IIPStock.Text = producto.capdstopro.ToString();
             if (producto.capdfotpro == "")
             {
                 TieneFoto = false;
@@ -276,7 +278,13 @@ namespace Sistema
 
             IniciarCamaraOBS();
 
-            CargarCombos("capdgenpro", CBGenero);
+            
+            CargarCombos("capdmarpro", CBMarca);
+            CargarCombos("capdtalpro", CBTalla);
+            CargarCombos("capdmodpro", CBModelo);
+            CargarCombos("capdcolpro", CBColor);
+            CargarCombos("capdmatpro", CBMaterial);
+            CargarCombos("capdnompro", CBNombreProducto);
             CargarCategorias();
             if (this.modificar)
             {
@@ -325,12 +333,12 @@ namespace Sistema
                 producto.capdnompro = CBNombreProducto.Text;
                 producto.capdcolpro = CBColor.Text;
                 producto.capdmatpro = CBMaterial.Text;
-                producto.capdprvepr = Decimal.Parse(IIPPrecio.Text);
-                producto.capdprmipr = Decimal.Parse(IIPPrecioMin.Text);
+                producto.capdprvepr = Decimal.Parse(DIPPrecio.Text);
+                producto.capdprmipr = Decimal.Parse(DIPPrecioMin.Text);
                 producto.capddespro = TXTDescripcion.Text;
                 producto.capdcodbar = "";
                 producto.capdstopro = 0;
-
+                producto.capdcodbar = LBLCodigoDeBarras.Text;
                 //Fotografia del producto
                 if (TieneFoto)
                 {
