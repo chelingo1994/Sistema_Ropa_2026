@@ -347,29 +347,28 @@ namespace CapaRN
             {
                 this.Conexion.Conectar();
                 string sql = "update aproduc set " +
-                                                 "capdstopro = @capdstopro, " +
-                                                 "capdprvepr = @capdprvepr, " +
-                                                 "capdprmipr = @capdprmipr, " +
-                                                 "capdestpro = @capdestpro, " +
-                                                 "capdfecrpr = @capdfecrpr, " +
-                                                 "capdfemopr = @capdfemopr, " +
-                                                 "capdmatpro = @capdmatpro, " +
-                                                 "capdcolpro = @capdcolpro, " +
-                                                 "capdtalpro = @capdtalpro, " +
-                                                 "capddespro = @capddespro, " +
-                                                 "capdfotpro = @capdfotpro, " +
-                                                 "capdgenpro = @capdgenpro, " +
-                                                 "fapdcodcat = @fapdcodcat, " +
-                                                 "capdcodbar = @capdcodbar, " +
-                                                 "capdmodpro = @capdmodpro, " +
-                                                 "capdnompro = @capdnompro, " +
-                                                 "capdmarpro = @capdmarpro" +
-                             " where " +
-                                    "papdcodpro = @papdcodpro";
+             "capdprvepr = @capdprvepr, " +
+             "capdprmipr = @capdprmipr, " +
+             "capdestpro = @capdestpro, " +
+             "capdfecrpr = @capdfecrpr, " +
+             "capdfemopr = @capdfemopr, " +
+             "capdmatpro = @capdmatpro, " +
+             "capdcolpro = @capdcolpro, " +
+             "capdtalpro = @capdtalpro, " +
+             "capddespro = @capddespro, " +
+             "capdfotpro = @capdfotpro, " +
+             "capdgenpro = @capdgenpro, " +
+             "fapdcodcat = @fapdcodcat, " +
+             "capdcodbar = @capdcodbar, " +
+             "capdmodpro = @capdmodpro, " +
+             "capdnompro = @capdnompro, " +
+             "capdmarpro = @capdmarpro " +
+             "where papdcodpro = @papdcodpro";
+
 
                 this.Conexion.PrepararComando(sql);
 
-                this.Conexion.AsignarParametroEntero("@capdstopro", this._capdstopro);
+                
                 this.Conexion.AsignarParametroDecimal("@capdprvepr", this._capdprvepr);
                 this.Conexion.AsignarParametroDecimal("@capdprmipr", this._capdprmipr);
                 this.Conexion.AsignarParametroLogico("@capdestpro", this._capdestpro);
@@ -494,6 +493,53 @@ namespace CapaRN
             }
 
             return listaResultado;
+        }
+
+        public bool ExisteCodigoBarras(string codigoBarras, string codigoProductoActual = "")
+        {
+            if (string.IsNullOrWhiteSpace(codigoBarras))
+                return false;
+
+            this.Conexion.Conectar();
+
+            string sql = @"
+        SELECT COUNT(*)
+        FROM aproduc
+        WHERE capdcodbar = @capdcodbar
+          AND capdcodbar <> ''
+    ";
+
+            // Si estamos modificando, excluimos el producto actual
+            if (!string.IsNullOrWhiteSpace(codigoProductoActual))
+            {
+                sql += " AND papdcodpro <> @papdcodpro";
+            }
+
+            try
+            {
+                this.Conexion.PrepararComando(sql);
+
+                this.Conexion.AsignarParametroCadena("@capdcodbar", codigoBarras);
+
+                if (!string.IsNullOrWhiteSpace(codigoProductoActual))
+                {
+                    this.Conexion.AsignarParametroCadena("@papdcodpro", codigoProductoActual);
+                }
+
+                DbDataReader resultado = this.Conexion.EjecutarConsulta();
+
+                if (resultado != null && resultado.Read())
+                {
+                    int cantidad = resultado.GetInt32(0);
+                    return cantidad > 0;
+                }
+
+                return false;
+            }
+            finally
+            {
+                this.Conexion.Desconectar();
+            }
         }
 
         #endregion
