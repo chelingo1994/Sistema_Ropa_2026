@@ -207,6 +207,18 @@
     <Compile Include="FRMUsuario_Registrar.Designer.cs">
       <DependentUpon>FRMUsuario_Registrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMVenta_Listar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMVenta_Listar.Designer.cs">
+      <DependentUpon>FRMVenta_Listar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMVenta_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMVenta_Registrar.Designer.cs">
+      <DependentUpon>FRMVenta_Registrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRM_Persona_Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMUsuario_Registrar.resx">
       <DependentUpon>FRMUsuario_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMVenta_Listar.resx">
+      <DependentUpon>FRMVenta_Listar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMVenta_Registrar.resx">
+      <DependentUpon>FRMVenta_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRM_Persona_Registrar.resx">
       <DependentUpon>FRM_Persona_Registrar.cs</DependentUpon>
