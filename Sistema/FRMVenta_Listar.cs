@@ -16,5 +16,16 @@ namespace Sistema
         {
             InitializeComponent();
         }
+
+        private void BTNNuevaVenta_Click(object sender, EventArgs e)
+        {
+            FRMVenta_Registrar a = new FRMVenta_Registrar();
+
+            a.ShowDialog();
+            /*if (a.actualizar)
+            {
+                ActualizarGrid();
+            }*/
+        }
     }
 }

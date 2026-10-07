@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Accord;
+using CapaRN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,48 @@ namespace Sistema
 {
     public partial class FRMVenta_Registrar : DevComponents.DotNetBar.OfficeForm
     {
+
+        #region Variables
+        private aclient cliente = new aclient();
+        private bool clienteok = false;
+        #endregion
         public FRMVenta_Registrar()
         {
             InitializeComponent();
         }
 
-        private void labelX1_Click(object sender, EventArgs e)
+        private void TXTNitCi_Leave(object sender, EventArgs e)
         {
+            cliente.cacenuidtr = int.Parse(TXTNitCi.Text);
+            if (cliente.ObtenerDatosNIT())
+            {
+                TXTNombreCliente.Text = cliente.cacerazsoc;
+                clienteok = true;
+            }
+            else
+            {
+                TXTNombreCliente.Text = "";
+                clienteok = false;
+            }
+        }
 
+        private void BTNBuscar_Click(object sender, EventArgs e)
+        {
+            FRMCliente_Buscar a = new FRMCliente_Buscar();
+            a.ShowDialog();
+            if (a.seleccionadoOk)
+            {
+                this.cliente = a.cliente;
+                this.clienteok = true;
+                TXTNitCi.Text = cliente.cacenuidtr.ToString();
+                TXTNombreCliente.Text = cliente.cacerazsoc;
+            }
+            else
+            {
+                this.clienteok = false;
+                TXTNitCi.Text = "";
+                TXTNombreCliente.Text = "Nombre del cliente";
+            }
         }
     }
 }

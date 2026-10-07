@@ -201,5 +201,16 @@ namespace Sistema
             a.MdiParent = this;
             a.Show();
         }
+
+        private void BTNVenta_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMVenta_Listar a = new FRMVenta_Listar();
+            a.MdiParent = this;
+            a.Show();
+        }
     }
 }

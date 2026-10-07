@@ -125,6 +125,48 @@ namespace CapaRN
                 return false;
             }
         }
+        public bool ObtenerDatosNIT()
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "caceestcli," +
+                                 "cacenuidtr," +
+                                 "cacetipcli," +
+                                 "pacecodcli," +
+                                 "facecodper," +
+                                 "cacedirecc," +
+                                 "cacerazsoc," +
+                                 "cacetelefo " +
+                         "from aclient " +
+                         "where " +
+                                "pacecodcli = @pacecodcli and caceestcli = true";
+
+            this.Conexion.PrepararComando(sql);
+
+            this.Conexion.AsignarParametroCadena("@pacecodcli", this._pacecodcli);
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._caceestcli = ResultadoConsulta.GetBoolean(0);
+                this._cacenuidtr = ResultadoConsulta.GetInt32(1);
+                this._cacetipcli = ResultadoConsulta.GetBoolean(2);
+                this._pacecodcli = ResultadoConsulta.GetString(3);
+                this._facecodper = ResultadoConsulta.GetString(4);
+                this._cacedirecc = ResultadoConsulta.GetString(5);
+                this._cacerazsoc = ResultadoConsulta.GetString(6);
+                this._cacetelefo = ResultadoConsulta.GetString(7);
+                this.Conexion.Desconectar();
+
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
         public bool VerificarExistencia()
         {
             this.Conexion.Conectar();

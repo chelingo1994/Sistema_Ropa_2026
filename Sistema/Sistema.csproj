@@ -123,6 +123,12 @@
     <Compile Include="FRMCategorisListar.Designer.cs">
       <DependentUpon>FRMCategorisListar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMCliente_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Buscar.Designer.cs">
+      <DependentUpon>FRMCliente_Buscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMCliente_Listar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMCategorisListar.resx">
       <DependentUpon>FRMCategorisListar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Buscar.resx">
+      <DependentUpon>FRMCliente_Buscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMCliente_Listar.resx">
       <DependentUpon>FRMCliente_Listar.cs</DependentUpon>
