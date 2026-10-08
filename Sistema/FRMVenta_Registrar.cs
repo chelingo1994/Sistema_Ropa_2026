@@ -17,6 +17,8 @@ namespace Sistema
 
         #region Variables
         private aclient cliente = new aclient();
+        private bool lectorCBHabilitado = false;
+        public aproduc producto = new aproduc();
         private bool clienteok = false;
         #endregion
         public FRMVenta_Registrar()
@@ -26,11 +28,20 @@ namespace Sistema
 
         private void TXTNitCi_Leave(object sender, EventArgs e)
         {
-            cliente.cacenuidtr = int.Parse(TXTNitCi.Text);
-            if (cliente.ObtenerDatosNIT())
+            if (int.TryParse(TXTNitCi.Text, out int nit))
             {
-                TXTNombreCliente.Text = cliente.cacerazsoc;
-                clienteok = true;
+                cliente.cacenuidtr = nit;
+
+                if (cliente.ObtenerDatosNIT())
+                {
+                    TXTNombreCliente.Text = cliente.cacerazsoc;
+                    clienteok = true;
+                }
+                else
+                {
+                    TXTNombreCliente.Text = "";
+                    clienteok = false;
+                }
             }
             else
             {
@@ -55,6 +66,45 @@ namespace Sistema
                 this.clienteok = false;
                 TXTNitCi.Text = "";
                 TXTNombreCliente.Text = "Nombre del cliente";
+            }
+        }
+
+        private void BTNCodigoDeBarras_Click(object sender, EventArgs e)
+        {
+            if (!lectorCBHabilitado)
+            {
+                lectorCBHabilitado = true;
+                LBLCodigoDeBarras.Text = "LECTOR ACTIVO";
+                LBLCodigoDeBarras.BackColor = Color.PaleGreen;
+            }
+            else
+            {
+                if (LBLCodigoDeBarras.Text == "LECTOR ACTIVO")
+                {
+                    LBLCodigoDeBarras.Text = "SIN CÓDIGO";
+                    LBLCodigoDeBarras.BackColor = Color.Salmon;
+                }
+                else
+                {
+                    producto.capdcodbar = LBLCodigoDeBarras.Text;
+                    if (producto.ObtenerDatosCodigo(false, producto.capdcodbar))
+                    {
+                        MessageBox.Show("Producto encontrado " + producto.capddespro);
+                    }
+                }
+                lectorCBHabilitado = false;
+            }
+        }
+
+        private void BTNCodigoDeBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (LBLCodigoDeBarras.Text == "LECTOR ACTIVO")
+            {
+                LBLCodigoDeBarras.Text = "" + e.KeyChar;
+            }
+            else
+            {
+                LBLCodigoDeBarras.Text += e.KeyChar;
             }
         }
     }

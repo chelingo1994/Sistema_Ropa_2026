@@ -38,6 +38,9 @@
             this.DTGLista = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EPNLOpciones = new DevComponents.DotNetBar.ExpandablePanel();
+            this.BTNReporteVenta = new DevComponents.DotNetBar.ButtonX();
+            this.BTNModificarVenta = new DevComponents.DotNetBar.ButtonX();
+            this.BTNNuevaVenta = new DevComponents.DotNetBar.ButtonX();
             this.TXTFiltrar = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.IINFilas = new DevComponents.Editors.IntegerInput();
@@ -46,9 +49,6 @@
             this.inhabilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.habilitarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EPNLFiltrar = new DevComponents.DotNetBar.ExpandablePanel();
-            this.BTNReporteVenta = new DevComponents.DotNetBar.ButtonX();
-            this.BTNModificarVenta = new DevComponents.DotNetBar.ButtonX();
-            this.BTNNuevaVenta = new DevComponents.DotNetBar.ButtonX();
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
             this.EPNLOpciones.SuspendLayout();
@@ -102,7 +102,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DTGLista.DefaultCellStyle = dataGridViewCellStyle5;
             this.DTGLista.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -163,6 +163,55 @@
             this.EPNLOpciones.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.EPNLOpciones.TitleStyle.GradientAngle = 90;
             this.EPNLOpciones.TitleText = "Opciones";
+            // 
+            // BTNReporteVenta
+            // 
+            this.BTNReporteVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNReporteVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNReporteVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTNReporteVenta.Image = global::Sistema.Properties.Resources.ventas_reporte;
+            this.BTNReporteVenta.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.BTNReporteVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTNReporteVenta.Location = new System.Drawing.Point(0, 222);
+            this.BTNReporteVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.BTNReporteVenta.Name = "BTNReporteVenta";
+            this.BTNReporteVenta.Size = new System.Drawing.Size(137, 93);
+            this.BTNReporteVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNReporteVenta.TabIndex = 6;
+            this.BTNReporteVenta.Text = "Reporte Venta";
+            // 
+            // BTNModificarVenta
+            // 
+            this.BTNModificarVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNModificarVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNModificarVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTNModificarVenta.Image = global::Sistema.Properties.Resources.ventas_edit;
+            this.BTNModificarVenta.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.BTNModificarVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTNModificarVenta.Location = new System.Drawing.Point(0, 129);
+            this.BTNModificarVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.BTNModificarVenta.Name = "BTNModificarVenta";
+            this.BTNModificarVenta.Size = new System.Drawing.Size(137, 93);
+            this.BTNModificarVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNModificarVenta.TabIndex = 5;
+            this.BTNModificarVenta.Text = "Modificar Venta";
+            // 
+            // BTNNuevaVenta
+            // 
+            this.BTNNuevaVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNNuevaVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNNuevaVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTNNuevaVenta.Image = global::Sistema.Properties.Resources.ventas_add;
+            this.BTNNuevaVenta.ImageFixedSize = new System.Drawing.Size(50, 50);
+            this.BTNNuevaVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.BTNNuevaVenta.Location = new System.Drawing.Point(0, 36);
+            this.BTNNuevaVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.BTNNuevaVenta.Name = "BTNNuevaVenta";
+            this.BTNNuevaVenta.Size = new System.Drawing.Size(137, 93);
+            this.BTNNuevaVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNNuevaVenta.TabIndex = 4;
+            this.BTNNuevaVenta.Text = "Nuevo Venta";
+            this.BTNNuevaVenta.Click += new System.EventHandler(this.BTNNuevaVenta_Click);
             // 
             // TXTFiltrar
             // 
@@ -270,55 +319,6 @@
             this.EPNLFiltrar.TitleStyle.GradientAngle = 90;
             this.EPNLFiltrar.TitleText = "Filtrar";
             // 
-            // BTNReporteVenta
-            // 
-            this.BTNReporteVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNReporteVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNReporteVenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNReporteVenta.Image = global::Sistema.Properties.Resources.ventas_reporte;
-            this.BTNReporteVenta.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.BTNReporteVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTNReporteVenta.Location = new System.Drawing.Point(0, 222);
-            this.BTNReporteVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.BTNReporteVenta.Name = "BTNReporteVenta";
-            this.BTNReporteVenta.Size = new System.Drawing.Size(137, 93);
-            this.BTNReporteVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNReporteVenta.TabIndex = 6;
-            this.BTNReporteVenta.Text = "Reporte Venta";
-            // 
-            // BTNModificarVenta
-            // 
-            this.BTNModificarVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNModificarVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNModificarVenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNModificarVenta.Image = global::Sistema.Properties.Resources.ventas_edit;
-            this.BTNModificarVenta.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.BTNModificarVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTNModificarVenta.Location = new System.Drawing.Point(0, 129);
-            this.BTNModificarVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.BTNModificarVenta.Name = "BTNModificarVenta";
-            this.BTNModificarVenta.Size = new System.Drawing.Size(137, 93);
-            this.BTNModificarVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNModificarVenta.TabIndex = 5;
-            this.BTNModificarVenta.Text = "Modificar Venta";
-            // 
-            // BTNNuevaVenta
-            // 
-            this.BTNNuevaVenta.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNNuevaVenta.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNNuevaVenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNNuevaVenta.Image = global::Sistema.Properties.Resources.ventas_add;
-            this.BTNNuevaVenta.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.BTNNuevaVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.BTNNuevaVenta.Location = new System.Drawing.Point(0, 36);
-            this.BTNNuevaVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.BTNNuevaVenta.Name = "BTNNuevaVenta";
-            this.BTNNuevaVenta.Size = new System.Drawing.Size(137, 93);
-            this.BTNNuevaVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNNuevaVenta.TabIndex = 4;
-            this.BTNNuevaVenta.Text = "Nuevo Venta";
-            this.BTNNuevaVenta.Click += new System.EventHandler(this.BTNNuevaVenta_Click);
-            // 
             // BTNBuscar
             // 
             this.BTNBuscar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -345,6 +345,7 @@
             this.Name = "FRMVenta_Listar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FRMVenta_Listar";
+            this.Load += new System.EventHandler(this.FRMVenta_Listar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).EndInit();
             this.EPNLOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IINFilas)).EndInit();

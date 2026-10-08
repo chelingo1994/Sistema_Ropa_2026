@@ -33,7 +33,6 @@
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
             this.BTNVenta = new DevComponents.DotNetBar.ButtonItem();
-            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
             this.BTNProveedor = new DevComponents.DotNetBar.ButtonItem();
             this.tra = new DevComponents.DotNetBar.RibbonBar();
@@ -129,8 +128,7 @@
             // 
             // 
             // 
-            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel2.TabIndex = 2;
+            
             // 
             // ribbonBar5
             // 
@@ -147,11 +145,10 @@
             this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Left;
             this.ribbonBar5.DragDropSupport = true;
             this.ribbonBar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.BTNVenta,
-            this.buttonItem1});
+            this.BTNVenta});
             this.ribbonBar5.Location = new System.Drawing.Point(231, 0);
             this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(57, 95);
+            this.ribbonBar5.Size = new System.Drawing.Size(56, 95);
             this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar5.TabIndex = 8;
             this.ribbonBar5.Text = "Ventas";
@@ -162,7 +159,7 @@
             // 
             // 
             // 
-            this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            
             // 
             // BTNVenta
             // 
@@ -172,14 +169,6 @@
             this.BTNVenta.Name = "BTNVenta";
             this.BTNVenta.SubItemsExpandWidth = 14;
             this.BTNVenta.Click += new System.EventHandler(this.BTNVenta_Click);
-            // 
-            // buttonItem1
-            // 
-            this.buttonItem1.Image = global::Sistema.Properties.Resources.imgcategoria;
-            this.buttonItem1.ImageFixedSize = new System.Drawing.Size(50, 50);
-            this.buttonItem1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonItem1.Name = "buttonItem1";
-            this.buttonItem1.SubItemsExpandWidth = 14;
             // 
             // ribbonBar6
             // 
@@ -347,10 +336,10 @@
             this.PNLAdministracion.Controls.Add(this.ribbonBar2);
             this.PNLAdministracion.Controls.Add(this.ribbonBar1);
             this.PNLAdministracion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PNLAdministracion.Location = new System.Drawing.Point(0, 0);
+            this.PNLAdministracion.Location = new System.Drawing.Point(0, 53);
             this.PNLAdministracion.Name = "PNLAdministracion";
             this.PNLAdministracion.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.PNLAdministracion.Size = new System.Drawing.Size(800, 151);
+            this.PNLAdministracion.Size = new System.Drawing.Size(800, 98);
             // 
             // 
             // 
@@ -384,7 +373,7 @@
             this.BTNUsuario});
             this.ribbonBar2.Location = new System.Drawing.Point(60, 0);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(57, 148);
+            this.ribbonBar2.Size = new System.Drawing.Size(57, 95);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar2.TabIndex = 1;
             this.ribbonBar2.Text = "Usuario";
@@ -424,7 +413,7 @@
             this.BTNPersonas});
             this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(57, 148);
+            this.ribbonBar1.Size = new System.Drawing.Size(57, 95);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar1.TabIndex = 0;
             this.ribbonBar1.Text = "Personas";
@@ -652,7 +641,6 @@
         private DevComponents.DotNetBar.ButtonItem BTNConfigurar;
         private DevComponents.DotNetBar.ButtonItem BTNSalir;
         private DevComponents.DotNetBar.ButtonItem BTNIniciarSesionHuellas;
-        private DevComponents.DotNetBar.ButtonItem buttonItem1;
         private DevComponents.DotNetBar.RibbonBar ribbonBar4;
         private DevComponents.DotNetBar.ButtonItem BTNProducto;
         private DevComponents.DotNetBar.RibbonBar ribbonBar3;
