@@ -19,13 +19,17 @@ namespace Sistema
         private aclient cliente = new aclient();
         private bool lectorCBHabilitado = false;
         public aproduc producto = new aproduc();
+        private List<litemven> listaItems = new List<litemven>();
+
         private bool clienteok = false;
         #endregion
+        #region Constructor
         public FRMVenta_Registrar()
         {
             InitializeComponent();
         }
-
+        #endregion
+        #region Eventos
         private void TXTNitCi_Leave(object sender, EventArgs e)
         {
             if (int.TryParse(TXTNitCi.Text, out int nit))
@@ -89,7 +93,9 @@ namespace Sistema
                     producto.capdcodbar = LBLCodigoDeBarras.Text;
                     if (producto.ObtenerDatosCodigo(false, producto.capdcodbar))
                     {
-                        MessageBox.Show("Producto encontrado " + producto.capddespro);
+                        agregarProductoALista(producto);
+                        LBLCodigoDeBarras.Text = "LECTOR ACTIVO";
+
                     }
                 }
                 lectorCBHabilitado = false;
@@ -107,5 +113,44 @@ namespace Sistema
                 LBLCodigoDeBarras.Text += e.KeyChar;
             }
         }
+        #endregion
+
+        #region Metodos
+        private void actualizarGridItems()
+        {
+            DTGLista.Rows.Clear();
+            foreach (litemven a in listaItems)
+            {
+                DTGLista.Rows.Add();
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.pdevcodeve;
+                DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capdmodpro;
+                DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capdcodbar;
+                DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capdnompro;
+                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.capdtalpro;
+                DTGLista[5, DTGLista.Rows.Count - 1].Value = a.capddespro;
+                DTGLista[6, DTGLista.Rows.Count - 1].Value = a.cdevcantid;
+                DTGLista[7, DTGLista.Rows.Count - 1].Value = a.cdevpreuni;
+                DTGLista[8, DTGLista.Rows.Count - 1].Value = a.cdevsubtot;
+
+            }
+        }
+        private void agregarProductoALista(aproduc producto)
+        {
+            litemven item = new litemven();
+            item.fdevcodpro = producto.papdcodpro;
+            item.capdmodpro = producto.capdmodpro;
+            item.capdcodbar = producto.capdcodbar;
+            item.capdnompro = producto.capdnompro;
+            item.capdtalpro = producto.capdtalpro;
+            item.capddespro = producto.capddespro;
+            item.cdevcantid = 1; // Cantidad por defecto
+            item.cdevpreuni = producto.capdprvepr; // Precio de venta del producto
+            item.cdevsubtot = item.cdevcantid * item.cdevpreuni;
+            item.cdevesdeve = true;
+            listaItems.Add(item);
+            actualizarGridItems();
+        }
+       
+        #endregion
     }
 }

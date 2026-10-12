@@ -73,11 +73,14 @@
   <ItemGroup>
     <Compile Include="acatego.cs" />
     <Compile Include="aclient.cs" />
+    <Compile Include="adetvet.cs" />
     <Compile Include="aperson.cs" />
     <Compile Include="AppConfWriter.cs" />
     <Compile Include="aproduc.cs" />
     <Compile Include="aprovee.cs" />
     <Compile Include="ausuari.cs" />
+    <Compile Include="aventas.cs" />
+    <Compile Include="litemven.cs" />
     <Compile Include="lproduc.cs" />
     <Compile Include="lusuari.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
