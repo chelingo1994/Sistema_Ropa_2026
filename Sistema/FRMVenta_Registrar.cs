@@ -94,11 +94,19 @@ namespace Sistema
                     if (producto.ObtenerDatosCodigo(false, producto.capdcodbar))
                     {
                         agregarProductoALista(producto);
+                        lectorCBHabilitado = true;
                         LBLCodigoDeBarras.Text = "LECTOR ACTIVO";
 
                     }
+                    else
+                    {
+                        MessageBox.Show("Producto no encontrado", "Mensaje", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        LBLCodigoDeBarras.Text = "Lector Activo";
+                        LBLCodigoDeBarras.BackColor = Color.PaleGreen;
+                        BTNCodigoDeBarras.Focus();
+                    }
                 }
-                lectorCBHabilitado = false;
+                
             }
         }
 
@@ -136,6 +144,17 @@ namespace Sistema
         }
         private void agregarProductoALista(aproduc producto)
         {
+            litemven existente = listaItems.FirstOrDefault(i =>
+        (!string.IsNullOrEmpty(producto.papdcodpro) && i.fdevcodpro == producto.papdcodpro) ||
+        (string.IsNullOrEmpty(producto.papdcodpro) && i.capdcodbar == producto.capdcodbar));
+
+            if (existente != null)
+            {
+                existente.cdevcantid += 1;
+                existente.cdevsubtot = existente.cdevcantid * existente.cdevpreuni;
+                actualizarGridItems();
+                return;
+            }
             litemven item = new litemven();
             item.fdevcodpro = producto.papdcodpro;
             item.capdmodpro = producto.capdmodpro;
@@ -150,7 +169,21 @@ namespace Sistema
             listaItems.Add(item);
             actualizarGridItems();
         }
-       
+
         #endregion
+
+        private void BTNCodigoDeBarras_Leave(object sender, EventArgs e)
+        {
+            lectorCBHabilitado = false;
+            LBLCodigoDeBarras.Text = "LECTOR INACTIVO";
+            LBLCodigoDeBarras.BackColor = Color.Salmon;
+        }
+
+        private void FRMVenta_Registrar_Load(object sender, EventArgs e)
+        {
+            lectorCBHabilitado = false;
+            LBLCodigoDeBarras.Text = "LECTOR INACTIVO";
+            LBLCodigoDeBarras.BackColor = Color.Salmon;
+        }
     }
 }
