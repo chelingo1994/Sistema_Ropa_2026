@@ -246,7 +246,7 @@ namespace CapaRN
             }
             this.Conexion.PrepararComando(sql);
 
-            this.Conexion.AsignarParametroCadena("@papdcodpro", this._papdcodpro);
+            this.Conexion.AsignarParametroCadena("@capdcodbar", this._capdcodbar);
 
             DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
