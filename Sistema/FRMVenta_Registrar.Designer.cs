@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -60,10 +61,21 @@
             this.PBCaptura = new System.Windows.Forms.PictureBox();
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
             this.BTNCodigoDeBarras = new DevComponents.DotNetBar.ButtonX();
+            this.CMSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
+            this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.LBTotal = new DevComponents.DotNetBar.LabelX();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.LBTotalLiteral = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.DIPPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
+            this.CMSMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // DIPPrecio
@@ -208,6 +220,7 @@
             this.Column4,
             this.Column6,
             this.Column8});
+            this.DTGLista.ContextMenuStrip = this.CMSMenu;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,11 +433,129 @@
             this.BTNCodigoDeBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTNCodigoDeBarras_KeyPress);
             this.BTNCodigoDeBarras.Leave += new System.EventHandler(this.BTNCodigoDeBarras_Leave);
             // 
+            // CMSMenu
+            // 
+            this.CMSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.CMSMenu.Name = "CMSMenu";
+            this.CMSMenu.Size = new System.Drawing.Size(126, 48);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Text = "&Modificar";
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Text = "&Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // buttonX2
+            // 
+            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonX2.Image = global::Sistema.Properties.Resources.ImgUsuarioSalir;
+            this.buttonX2.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.buttonX2.Location = new System.Drawing.Point(423, 426);
+            this.buttonX2.Name = "buttonX2";
+            this.buttonX2.Size = new System.Drawing.Size(95, 37);
+            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX2.TabIndex = 63;
+            this.buttonX2.Text = "Salir";
+            // 
+            // BTNLimpiar
+            // 
+            this.BTNLimpiar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNLimpiar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNLimpiar.Image = global::Sistema.Properties.Resources.ImgUsuarioLimpiar;
+            this.BTNLimpiar.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNLimpiar.Location = new System.Drawing.Point(329, 424);
+            this.BTNLimpiar.Name = "BTNLimpiar";
+            this.BTNLimpiar.Size = new System.Drawing.Size(88, 39);
+            this.BTNLimpiar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNLimpiar.TabIndex = 62;
+            this.BTNLimpiar.Text = "Limpiar";
+            // 
+            // BTNGuardar
+            // 
+            this.BTNGuardar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.BTNGuardar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.BTNGuardar.Image = global::Sistema.Properties.Resources.ImgUsuarioGuardar;
+            this.BTNGuardar.ImageFixedSize = new System.Drawing.Size(30, 30);
+            this.BTNGuardar.Location = new System.Drawing.Point(233, 424);
+            this.BTNGuardar.Name = "BTNGuardar";
+            this.BTNGuardar.Size = new System.Drawing.Size(90, 41);
+            this.BTNGuardar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.BTNGuardar.TabIndex = 61;
+            this.BTNGuardar.Text = "&Guardar";
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX5.Location = new System.Drawing.Point(520, 397);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(104, 23);
+            this.labelX5.TabIndex = 64;
+            this.labelX5.Text = "TOTAL Bs";
+            // 
+            // LBTotal
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.LBTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBTotal.Location = new System.Drawing.Point(630, 397);
+            this.LBTotal.Name = "LBTotal";
+            this.LBTotal.Size = new System.Drawing.Size(95, 23);
+            this.LBTotal.TabIndex = 65;
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX6.Location = new System.Drawing.Point(6, 397);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(49, 23);
+            this.labelX6.TabIndex = 66;
+            this.labelX6.Text = "Son:";
+            // 
+            // LBTotalLiteral
+            // 
+            // 
+            // 
+            // 
+            this.LBTotalLiteral.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.LBTotalLiteral.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBTotalLiteral.Location = new System.Drawing.Point(52, 397);
+            this.LBTotalLiteral.Name = "LBTotalLiteral";
+            this.LBTotalLiteral.Size = new System.Drawing.Size(462, 23);
+            this.LBTotalLiteral.TabIndex = 67;
+            // 
             // FRMVenta_Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 391);
+            this.ClientSize = new System.Drawing.Size(755, 465);
+            this.Controls.Add(this.LBTotalLiteral);
+            this.Controls.Add(this.labelX6);
+            this.Controls.Add(this.LBTotal);
+            this.Controls.Add(this.labelX5);
+            this.Controls.Add(this.buttonX2);
+            this.Controls.Add(this.BTNLimpiar);
+            this.Controls.Add(this.BTNGuardar);
             this.Controls.Add(this.btn_buscar_producto);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.labelX1);
@@ -454,6 +585,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
+            this.CMSMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -487,5 +619,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private DevComponents.DotNetBar.ButtonX btn_buscar_producto;
+        private System.Windows.Forms.ContextMenuStrip CMSMenu;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.ButtonX BTNLimpiar;
+        private DevComponents.DotNetBar.ButtonX BTNGuardar;
+        private DevComponents.DotNetBar.LabelX labelX5;
+        private DevComponents.DotNetBar.LabelX LBTotal;
+        private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.LabelX LBTotalLiteral;
     }
 }

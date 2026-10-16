@@ -131,7 +131,7 @@ namespace Sistema
             foreach (litemven a in listaItems)
             {
                 DTGLista.Rows.Add();
-                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.pdevcodeve;
+                DTGLista[0, DTGLista.Rows.Count - 1].Value = a.fdevcodpro;
                 DTGLista[1, DTGLista.Rows.Count - 1].Value = a.capdmodpro;
                 DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capdcodbar;
                 DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capdnompro;
@@ -170,7 +170,11 @@ namespace Sistema
             listaItems.Add(item);
             actualizarGridItems();
         }
-
+        private void EliminarItem(string codPro)
+        {
+            listaItems.RemoveAll(i => i.fdevcodpro == codPro);
+            actualizarGridItems();
+        }
         #endregion
 
         private void BTNCodigoDeBarras_Leave(object sender, EventArgs e)
@@ -202,6 +206,24 @@ namespace Sistema
                 this.productook = false;
                 
             }
+        }
+
+       
+
+       
+        
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (DTGLista.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("¿Está seguro de que desea eliminar el producto seleccionado?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    EliminarItem(DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString());
+                }
+             }
+
         }
     }
 }

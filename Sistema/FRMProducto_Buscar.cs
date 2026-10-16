@@ -31,7 +31,7 @@ namespace Sistema
             lista.Clear();
             lista = producto.Lista("(capdmodpro like '%" + TXTFiltrar.Text + "%' or " +
                                     "capdnompro like '%" + TXTFiltrar.Text + "%' or " +
-                                    "capdmarpro like '%" + TXTFiltrar.Text + "%') and capdestpro=true and nullif(capdcodbar, '') is null limit " +
+                                    "capdmarpro like '%" + TXTFiltrar.Text + "%') and capdestpro=true limit " +
                                     IINFilas.Value.ToString()
                                     );
 
