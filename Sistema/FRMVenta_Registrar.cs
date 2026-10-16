@@ -142,6 +142,18 @@ namespace Sistema
                 DTGLista[8, DTGLista.Rows.Count - 1].Value = a.cdevsubtot;
 
             }
+            actualizarTotal();
+        }
+        private void actualizarTotal()
+        {
+            decimal total = listaItems.Sum(i => i.cdevsubtot);
+
+            // Total numérico, ej: 1,250.50
+            LBTotal.Text = total.ToString("N2");
+
+            // Total literal, ej: "Mil doscientos cincuenta 50/100 Bolivianos"
+            string literal = MetodosGenerales.ConvertirNumeroALetras((double)total);
+            LBTotalLiteral.Text = char.ToUpper(literal[0]) + literal.Substring(1) + " Bolivianos";
         }
         private void agregarProductoALista(aproduc producto)
         {
@@ -189,6 +201,8 @@ namespace Sistema
             lectorCBHabilitado = false;
             LBLCodigoDeBarras.Text = "LECTOR INACTIVO";
             LBLCodigoDeBarras.BackColor = Color.Salmon;
+            LBTotal.Text = "0.00";
+            LBTotalLiteral.Text = "Cero 00/100 Bolivianos";
         }
 
         private void btn_buscar_producto_Click(object sender, EventArgs e)
