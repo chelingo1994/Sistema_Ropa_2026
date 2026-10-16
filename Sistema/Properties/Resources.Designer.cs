@@ -193,6 +193,16 @@ namespace Sistema.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconos_buscar_producto {
+            get {
+                object obj = ResourceManager.GetObject("iconos_buscar_producto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgcategoria {
             get {
                 object obj = ResourceManager.GetObject("imgcategoria", resourceCulture);

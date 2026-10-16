@@ -20,6 +20,7 @@ namespace Sistema
         private bool lectorCBHabilitado = false;
         public aproduc producto = new aproduc();
         private List<litemven> listaItems = new List<litemven>();
+        public bool productook = false;
 
         private bool clienteok = false;
         #endregion
@@ -184,6 +185,23 @@ namespace Sistema
             lectorCBHabilitado = false;
             LBLCodigoDeBarras.Text = "LECTOR INACTIVO";
             LBLCodigoDeBarras.BackColor = Color.Salmon;
+        }
+
+        private void btn_buscar_producto_Click(object sender, EventArgs e)
+        {
+            FRMProducto_Buscar a = new FRMProducto_Buscar();
+            a.ShowDialog();
+            if (a.seleccionadoOk)
+            {
+                this.producto = a.producto;
+                this.productook = true;
+                agregarProductoALista(this.producto);
+            }
+            else
+            {
+                this.productook = false;
+                
+            }
         }
     }
 }

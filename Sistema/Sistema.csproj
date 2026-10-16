@@ -189,6 +189,12 @@
     <Compile Include="FRMProductoRegistrar.Designer.cs">
       <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMProducto_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProducto_Buscar.Designer.cs">
+      <DependentUpon>FRMProducto_Buscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMProveedor_Listar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMProductoRegistrar.resx">
       <DependentUpon>FRMProductoRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProducto_Buscar.resx">
+      <DependentUpon>FRMProducto_Buscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMProveedor_Listar.resx">
       <DependentUpon>FRMProveedor_Listar.cs</DependentUpon>
