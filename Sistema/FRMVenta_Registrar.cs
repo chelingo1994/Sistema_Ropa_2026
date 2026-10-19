@@ -239,5 +239,25 @@ namespace Sistema
              }
 
         }
+
+        private void DTGLista_KeyDown(object sender, KeyEventArgs e)
+        {
+            bool teclaValida = false;
+            //Identificar si es una tecla válida
+            if ((e.KeyCode >= Keys.Delete))
+                teclaValida = true;
+                if (DTGLista.SelectedRows.Count > 0)
+             {
+                if (MessageBox.Show("¿Está seguro de que desea eliminar el producto seleccionado?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    EliminarItem(DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString());
+                }
+            }
+
+            if (!teclaValida)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
