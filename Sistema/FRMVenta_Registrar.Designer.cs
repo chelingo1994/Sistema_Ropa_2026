@@ -52,6 +52,9 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CMSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
@@ -61,9 +64,6 @@
             this.PBCaptura = new System.Windows.Forms.PictureBox();
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
             this.BTNCodigoDeBarras = new DevComponents.DotNetBar.ButtonX();
-            this.CMSMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.BTNLimpiar = new DevComponents.DotNetBar.ButtonX();
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
@@ -74,8 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DIPPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
             this.CMSMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).BeginInit();
             this.SuspendLayout();
             // 
             // DIPPrecio
@@ -315,6 +315,27 @@
             this.Column8.ReadOnly = true;
             this.Column8.Width = 80;
             // 
+            // CMSMenu
+            // 
+            this.CMSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.CMSMenu.Name = "CMSMenu";
+            this.CMSMenu.Size = new System.Drawing.Size(126, 48);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Text = "&Modificar";
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Text = "&Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
             // textBoxX1
             // 
             // 
@@ -433,27 +454,6 @@
             this.BTNCodigoDeBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTNCodigoDeBarras_KeyPress);
             this.BTNCodigoDeBarras.Leave += new System.EventHandler(this.BTNCodigoDeBarras_Leave);
             // 
-            // CMSMenu
-            // 
-            this.CMSMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modificarToolStripMenuItem,
-            this.eliminarToolStripMenuItem});
-            this.CMSMenu.Name = "CMSMenu";
-            this.CMSMenu.Size = new System.Drawing.Size(126, 48);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.modificarToolStripMenuItem.Text = "&Modificar";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.eliminarToolStripMenuItem.Text = "&Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
-            // 
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -512,7 +512,7 @@
             // 
             // 
             // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.LBTotal.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.LBTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBTotal.Location = new System.Drawing.Point(630, 397);
             this.LBTotal.Name = "LBTotal";
@@ -584,8 +584,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DIPPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IIPStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGLista)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
             this.CMSMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PBCaptura)).EndInit();
             this.ResumeLayout(false);
 
         }
