@@ -148,40 +148,109 @@ namespace Sistema
         {
             decimal total = listaItems.Sum(i => i.cdevsubtot);
 
-            // Total numérico, ej: 1,250.50
+
             LBTotal.Text = total.ToString("N2");
 
-            // Total literal, ej: "Mil doscientos cincuenta 50/100 Bolivianos"
+
             string literal = MetodosGenerales.ConvertirNumeroALetras((double)total);
             LBTotalLiteral.Text = char.ToUpper(literal[0]) + literal.Substring(1) + " Bolivianos";
         }
+
         private void agregarProductoALista(aproduc producto)
         {
+            if (producto == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningún producto.");
+                return;
+            }
+
+
             litemven existente = listaItems.FirstOrDefault(i =>
-        (!string.IsNullOrEmpty(producto.papdcodpro) && i.fdevcodpro == producto.papdcodpro) ||
-        (string.IsNullOrEmpty(producto.papdcodpro) && i.capdcodbar == producto.capdcodbar));
+                (!string.IsNullOrEmpty(producto.papdcodpro)
+                    && i.fdevcodpro == producto.papdcodpro)
+                ||
+                (string.IsNullOrEmpty(producto.papdcodpro)
+                    && i.capdcodbar == producto.capdcodbar));
 
             if (existente != null)
             {
-                existente.cdevcantid += 1;
-                existente.cdevsubtot = existente.cdevcantid * existente.cdevpreuni;
+
+                int nuevaCantidad = existente.cdevcantid + 1;
+
+
+                if (!verificarstock(nuevaCantidad, producto))
+                    return;
+
+                existente.cdevcantid = nuevaCantidad;
+                existente.cdevsubtot =
+                    existente.cdevcantid * existente.cdevpreuni;
+
                 actualizarGridItems();
                 return;
             }
+
+
+            if (!verificarstock(1, producto))
+                return;
+
             litemven item = new litemven();
+
             item.fdevcodpro = producto.papdcodpro;
             item.capdmodpro = producto.capdmodpro;
             item.capdcodbar = producto.capdcodbar;
             item.capdnompro = producto.capdnompro;
             item.capdtalpro = producto.capdtalpro;
             item.capddespro = producto.capddespro;
-            item.cdevcantid = 1; // Cantidad por defecto
-            item.cdevpreuni = producto.capdprvepr; // Precio de venta del producto
+
+            item.cdevcantid = 1;
+            item.cdevpreuni = producto.capdprvepr;
             item.cdevsubtot = item.cdevcantid * item.cdevpreuni;
             item.cdevesdeve = true;
+
             listaItems.Add(item);
+
             actualizarGridItems();
         }
+
+
+        private bool verificarstock(int cantidad, aproduc producto)
+        {
+         
+
+            if (cantidad <= 0)
+            {
+                MessageBox.Show(
+                    "La cantidad debe ser mayor que cero.",
+                    "Cantidad inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (producto.capdstopro <= 0)
+            {
+                MessageBox.Show(
+                    "El producto no tiene stock disponible.",
+                    "Stock insuficiente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (cantidad > producto.capdstopro)
+            {
+                MessageBox.Show(
+                    $"Stock insuficiente. Stock disponible: {producto.capdstopro}. " +
+                    $"Cantidad solicitada: {cantidad}.",
+                    "Stock insuficiente",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
         private void EliminarItem(string codPro)
         {
             listaItems.RemoveAll(i => i.fdevcodpro == codPro);
