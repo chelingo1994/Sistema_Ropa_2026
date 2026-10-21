@@ -1,5 +1,6 @@
 ﻿using Accord;
 using CapaRN;
+using Sistema.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,8 @@ namespace Sistema
         public aproduc producto = new aproduc();
         private List<litemven> listaItems = new List<litemven>();
         public bool productook = false;
-
+        private litemven itemModificar = new litemven();
+        private bool productoItem = false;
         private bool clienteok = false;
         #endregion
         #region Constructor
@@ -327,6 +329,58 @@ namespace Sistema
             {
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            itemModificar = listaItems.Find(i => i.fdevcodpro == DTGLista[0, e.RowIndex].Value.ToString());
+            productoItem = true;
+            if (itemModificar!=null)
+            {
+                TXTDescripcion.Text = itemModificar.capddespro;
+                IIPStock.Value = itemModificar.cdevcantid;
+                DIPPrecio.Value = (Double)itemModificar.cdevpreuni;
+                producto.papdcodpro = itemModificar.fdevcodpro;
+                if (producto.ObtenerDatos())
+                {
+                    if (producto.capdfotpro == "")
+                    {
+
+                        PBCaptura.Image = Resources.NoImage;
+                    }
+                    else
+                    {
+                        PBCaptura.Image = MetodosGenerales.ConvertBase64StringToImage(producto.capdfotpro);
+                    }
+                }
+            }
+        }
+
+        private void BTNModificar_Click(object sender, EventArgs e)
+        {
+            if (productoItem)
+            {
+                itemModificar.cdevcantid = (int)IIPStock.Value;
+                itemModificar.cdevpreuni = (Decimal)DIPPrecio.Value;
+                itemModificar.cdevsubtot = itemModificar.cdevcantid * itemModificar.cdevpreuni;
+                actualizarGridItems();
+                productoItem = false;
+                TXTDescripcion.Text = "Descripción del producto";
+                IIPStock.Value = 0;
+                DIPPrecio.Value = 0;
+                PBCaptura.Image = Resources.NoImage;
+
+            }
+        }
+
+        private void BTNLimpiarProducto_Click(object sender, EventArgs e)
+        {
+            productoItem = false;
+            TXTDescripcion.Text = "Descripción del producto";
+            IIPStock.Value = 0;
+            DIPPrecio.Value = 0;
+            PBCaptura.Image = Resources.NoImage;
         }
     }
 }
