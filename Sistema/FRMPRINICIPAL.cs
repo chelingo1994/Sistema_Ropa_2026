@@ -104,12 +104,15 @@ namespace Sistema
             a.Show();
             BTNCambiarPassword.Visible = false;
             BTNCerrarSesion.Visible = false;
-            RTIAdministracion.Visible = false;
             BTNIniciarSesion.Visible = true;
             BTNIniciarSesionHuellas.Visible = true;
-            PNLAdministracion.Hide();
+
+            // Ocultar pestañas (el ribbon oculta sus paneles solo)
+            RTIAdministracion.Visible = false;
             RTIItems.Visible = false;
+            ribbonControl1.RecalcLayout();
         }
+
         private void Estado_2()
         {
             foreach (Form s in this.MdiChildren)
@@ -125,10 +128,12 @@ namespace Sistema
             a.Show();
             BTNCambiarPassword.Visible = true;
             BTNCerrarSesion.Visible = true;
-            //RTIAdministracion.Enabled = true;
-            PNLAdministracion.Show();
-            RTIAdministracion.Visible = true; 
+
+            // Mostrar pestañas y SELECCIONAR una, en vez de PNLAdministracion.Show()
+            RTIAdministracion.Visible = true;
             RTIItems.Visible = true;
+            ribbonControl1.SelectedRibbonTabItem = RTIAdministracion;
+            ribbonControl1.RecalcLayout();
         }
         #endregion
 

@@ -313,30 +313,30 @@ namespace Sistema
 
         private void DTGLista_KeyDown(object sender, KeyEventArgs e)
         {
-            bool teclaValida = false;
-            //Identificar si es una tecla válida
-            if ((e.KeyCode >= Keys.Delete))
-                teclaValida = true;
-                if (DTGLista.SelectedRows.Count > 0)
-             {
+            // Solo la tecla Suprimir elimina; las demás teclas (flechas, etc.) funcionan normal
+            if (e.KeyCode == Keys.Delete && DTGLista.SelectedRows.Count > 0)
+            {
                 if (MessageBox.Show("¿Está seguro de que desea eliminar el producto seleccionado?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     EliminarItem(DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString());
                 }
-            }
-
-            if (!teclaValida)
-            {
+                e.Handled = true;
                 e.SuppressKeyPress = true;
             }
         }
 
         private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            itemModificar = listaItems.Find(i => i.fdevcodpro == DTGLista[0, e.RowIndex].Value.ToString());
-            productoItem = true;
-            if (itemModificar!=null)
+            // Doble clic en el encabezado o fuera de una fila válida
+            if (e.RowIndex < 0 || e.RowIndex >= DTGLista.Rows.Count)
+                return;
+            if (DTGLista[0, e.RowIndex].Value == null)
+                return;
+
+            string codigo = DTGLista[0, e.RowIndex].Value.ToString();
+            itemModificar = listaItems.Find(i => i.fdevcodpro == codigo);
+            productoItem = itemModificar != null;
+            if (itemModificar != null)
             {
                 TXTDescripcion.Text = itemModificar.capddespro;
                 IIPStock.Value = itemModificar.cdevcantid;
@@ -345,33 +345,42 @@ namespace Sistema
                 if (producto.ObtenerDatos())
                 {
                     if (producto.capdfotpro == "")
-                    {
-
                         PBCaptura.Image = Resources.NoImage;
-                    }
                     else
-                    {
                         PBCaptura.Image = MetodosGenerales.ConvertBase64StringToImage(producto.capdfotpro);
-                    }
                 }
             }
         }
 
         private void BTNModificar_Click(object sender, EventArgs e)
         {
-            if (productoItem)
+            if (!productoItem || itemModificar == null)
             {
-                itemModificar.cdevcantid = (int)IIPStock.Value;
-                itemModificar.cdevpreuni = (Decimal)DIPPrecio.Value;
-                itemModificar.cdevsubtot = itemModificar.cdevcantid * itemModificar.cdevpreuni;
-                actualizarGridItems();
-                productoItem = false;
-                TXTDescripcion.Text = "Descripción del producto";
-                IIPStock.Value = 0;
-                DIPPrecio.Value = 0;
-                PBCaptura.Image = Resources.NoImage;
-
+                MessageBox.Show("Haga doble clic en un producto de la lista para modificarlo.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+
+            if (DIPPrecio.Value <= 0)
+            {
+                MessageBox.Show("El precio debe ser mayor que cero.", "Precio inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 'producto' quedó cargado en el doble clic, con su stock actual
+            if (!verificarstock((int)IIPStock.Value, producto))
+                return;
+
+            itemModificar.cdevcantid = (int)IIPStock.Value;
+            itemModificar.cdevpreuni = (Decimal)DIPPrecio.Value;
+            itemModificar.cdevsubtot = itemModificar.cdevcantid * itemModificar.cdevpreuni;
+            actualizarGridItems();
+
+            productoItem = false;
+            itemModificar = null;
+            TXTDescripcion.Text = "Descripción del producto";
+            IIPStock.Value = 0;
+            DIPPrecio.Value = 0;
+            PBCaptura.Image = Resources.NoImage;
         }
 
         private void BTNLimpiarProducto_Click(object sender, EventArgs e)
