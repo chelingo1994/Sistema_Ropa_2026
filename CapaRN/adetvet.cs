@@ -191,8 +191,53 @@ namespace CapaRN
 
                     return true;
                 } 
-            } 
-            public bool Modificar()
+            }
+        public bool Grabar(List<litemven> listaItems)
+        {
+            if (listaItems == null || listaItems.Count == 0)
+                return false;
+
+            if (!this.Conexion.Conectar())
+                return false;
+
+            foreach (litemven item in listaItems)
+            {
+                string sql = "insert into adetvet (" +
+                                 "cdevpreuni," +
+                                 "cdevesdeve," +
+                                 "cdevcantid," +
+                                 "cdevsubtot," +
+                                 "fdevcodpro," +
+                                 "fdevcodven," +
+                                 "pdevcodeve" +
+                             ") values (" +
+                                 "@cdevpreuni," +
+                                 "@cdevesdeve," +
+                                 "@cdevcantid," +
+                                 "@cdevsubtot," +
+                                 "@fdevcodpro," +
+                                 "@fdevcodven," +
+                                 "@pdevcodeve" +
+                             ")";
+
+                // Se prepara en cada vuelta porque los parámetros se reemplazan en el texto
+                this.Conexion.PrepararComando(sql);
+
+                this.Conexion.AsignarParametroDecimal("@cdevpreuni", item.cdevpreuni);
+                this.Conexion.AsignarParametroLogico("@cdevesdeve", item.cdevesdeve);
+                this.Conexion.AsignarParametroEntero("@cdevcantid", item.cdevcantid);
+                this.Conexion.AsignarParametroDecimal("@cdevsubtot", item.cdevsubtot);
+                this.Conexion.AsignarParametroCadena("@fdevcodpro", item.fdevcodpro);
+                this.Conexion.AsignarParametroCadena("@fdevcodven", item.fdevcodven);
+                this.Conexion.AsignarParametroCadena("@pdevcodeve", item.pdevcodeve);
+
+                this.Conexion.EjecutarTransaccion();
+            }
+
+            this.Conexion.Desconectar();
+            return true;
+        }
+        public bool Modificar()
             { 
                 if (!this.VerificarExistencia())
                 {

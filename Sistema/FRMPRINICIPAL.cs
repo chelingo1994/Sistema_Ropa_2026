@@ -214,6 +214,7 @@ namespace Sistema
                 s.Close();
             }
             FRMVenta_Listar a = new FRMVenta_Listar();
+            a.usuario = this.usuario;
             a.MdiParent = this;
             a.Show();
         }

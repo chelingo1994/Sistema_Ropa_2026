@@ -19,6 +19,7 @@ namespace CapaAD
         private string CadenaDeConexion;
         private NpgsqlConnection Conexion;
         private NpgsqlCommand Comando;
+        private NpgsqlTransaction Transaccion;
 
         /// <summary>
         /// Crea una instancia de la clase CLConexionPGSQL con parametros de conexión
@@ -164,15 +165,17 @@ namespace CapaAD
         /// Ejecuta un transacción SQL sin retornar resultado alguno.
         /// Ej: insert, update, delete.
         /// </summary>
-        public void EjecutarTransaccion()
+        public bool EjecutarTransaccion()
         {
             try
             {
                 this.Comando.ExecuteNonQuery();
+                return true;
             }
             catch (Exception Ex)
             {
                 Log(Ex.Message);
+                return false;
             }
         }
 
@@ -387,6 +390,28 @@ namespace CapaAD
             foreach (byte b in bytes)
                 res += (char)b;
             return res;
+        }
+        public void IniciarTransaccion()
+        {
+            this.Transaccion = this.Conexion.BeginTransaction();
+        }
+
+        public void ConfirmarTransaccion()
+        {
+            if (this.Transaccion != null)
+            {
+                this.Transaccion.Commit();
+                this.Transaccion = null;
+            }
+        }
+
+        public void RevertirTransaccion()
+        {
+            if (this.Transaccion != null)
+            {
+                this.Transaccion.Rollback();
+                this.Transaccion = null;
+            }
         }
     }
 }

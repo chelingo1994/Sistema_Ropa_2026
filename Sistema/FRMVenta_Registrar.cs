@@ -17,6 +17,10 @@ namespace Sistema
     {
 
         #region Variables
+        public ausuari usuario = new ausuari();
+        private xnumcor correlativo = new xnumcor();
+        private aventas venta = new aventas();
+        private adetvet detalle = new adetvet();
         private aclient cliente = new aclient();
         private bool lectorCBHabilitado = false;
         public aproduc producto = new aproduc();
@@ -327,7 +331,7 @@ namespace Sistema
 
         private void DTGLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Doble clic en el encabezado o fuera de una fila válida
+            
             if (e.RowIndex < 0 || e.RowIndex >= DTGLista.Rows.Count)
                 return;
             if (DTGLista[0, e.RowIndex].Value == null)
@@ -390,6 +394,81 @@ namespace Sistema
             IIPStock.Value = 0;
             DIPPrecio.Value = 0;
             PBCaptura.Image = Resources.NoImage;
+        }
+
+        private void BTNGuardar_Click(object sender, EventArgs e)
+        {
+            if (!clienteok)
+            {
+                MessageBox.Show("Seleccione un cliente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (listaItems.Count == 0)
+            {
+                MessageBox.Show("Agregue al menos un producto.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Generar correlativo de la venta
+            correlativo.pxnctipcor = "aventas";
+            if (correlativo.ObtenerSiguiente())
+            {
+                venta.pavtcodven = correlativo.pxnctipcor + "-" +
+                                   correlativo.cxncnumcor.ToString("D12");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo generar el código de la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Generar correlativos del detalle (uno por cada producto)
+            correlativo.pxnctipcor = "adetvet";
+            if (correlativo.ObtenerSiguiente(listaItems.Count))
+            {
+                int numero = correlativo.cxncnumcor - listaItems.Count + 1;
+                foreach (litemven item in listaItems)
+                {
+                    item.pdevcodeve = correlativo.pxnctipcor + "-" + numero.ToString("D12");
+                    item.fdevcodven = venta.pavtcodven;
+                    numero++;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pudo generar el código del detalle.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Cabecera de la venta
+            venta.favtcodcli = cliente.pacecodcli;
+            venta.cavtfechor = DateTime.Now;
+            venta.cavtmontot = listaItems.Sum(i => i.cdevsubtot);
+            venta.cavtestven = true;
+            venta.cavtfeccre = DateTime.Now;
+            venta.cavtfecmod = DateTime.Now;
+            venta.cavtobserv = TXTObservaciones.Text;
+            venta.favtcouscr = usuario.pauacodusu;
+            venta.favtcousmo = usuario.pauacodusu;
+            if (venta.Grabar(listaItems))
+            {
+                MessageBox.Show("Venta registrada correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo registrar la venta. Revise ErrorLog.log", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (detalle.Grabar(listaItems))
+            {
+                MessageBox.Show("Venta registrada correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("La venta se guardó pero hubo un problema con el detalle.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

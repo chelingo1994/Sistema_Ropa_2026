@@ -230,8 +230,82 @@ namespace CapaRN
 
                     return true;
                 } 
-            } 
-            public bool Modificar()
+            }
+        public bool Grabar(List<litemven> listaItems)
+        {
+            if (listaItems == null || listaItems.Count == 0)
+                return false;
+
+            if (this.VerificarExistencia())
+                return false;
+
+            if (!this.Conexion.Conectar())
+                return false;
+
+            this.Conexion.IniciarTransaccion();
+
+            // ---------- Cabecera ----------
+            string sql = "insert into aventas (" +
+                             "cavtfechor,cavtmontot,cavtestven,cavtfeccre,cavtfecmod," +
+                             "favtcodcli,cavtobserv,pavtcodven,favtcouscr,favtcousmo" +
+                         ") values (" +
+                             "@cavtfechor,@cavtmontot,@cavtestven,@cavtfeccre,@cavtfecmod," +
+                             "@favtcodcli,@cavtobserv,@pavtcodven,@favtcouscr,@favtcousmo" +
+                         ")";
+
+            this.Conexion.PrepararComando(sql);
+            this.Conexion.AsignarParametroFechaHora("@cavtfechor", this._cavtfechor);
+            this.Conexion.AsignarParametroDecimal("@cavtmontot", this._cavtmontot);
+            this.Conexion.AsignarParametroLogico("@cavtestven", this._cavtestven);
+            this.Conexion.AsignarParametroFechaHora("@cavtfeccre", this._cavtfeccre);
+            this.Conexion.AsignarParametroFechaHora("@cavtfecmod", this._cavtfecmod);
+            this.Conexion.AsignarParametroCadena("@favtcodcli", this._favtcodcli);
+            this.Conexion.AsignarParametroCadena("@cavtobserv", this._cavtobserv);
+            this.Conexion.AsignarParametroCadena("@pavtcodven", this._pavtcodven);
+            this.Conexion.AsignarParametroCadena("@favtcouscr", this._favtcouscr);
+            this.Conexion.AsignarParametroCadena("@favtcousmo", this._favtcousmo);
+
+            if (!this.Conexion.EjecutarTransaccion())
+            {
+                this.Conexion.RevertirTransaccion();
+                this.Conexion.Desconectar();
+                return false;
+            }
+
+            // ---------- Detalle ----------
+            foreach (litemven item in listaItems)
+            {
+                sql = "insert into adetvet (" +
+                          "cdevpreuni,cdevesdeve,cdevcantid,cdevsubtot," +
+                          "fdevcodpro,fdevcodven,pdevcodeve" +
+                      ") values (" +
+                          "@cdevpreuni,@cdevesdeve,@cdevcantid,@cdevsubtot," +
+                          "@fdevcodpro,@fdevcodven,@pdevcodeve" +
+                      ")";
+
+                this.Conexion.PrepararComando(sql);
+                this.Conexion.AsignarParametroDecimal("@cdevpreuni", item.cdevpreuni);
+                this.Conexion.AsignarParametroLogico("@cdevesdeve", item.cdevesdeve);
+                this.Conexion.AsignarParametroEntero("@cdevcantid", item.cdevcantid);
+                this.Conexion.AsignarParametroDecimal("@cdevsubtot", item.cdevsubtot);
+                this.Conexion.AsignarParametroCadena("@fdevcodpro", item.fdevcodpro);
+                this.Conexion.AsignarParametroCadena("@fdevcodven", this._pavtcodven);
+                this.Conexion.AsignarParametroCadena("@pdevcodeve", item.pdevcodeve);
+
+                if (!this.Conexion.EjecutarTransaccion())
+                {
+                    // Falló un producto: se deshace TODO, incluida la cabecera
+                    this.Conexion.RevertirTransaccion();
+                    this.Conexion.Desconectar();
+                    return false;
+                }
+            }
+
+            this.Conexion.ConfirmarTransaccion();
+            this.Conexion.Desconectar();
+            return true;
+        }
+        public bool Modificar()
             { 
                 if (!this.VerificarExistencia())
                 {

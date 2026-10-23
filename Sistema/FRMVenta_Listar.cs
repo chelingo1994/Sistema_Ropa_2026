@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaRN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Sistema
 {
     public partial class FRMVenta_Listar : DevComponents.DotNetBar.OfficeForm
     {
+        public ausuari usuario = new ausuari();
         public FRMVenta_Listar()
         {
             InitializeComponent();
@@ -20,12 +22,9 @@ namespace Sistema
         private void BTNNuevaVenta_Click(object sender, EventArgs e)
         {
             FRMVenta_Registrar a = new FRMVenta_Registrar();
-
+            a.usuario = this.usuario;
             a.ShowDialog();
-            /*if (a.actualizar)
-            {
-                ActualizarGrid();
-            }*/
+            
         }
 
         private void FRMVenta_Listar_Load(object sender, EventArgs e)
