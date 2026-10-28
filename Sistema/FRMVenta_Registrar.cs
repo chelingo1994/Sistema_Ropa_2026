@@ -10,7 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using PdfSharp.Fonts;
+using System.IO;
+using System.Diagnostics;
 namespace Sistema
 {
     public partial class FRMVenta_Registrar : DevComponents.DotNetBar.OfficeForm
@@ -20,7 +24,7 @@ namespace Sistema
         public ausuari usuario = new ausuari();
         private xnumcor correlativo = new xnumcor();
         private aventas venta = new aventas();
-        private adetvet detalle = new adetvet();
+        
         private aclient cliente = new aclient();
         private bool lectorCBHabilitado = false;
         public aproduc producto = new aproduc();
@@ -144,8 +148,9 @@ namespace Sistema
                 DTGLista[4, DTGLista.Rows.Count - 1].Value = a.capdtalpro;
                 DTGLista[5, DTGLista.Rows.Count - 1].Value = a.capddespro;
                 DTGLista[6, DTGLista.Rows.Count - 1].Value = a.cdevcantid;
-                DTGLista[7, DTGLista.Rows.Count - 1].Value = a.cdevpreuni;
-                DTGLista[8, DTGLista.Rows.Count - 1].Value = a.cdevsubtot;
+                DTGLista[7, DTGLista.Rows.Count - 1].Value = a.capdstopro;
+                DTGLista[8, DTGLista.Rows.Count - 1].Value = a.cdevpreuni;
+                DTGLista[9, DTGLista.Rows.Count - 1].Value = a.cdevsubtot;
 
             }
             actualizarTotal();
@@ -207,7 +212,7 @@ namespace Sistema
             item.capdnompro = producto.capdnompro;
             item.capdtalpro = producto.capdtalpro;
             item.capddespro = producto.capddespro;
-
+            item.capdstopro = producto.capdstopro;
             item.cdevcantid = 1;
             item.cdevpreuni = producto.capdprvepr;
             item.cdevsubtot = item.cdevcantid * item.cdevpreuni;
@@ -452,7 +457,24 @@ namespace Sistema
             venta.favtcousmo = usuario.pauacodusu;
             if (venta.Grabar(listaItems))
             {
+
                 MessageBox.Show("Venta registrada correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string carpeta = Path.Combine(Application.StartupPath, "Ventas");
+                Directory.CreateDirectory(carpeta);
+                string archivo = Path.Combine(carpeta, "Venta_" + venta.pavtcodven + ".pdf");
+
+                try
+                {
+                    GenerarPDF(archivo);
+                    Process.Start(new ProcessStartInfo(archivo) { UseShellExecute = true }); // abre el PDF
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("La venta se guardó, pero no se pudo generar el PDF: " + ex.Message, "PDF", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -460,15 +482,94 @@ namespace Sistema
                 MessageBox.Show("No se pudo registrar la venta. Revise ErrorLog.log", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (detalle.Grabar(listaItems))
-            {
-                MessageBox.Show("Venta registrada correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("La venta se guardó pero hubo un problema con el detalle.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
+
+        private void GenerarPDF(string archivo)
+        {
+            // Solo para PDFsharp 6.x: usar las fuentes instaladas en Windows
+            GlobalFontSettings.UseWindowsFontsUnderWindows = true;
+
+            PdfDocument documento = new PdfDocument();
+            documento.Info.Title = "Nota de venta " + venta.pavtcodven;
+
+            PdfPage pagina = documento.AddPage();
+            pagina.Size = PdfSharp.PageSize.Letter;   // tamaño carta
+            XGraphics g = XGraphics.FromPdfPage(pagina);
+
+            XFont fTitulo = new XFont("Arial", 16, XFontStyleEx.Bold);
+            XFont fNormal = new XFont("Arial", 10, XFontStyleEx.Regular);
+            XFont fNegrita = new XFont("Arial", 10, XFontStyleEx.Bold);
+            XBrush b = XBrushes.Black;
+
+            // Medidas en puntos (72 puntos = 1 pulgada)
+            double margen = 40;
+            double x = margen;
+            double y = margen;
+            double ancho = pagina.Width.Point - margen * 2;
+            double alto = 16;
+
+            // ---------- Encabezado ----------
+            g.DrawString("NOTA DE VENTA", fTitulo, b,
+                         new XRect(x, y, ancho, 20), XStringFormats.TopCenter);
+            y += 35;
+
+            g.DrawString("N°: " + venta.pavtcodven, fNormal, b, x, y); y += alto;
+            g.DrawString("Fecha: " + venta.cavtfechor.ToString("dd/MM/yyyy HH:mm"), fNormal, b, x, y); y += alto;
+            g.DrawString("Cliente: " + cliente.cacerazsoc, fNormal, b, x, y); y += alto;
+            g.DrawString("NIT/CI: " + cliente.cacenuidtr, fNormal, b, x, y); y += alto + 10;
+
+            // ---------- Columnas ----------
+            double cCant = x;
+            double cDesc = x + 50;
+            double cPrecio = x + ancho - 170;
+            double cSub = x + ancho - 85;
+
+            g.DrawLine(XPens.Black, x, y - 12, x + ancho, y - 12);
+            g.DrawString("Cant.", fNegrita, b, cCant, y);
+            g.DrawString("Descripción", fNegrita, b, cDesc, y);
+            g.DrawString("P. Unit.", fNegrita, b, cPrecio, y);
+            g.DrawString("Subtotal", fNegrita, b, cSub, y);
+            y += 6;
+            g.DrawLine(XPens.Black, x, y, x + ancho, y);
+            y += alto;
+
+            // ---------- Detalle ----------
+            foreach (litemven item in listaItems)
+            {
+                // Nueva página si ya no entra
+                if (y > pagina.Height.Point - margen - 60)
+                {
+                    pagina = documento.AddPage();
+                    pagina.Size = PdfSharp.PageSize.Letter;
+                    g.Dispose();
+                    g = XGraphics.FromPdfPage(pagina);
+                    y = margen;
+                }
+
+                g.DrawString(item.cdevcantid.ToString(), fNormal, b, cCant, y);
+                g.DrawString(item.capdnompro + " " + item.capdtalpro, fNormal, b, cDesc, y);
+                // Números alineados a la derecha
+                g.DrawString(item.cdevpreuni.ToString("N2"), fNormal, b,
+                             new XRect(cPrecio, y - 10, 70, alto), XStringFormats.TopRight);
+                g.DrawString(item.cdevsubtot.ToString("N2"), fNormal, b,
+                             new XRect(cSub, y - 10, 85, alto), XStringFormats.TopRight);
+                y += alto;
+            }
+
+            // ---------- Total ----------
+            g.DrawLine(XPens.Black, x, y - 8, x + ancho, y - 8);
+            y += 6;
+            g.DrawString("TOTAL Bs.:", fNegrita, b, cPrecio, y);
+            g.DrawString(venta.cavtmontot.ToString("N2"), fNegrita, b,
+                         new XRect(cSub, y - 10, 85, alto), XStringFormats.TopRight);
+            y += alto + 8;
+            g.DrawString("Son: " + LBTotalLiteral.Text, fNormal, b, x, y);
+
+            g.Dispose();
+            documento.Save(archivo);
+            documento.Close();
+        }
+
     }
 }

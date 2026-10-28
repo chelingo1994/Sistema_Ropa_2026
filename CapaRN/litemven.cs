@@ -23,6 +23,7 @@ namespace CapaRN
         private string _capddespro;
         private string _capdcodbar;
         private string _capdtalpro;
+        private int _capdstopro;
         //Instancia para conexion a PostgreSQL 8.2
         private CLConexionPGSQL Conexion;
         #endregion
@@ -88,6 +89,11 @@ namespace CapaRN
             get { return this._capdtalpro; }
             set { this._capdtalpro = value; }
         }
+        public int capdstopro
+        {
+            get { return this._capdstopro; }
+            set { this._capdstopro = value; }
+        }
         #endregion
 
         #region Constructor
@@ -105,6 +111,7 @@ namespace CapaRN
             this._capddespro = "";
             this._capdcodbar = "";
             this._capdtalpro = "";
+            this._capdstopro = 0;
             this.Conexion = new CLConexionPGSQL();
         }
         #endregion
