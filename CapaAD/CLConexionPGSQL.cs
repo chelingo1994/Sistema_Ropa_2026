@@ -83,6 +83,8 @@ namespace CapaAD
         /// <summary>
         /// Permite Conectar a la Base de Datos
         /// </summary>
+        /// 
+
         public bool Conectar()
         {
             this.Conexion = new NpgsqlConnection(this.CadenaDeConexion);
