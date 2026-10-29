@@ -301,6 +301,7 @@
     <Compile Include="prueba.Designer.cs">
       <DependentUpon>prueba.cs</DependentUpon>
     </Compile>
+    <Compile Include="TicketVenta.cs" />
     <EmbeddedResource Include="FRMCategoriaRegistrar.resx">
       <DependentUpon>FRMCategoriaRegistrar.cs</DependentUpon>
     </EmbeddedResource>

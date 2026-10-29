@@ -460,18 +460,14 @@ namespace Sistema
 
                 MessageBox.Show("Venta registrada correctamente.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                string carpeta = Path.Combine(Application.StartupPath, "Ventas");
-                Directory.CreateDirectory(carpeta);
-                string archivo = Path.Combine(carpeta, "Venta_" + venta.pavtcodven + ".pdf");
-
                 try
                 {
-                    GenerarPDF(archivo);
-                    Process.Start(new ProcessStartInfo(archivo) { UseShellExecute = true }); // abre el PDF
+                    TicketVenta.Imprimir(venta, cliente, listaItems, LBTotalLiteral.Text, true);//prueba sin impresora
+                    //TicketVenta.Imprimir(venta, cliente, listaItems, LBTotalLiteral.Text);//prueba con impresora
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("La venta se guardó, pero no se pudo generar el PDF: " + ex.Message, "PDF", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La venta se guardó, pero no se pudo imprimir: " + ex.Message, "Impresión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 this.DialogResult = DialogResult.OK;
