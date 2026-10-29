@@ -69,7 +69,6 @@
             this.BTNGuardar = new DevComponents.DotNetBar.ButtonX();
             this.btn_buscar_producto = new DevComponents.DotNetBar.ButtonX();
             this.BTNModificar = new DevComponents.DotNetBar.ButtonX();
-            this.BTNSalir = new DevComponents.DotNetBar.ButtonX();
             this.PBCaptura = new System.Windows.Forms.PictureBox();
             this.BTNBuscar = new DevComponents.DotNetBar.ButtonX();
             this.BTNCodigoDeBarras = new DevComponents.DotNetBar.ButtonX();
@@ -524,20 +523,6 @@
             this.BTNModificar.Text = "Modificar";
             this.BTNModificar.Click += new System.EventHandler(this.BTNModificar_Click);
             // 
-            // BTNSalir
-            // 
-            this.BTNSalir.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.BTNSalir.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTNSalir.Image = global::Sistema.Properties.Resources.ImgUsuarioSalir;
-            this.BTNSalir.ImageFixedSize = new System.Drawing.Size(30, 30);
-            this.BTNSalir.Location = new System.Drawing.Point(759, 381);
-            this.BTNSalir.Name = "BTNSalir";
-            this.BTNSalir.Size = new System.Drawing.Size(33, 10);
-            this.BTNSalir.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.BTNSalir.TabIndex = 54;
-            this.BTNSalir.Text = "Salir";
-            // 
             // PBCaptura
             // 
             this.PBCaptura.Image = ((System.Drawing.Image)(resources.GetObject("PBCaptura.Image")));
@@ -611,7 +596,6 @@
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.BTNModificar);
             this.Controls.Add(this.TXTDescripcion);
-            this.Controls.Add(this.BTNSalir);
             this.Controls.Add(this.PBCaptura);
             this.Controls.Add(this.BTNBuscar);
             this.Controls.Add(this.DTGLista);
@@ -653,7 +637,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX TXTNombreCliente;
         private DevComponents.DotNetBar.Controls.DataGridViewX DTGLista;
         private DevComponents.DotNetBar.ButtonX BTNBuscar;
-        private DevComponents.DotNetBar.ButtonX BTNSalir;
         private System.Windows.Forms.PictureBox PBCaptura;
         private DevComponents.DotNetBar.Controls.TextBoxX TXTDescripcion;
         private DevComponents.DotNetBar.ButtonX BTNModificar;
