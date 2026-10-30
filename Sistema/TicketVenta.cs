@@ -16,14 +16,14 @@ namespace Sistema
     {
         #region Configuración (CAMBIAR POR LOS SUYOS)
         public static string Titulo = "NOTA DE VENTA";
-        public static string EmpresaNombre = "TIENDA DE ROPA 2026";
+        public static string EmpresaNombre = "TIENDA STYLE SHOP";
         public static string Sucursal = "Casa Matriz";
         public static string Direccion = "Av. Principal #123";
         public static string Zona = "Zona Central";
-        public static string Telefono = "Teléfono 70000000";
-        public static string Ciudad = "Tarija";
+        public static string Telefono = "Teléfono 77875108";
+        public static string Ciudad = "BERMEJO";
         public static string Nit = "1234567019";
-        public static string Actividad = "Venta al por menor de prendas de vestir";
+        public static string Actividad = "Venta al por menor y mayorde prendas de vestir";
         public static string Leyenda = "En cumplimiento de la Ley N° 453 de 4 de diciembre de 2013, Ley general de los derechos de las usuarias y los usuarios y de las consumidoras y los consumidores";
         public static string Despedida = "¡GRACIAS POR SU COMPRA!";
 
@@ -141,7 +141,7 @@ namespace Sistema
             Centrado(Actividad, fChica);
             y += 4;
             Centrado(Titulo, fTitulo);
-            Centrado("Nro.: " + venta.pavtcodven, fNegrita);
+            Centrado("Nro.: " + NumeroVenta(venta.pavtcodven), fNegrita);
             Separador();
 
             // ================= DATOS DE LA VENTA =================
@@ -209,6 +209,15 @@ namespace Sistema
         private static int MmACentesimas(double mm)
         {
             return (int)Math.Round(mm / 25.4 * 100);
+        }
+        private static string NumeroVenta(string codigo)
+        {
+            if (string.IsNullOrEmpty(codigo))
+                return "";
+
+            string parte = codigo.Substring(codigo.LastIndexOf('-') + 1);   // "000000000007"
+            long numero;
+            return long.TryParse(parte, out numero) ? numero.ToString() : parte;
         }
     }
 }
